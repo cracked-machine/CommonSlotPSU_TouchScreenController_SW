@@ -2343,3 +2343,488 @@
 2020-07-13 23:44:52,239 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1855mS.
 2020-07-13 23:44:52,240 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
 2020-07-13 23:44:52,240 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:47:52,201 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 858853160 Bytes (1073741824)
+2020-07-13 23:47:52,338 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 867687048 Bytes (1073741824)
+2020-07-13 23:47:52,447 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 876075656 Bytes (1073741824)
+2020-07-13 23:47:52,654 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:47:52,654 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:47:52,654 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:47:52,654 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:47:52,654 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:47:52,654 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:47:52,837 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:47:52,896 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:47:52,949 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:47:53,015 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:47:53,017 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:47:53,079 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:47:53,236 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:47:53,236 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:47:53,237 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:47:53,240 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:47:53,330 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:47:53,332 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:47:53,392 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:47:53,393 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:47:53,393 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:47:53,394 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:47:53,397 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:47:53,485 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:47:53,486 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:47:53,551 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:47:53,552 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:47:53,552 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:47:53,555 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:47:53,636 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:47:53,638 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:47:53,706 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:47:53,709 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:47:53,807 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:47:53,809 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:47:53,867 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:47:53,869 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:47:53,932 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:47:53,941 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:47:54,005 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:47:54,007 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:47:54,092 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:47:54,546 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-13 23:47:54,548 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:47:55,117 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:47:56,430 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1882mS.
+2020-07-13 23:47:56,430 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:47:56,431 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:49:17,404 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 724869616 Bytes (1073741824)
+2020-07-13 23:49:17,639 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:49:17,640 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:49:17,640 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:49:17,640 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:49:17,640 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:49:17,640 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:49:17,798 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:49:17,854 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:49:17,898 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:49:17,959 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:49:17,961 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:49:18,018 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:49:18,157 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:49:18,158 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:49:18,158 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:49:18,161 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:49:18,247 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:49:18,249 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:49:18,306 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:49:18,307 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:49:18,307 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:49:18,307 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:49:18,310 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:49:18,397 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:49:18,399 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:49:18,458 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:49:18,459 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:49:18,459 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:49:18,462 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:49:18,531 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:49:18,533 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:49:18,591 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:49:18,594 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:49:18,679 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:49:18,681 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:49:18,737 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:49:18,739 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:49:18,800 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:49:18,808 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:49:18,871 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:49:18,873 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:49:18,951 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:49:19,391 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-13 23:49:19,392 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:49:19,799 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:49:20,956 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1564mS.
+2020-07-13 23:49:20,956 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:49:20,957 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:50:37,458 [INFO] MainUpdater:2230 - connection check result : 10
+2020-07-13 23:50:37,513 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-07-13 23:50:37,514 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-07-13 23:50:37,515 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-07-13 23:50:37,517 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 400494088 Bytes (1073741824)
+2020-07-13 23:50:37,518 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-07-13 23:50:37,519 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-07-13 23:50:37,519 [INFO] OpenFileManager:274 - Change cursor
+2020-07-13 23:50:37,537 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-07-13 23:50:39,181 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 378994112 Bytes (1073741824)
+2020-07-13 23:50:39,184 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1580776214022]
+2020-07-13 23:50:39,184 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1580776213349
+2020-07-13 23:50:39,185 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1580776216598, 1580776214105]
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.0.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.0.0
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.1
+2020-07-13 23:50:39,341 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 4.4.0
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.2.0
+2020-07-13 23:50:39,342 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-07-13 23:50:39,447 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-07-13 23:50:39,448 [INFO] PinOutPanel:1420 - setPackage(STM32F072RBTx,LQFP64)
+2020-07-13 23:50:39,893 [INFO] UtilMem:74 - Before build in PCC Used Memory: 636717352 Bytes (1073741824)
+2020-07-13 23:50:40,065 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-07-13 23:50:40,111 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-07-13 23:50:40,139 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-07-13 23:50:40,143 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-07-13 23:50:40,180 [INFO] UtilMem:74 - After build in PCC Used Memory: 679708968 Bytes (1073741824)
+2020-07-13 23:50:40,191 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,191 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,191 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,191 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,192 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-07-13 23:50:40,223 [INFO] OpenFileManager:294 - Restore cursor
+2020-07-13 23:50:44,637 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 746817832 Bytes (1073741824)
+2020-07-13 23:50:44,815 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:50:44,815 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:50:44,815 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:50:44,815 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:50:44,815 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:50:44,815 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:50:45,026 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:50:45,088 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:50:45,248 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:50:45,309 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:50:45,311 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:50:45,368 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:50:45,524 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:50:45,524 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:50:45,524 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:50:45,527 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:50:45,615 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:50:45,617 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:50:45,675 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:50:45,676 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:50:45,677 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:50:45,677 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:50:45,680 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:50:45,767 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:50:45,769 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:50:45,827 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:50:45,828 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:50:45,828 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:50:45,831 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:50:45,900 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:50:45,902 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:50:45,961 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:50:45,964 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:50:46,052 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:50:46,054 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:50:46,110 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:50:46,112 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:50:46,173 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:50:46,183 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:50:46,245 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:50:46,247 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:50:46,324 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:50:46,727 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-13 23:50:46,728 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:50:46,963 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:50:48,485 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1757mS.
+2020-07-13 23:50:48,485 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:50:48,486 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:51:58,167 [INFO] Gpio:248 - dependency for GPIO [SPI1, SYS]
+2020-07-13 23:52:03,906 [INFO] Gpio:248 - dependency for GPIO [SPI1, SYS]
+2020-07-13 23:52:03,927 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-07-13 23:52:24,354 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 823045768 Bytes (1073741824)
+2020-07-13 23:52:24,471 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 830311216 Bytes (1073741824)
+2020-07-13 23:52:24,601 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 838173496 Bytes (1073741824)
+2020-07-13 23:52:24,780 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:52:24,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:52:24,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:52:24,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:52:24,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:52:24,781 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:52:24,998 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:52:25,054 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:52:25,098 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:52:25,161 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:52:25,163 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:52:25,220 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:52:25,362 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:52:25,363 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:52:25,363 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:25,366 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:52:25,454 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:52:25,455 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:52:25,512 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:52:25,513 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:52:25,513 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:52:25,513 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:25,516 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:52:25,604 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:52:25,605 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:52:25,664 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:52:25,665 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:52:25,665 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:25,668 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:52:25,734 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:52:25,736 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:52:25,794 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:52:25,797 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:52:25,883 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:52:25,885 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:52:25,940 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:52:25,942 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:52:26,004 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:52:26,013 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:52:26,074 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:52:26,077 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:52:26,154 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:52:26,558 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-13 23:52:26,559 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:52:26,798 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:52:28,779 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2220mS.
+2020-07-13 23:52:28,779 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:52:28,780 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-07-13 23:52:30,920 [INFO] Gpio:248 - dependency for GPIO [SPI1, SYS]
+2020-07-13 23:52:32,502 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 612980896 Bytes (1073741824)
+2020-07-13 23:52:32,584 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 619272432 Bytes (1073741824)
+2020-07-13 23:52:32,793 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 663454016 Bytes (1073741824)
+2020-07-13 23:52:32,980 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:52:32,981 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:52:32,981 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:52:32,981 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:52:32,981 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:52:32,981 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:52:33,141 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:52:33,197 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:52:33,314 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:52:33,375 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:52:33,377 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:52:33,434 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:52:33,579 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:52:33,580 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:52:33,580 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:33,583 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:52:33,672 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:52:33,674 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:52:33,731 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:52:33,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:52:33,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:52:33,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:33,735 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:52:33,823 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:52:33,825 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:52:33,883 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:52:33,883 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:52:33,883 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:52:33,886 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:52:33,954 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:52:33,956 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:52:34,014 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:52:34,018 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:52:34,104 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:52:34,106 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:52:34,162 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:52:34,164 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:52:34,226 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:52:34,235 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:52:34,297 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:52:34,299 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:52:34,377 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:52:34,923 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 18mS.
+2020-07-13 23:52:34,925 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:52:35,165 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:52:36,281 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1356mS.
+2020-07-13 23:52:36,281 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:52:36,283 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:55:53,767 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 298158832 Bytes (1073741824)
+2020-07-13 23:55:53,895 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 305498864 Bytes (1073741824)
+2020-07-13 23:55:54,025 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 313361144 Bytes (1073741824)
+2020-07-13 23:55:54,212 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:55:54,212 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:55:54,212 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:55:54,212 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:55:54,212 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:55:54,213 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:55:54,398 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:55:54,454 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:55:54,497 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:55:54,559 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:55:54,560 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:55:54,618 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:55:54,765 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:55:54,765 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:55:54,766 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:55:54,769 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:55:54,862 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:55:54,863 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:55:54,924 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:55:54,924 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:55:54,925 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:55:54,926 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:55:54,928 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:55:55,019 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:55:55,021 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:55:55,082 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:55:55,082 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:55:55,083 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:55:55,086 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:55:55,156 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:55:55,158 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:55:55,220 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:55:55,223 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:55:55,312 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:55:55,313 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:55:55,372 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:55:55,374 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:55:55,438 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:55:55,446 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:55:55,511 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:55:55,513 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:55:55,593 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:55:56,017 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 17mS.
+2020-07-13 23:55:56,018 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:55:56,419 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:55:57,669 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1651mS.
+2020-07-13 23:55:57,669 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:55:57,670 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:59:21,797 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 571394200 Bytes (1073741824)
+2020-07-13 23:59:22,075 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 585025688 Bytes (1073741824)
+2020-07-13 23:59:22,266 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-13 23:59:22,266 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-13 23:59:22,266 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-13 23:59:22,266 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-13 23:59:22,267 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-13 23:59:22,267 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-13 23:59:22,454 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-13 23:59:22,513 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-13 23:59:22,565 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-13 23:59:22,630 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-13 23:59:22,632 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-13 23:59:22,693 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-13 23:59:22,920 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:59:22,920 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-13 23:59:22,921 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:59:22,924 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-13 23:59:23,016 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-13 23:59:23,017 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-13 23:59:23,075 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-13 23:59:23,076 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-13 23:59:23,076 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-13 23:59:23,076 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:59:23,079 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-13 23:59:23,166 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-13 23:59:23,168 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-13 23:59:23,225 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-13 23:59:23,226 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-13 23:59:23,226 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-13 23:59:23,229 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-13 23:59:23,296 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-13 23:59:23,298 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-13 23:59:23,356 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-13 23:59:23,359 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-13 23:59:23,445 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-13 23:59:23,447 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-13 23:59:23,503 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-13 23:59:23,506 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-13 23:59:23,568 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-13 23:59:23,576 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-13 23:59:23,639 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-13 23:59:23,641 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-13 23:59:23,719 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-13 23:59:24,128 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-13 23:59:24,130 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-13 23:59:24,370 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-13 23:59:26,039 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1909mS.
+2020-07-13 23:59:26,040 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-13 23:59:26,040 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-14 00:02:13,343 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 482999344 Bytes (1073741824)
+2020-07-14 00:02:13,458 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 491387952 Bytes (1073741824)
+2020-07-14 00:02:13,670 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 501873712 Bytes (1073741824)
+2020-07-14 00:02:13,861 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-14 00:02:13,861 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-07-14 00:02:13,861 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-07-14 00:02:13,861 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8F0
+2020-07-14 00:02:13,861 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-07-14 00:02:13,862 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-07-14 00:02:13,862 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.1.202004052303//db/
+2020-07-14 00:02:14,028 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp_save
+2020-07-14 00:02:14,085 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/license.tmp
+2020-07-14 00:02:14,128 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c_save
+2020-07-14 00:02:14,189 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/gpio.c
+2020-07-14 00:02:14,191 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h_save
+2020-07-14 00:02:14,248 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/gpio.h
+2020-07-14 00:02:14,433 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-14 00:02:14,433 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-07-14 00:02:14,434 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-14 00:02:14,436 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c_save
+2020-07-14 00:02:14,533 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/spi.c
+2020-07-14 00:02:14,536 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h_save
+2020-07-14 00:02:14,598 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/spi.h
+2020-07-14 00:02:14,599 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-07-14 00:02:14,599 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-07-14 00:02:14,599 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-14 00:02:14,602 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c_save
+2020-07-14 00:02:14,697 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/tim.c
+2020-07-14 00:02:14,698 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h_save
+2020-07-14 00:02:14,759 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/tim.h
+2020-07-14 00:02:14,760 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-07-14 00:02:14,760 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-07-14 00:02:14,763 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c_save
+2020-07-14 00:02:14,835 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_it.c
+2020-07-14 00:02:14,837 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h_save
+2020-07-14 00:02:14,899 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_it.h
+2020-07-14 00:02:14,903 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c_save
+2020-07-14 00:02:14,992 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/stm32f0xx_hal_msp.c
+2020-07-14 00:02:14,994 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp_save
+2020-07-14 00:02:15,119 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/MXTmpFiles/system.tmp
+2020-07-14 00:02:15,121 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h_save
+2020-07-14 00:02:15,187 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/stm32f0xx_hal_conf.h
+2020-07-14 00:02:15,196 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h_save
+2020-07-14 00:02:15,262 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Inc/main.h
+2020-07-14 00:02:15,264 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c_save
+2020-07-14 00:02:15,345 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/HPECommonSlot_BreakoutModule_SW/HPECommonSlot_BreakoutModule_SW_F072/HPECommonSlot_BreakoutModule_SW_F072/Core/Src/main.c
+2020-07-14 00:02:15,754 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-07-14 00:02:15,755 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-07-14 00:02:16,013 [INFO] ConfigFileManager:1066 - The Die is : DIE448
+2020-07-14 00:02:17,842 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2087mS.
+2020-07-14 00:02:17,842 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-07-14 00:02:17,843 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.

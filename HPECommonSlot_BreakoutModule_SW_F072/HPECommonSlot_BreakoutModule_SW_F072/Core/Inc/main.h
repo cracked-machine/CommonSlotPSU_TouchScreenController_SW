@@ -64,6 +64,9 @@ void Error_Handler(void);
 #define RST_GPIO_Port GPIOC
 #define DC_Pin GPIO_PIN_0
 #define DC_GPIO_Port GPIOB
+#define TS_IRQ_Pin GPIO_PIN_1
+#define TS_IRQ_GPIO_Port GPIOB
+#define TS_IRQ_EXTI_IRQn EXTI0_1_IRQn
 #define TS_CS_Pin GPIO_PIN_12
 #define TS_CS_GPIO_Port GPIOB
 #define TS_SCK_Pin GPIO_PIN_13
@@ -72,9 +75,6 @@ void Error_Handler(void);
 #define TS_MISO_GPIO_Port GPIOB
 #define TS_MOSI_Pin GPIO_PIN_15
 #define TS_MOSI_GPIO_Port GPIOB
-#define TS_IRQ_Pin GPIO_PIN_6
-#define TS_IRQ_GPIO_Port GPIOC
-#define TS_IRQ_EXTI_IRQn EXTI4_15_IRQn
 /* USER CODE BEGIN Private defines */
 #define HW_LOOP_TIMER TIM17
 /* USER CODE END Private defines */

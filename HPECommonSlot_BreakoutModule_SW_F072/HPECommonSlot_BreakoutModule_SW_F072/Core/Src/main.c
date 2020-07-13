@@ -109,7 +109,7 @@ int main(void)
   {
 	  //----------------------------------------------------------TOUCHSCREEN EXAMPLE
 
-	  ILI9341_Draw_Text("TEST", 10, 10, BLACK, 2, RED);
+	  ILI9341_Draw_Text("TEST6", 10, 10, BLACK, 2, RED);
 
 	  if(TSC2046_EM_GetTouchScreenState())
 	  {
