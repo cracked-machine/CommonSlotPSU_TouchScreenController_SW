@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  00020074  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000e060  00000000  00000000  0002009c  2**0
+ 12 .debug_info   0000e071  00000000  00000000  0002009c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00002347  00000000  00000000  0002e0fc  2**0
+ 13 .debug_abbrev 00002347  00000000  00000000  0002e10d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000c80  00000000  00000000  00030448  2**3
+ 14 .debug_aranges 00000c88  00000000  00000000  00030458  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000b38  00000000  00000000  000310c8  2**3
+ 15 .debug_ranges 00000b40  00000000  00000000  000310e0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00017b7c  00000000  00000000  00031c00  2**0
+ 16 .debug_macro  00017b7c  00000000  00000000  00031c20  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0000c6af  00000000  00000000  0004977c  2**0
+ 17 .debug_line   0000c6bf  00000000  00000000  0004979c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0007edce  00000000  00000000  00055e2b  2**0
+ 18 .debug_str    0007eddc  00000000  00000000  00055e5b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000d4bf9  2**0
+ 19 .comment      0000007b  00000000  00000000  000d4c37  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002df4  00000000  00000000  000d4c74  2**2
+ 20 .debug_frame  00002e10  00000000  00000000  000d4cb4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -8689,11 +8689,11 @@ eTSC2046ReadStatusTypedef TSC2046_HM_ReadAnalogInput(uint16_t Positions[2])
  80030f2:	18fb      	adds	r3, r7, r3
  80030f4:	2200      	movs	r2, #0
  80030f6:	801a      	strh	r2, [r3, #0]
+
 	// pull CS line high - Pre-transaction reset
 	#ifdef TSC2046_USE_HAL
 		HAL_GPIO_WritePin(TS_CS_GPIO_Port, TS_CS_Pin, GPIO_PIN_SET);
 	#else
-		// TODO Add direct reg code
 		TS_CS_GPIO_Port->ODR |= TS_CS_Pin;
  80030f8:	4b46      	ldr	r3, [pc, #280]	; (8003214 <TSC2046_HM_ReadAnalogInput+0x14c>)
  80030fa:	695a      	ldr	r2, [r3, #20]
