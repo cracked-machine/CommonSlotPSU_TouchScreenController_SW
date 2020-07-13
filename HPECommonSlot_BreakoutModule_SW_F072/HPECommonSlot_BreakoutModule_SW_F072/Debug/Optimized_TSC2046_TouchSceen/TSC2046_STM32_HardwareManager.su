@@ -1,0 +1,3 @@
+TSC2046_STM32_HardwareManager.c:27:6:TSC2046_HM_Init	8	static
+TSC2046_STM32_HardwareManager.c:43:27:TSC2046_HM_ReadAnalogInput	48	static,ignoring_inline_asm
+TSC2046_STM32_HardwareManager.c:161:6:TSC2046_HM_ConvertToQVGA	24	static

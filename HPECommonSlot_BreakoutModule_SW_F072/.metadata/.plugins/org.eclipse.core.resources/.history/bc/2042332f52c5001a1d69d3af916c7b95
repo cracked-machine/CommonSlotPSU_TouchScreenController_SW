@@ -1,0 +1,21 @@
+Optimized_STM32_ILI9341
+
+Version 1.0
+
+This project contains a modified and optimised version of the STM32-ILI9341 library.
+
+- Optimized to use direct-to-register SPI for single- and multi-byte transfers (MOSI only). This offers a noticeable performance boost over HAL API.
+- Draw functions were modified to use x,y,width,height parameters.
+- Additional draw functions from STMBasicGUI were included.
+
+### Definitions in "ILI9341_STM32_Driver.h"
+
+Use SPI1 as the serial commm peripheral in your design.
+Define the RST/CS/DC pin names in the GPIO section of CubeMX.
+
+### Test Code
+
+  ILI9341_Init();
+  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
+  ILI9341_Fill_Screen(BLUE);
+  ILI9341_Draw_Text("TEST", 10, 10, BLACK, 2, RED);

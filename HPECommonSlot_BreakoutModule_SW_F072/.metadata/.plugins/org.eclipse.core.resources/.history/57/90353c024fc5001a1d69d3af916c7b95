@@ -1,0 +1,28 @@
+/*
+ * TSC2046_STM32_Definitions.h
+ *
+ *  Created on: Jul 4, 2020
+ *      Author: chris
+ */
+
+#ifndef TSC2046_STM32_H_
+#define TSC2046_STM32_H_
+
+#include "TSC2046_STM32_HardwareManager.h"
+#include "TSC2046_STM32_EventManger.h"
+#include "TSC2046_STM32_InterruptManager.h"
+
+#include "tim.h"
+
+#define TSC2046_HW_LOOP_TIMER	TIM17
+
+
+
+
+//#define TSC2046_USE_HAL
+#define TSC2046_USE_REGISTERS
+
+
+
+
+#endif /* TSC2046_STM32_H_ */
