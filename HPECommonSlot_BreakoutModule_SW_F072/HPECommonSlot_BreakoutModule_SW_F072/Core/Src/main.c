@@ -97,7 +97,7 @@ int main(void)
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   ILI9341_Init();
-  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
+  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
   ILI9341_Fill_Screen(BLUE);
 
   TSC2046_HM_Init();
@@ -114,12 +114,12 @@ int main(void)
 	  if(TSC2046_EM_GetTouchScreenState())
 	  {
 		  ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
-		  uint16_t Positions[2];
-		  if( TSC2046_HM_ReadAnalogInput(Positions) == TSC2046_DATAOK )
+		  //uint16_t Positions[2];
+		  if( TSC2046_HM_RunConversion() == TSC2046_DATAOK )
 		  {
-			  ILI9341_Draw_Filled_Circle(Positions[0], Positions[1], 2, WHITE);
+			  ILI9341_Draw_Filled_Circle(TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos(), 2, WHITE);
 			  char pos_string[15];
-			  snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", Positions[0], Positions[1]);
+			  snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos());
 			  ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
 		  }
 		  else

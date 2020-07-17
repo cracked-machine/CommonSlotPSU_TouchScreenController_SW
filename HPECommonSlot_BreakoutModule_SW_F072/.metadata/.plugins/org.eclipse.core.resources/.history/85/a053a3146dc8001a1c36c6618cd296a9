@@ -1,0 +1,43 @@
+/*
+ * TSC2046_STM32_HardwareManager.h
+ *
+ *  Created on: Jul 4, 2020
+ *      Author: chris
+ */
+
+#ifndef TSC2046_STM32_HARDWAREMANAGER_H_
+#define TSC2046_STM32_HARDWAREMANAGER_H_
+
+#include "TSC2046_STM32.h"
+#include <stdint.h>
+
+#define TSC2046_SPI				SPI2
+
+#define XPOSCMD		0xD0
+#define YPOSCMD		0x90
+
+#define FLIP_TSC2046_COORDS		// flip x with y in case of wiring fault
+
+// SPI Receive Status definitions
+typedef enum
+{
+	  TSC2046_DATAOK    =	0x00U,
+	  TSC2046_DATAERR	=	0x01U,
+
+} eTSC2046ReadStatusTypedef;
+
+// hold data read from TSC2046 touch ontroller
+typedef struct
+{
+	uint16_t XPOS;
+	uint16_t YPOS;
+} sTSC2046PositionsTypedef;
+
+#define TSC2046_OVERSAMPLE 1
+
+// Public Function Prototypes
+void TSC2046_HM_Init();
+eTSC2046ReadStatusTypedef TSC2046_HM_ReadAnalogInput();
+
+
+#endif /* TSC2046_STM32_HARDWAREMANAGER_H_ */

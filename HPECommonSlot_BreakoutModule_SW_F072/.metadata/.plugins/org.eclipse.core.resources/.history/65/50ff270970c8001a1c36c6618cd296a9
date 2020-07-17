@@ -1,0 +1,330 @@
+/*
+ * TSC2046_STM32_HardwareManager.c
+ *
+ *  Created on: Jul 4, 2020
+ *      Author: chris
+ */
+
+
+#include "TSC2046_STM32_HardwareManager.h"
+
+#include "gpio.h"
+#include "spi.h"
+
+//#define TSC2046_USE_HAL
+
+// Private Function Prototypes
+void TSC2046_HM_ConvertToQVGA();
+void _SetCsPinHigh();
+void _SetCsPinLow();
+void _EnableSPI();
+void _SpiTransmit8(uint8_t data);
+uint16_t _SpiReceive16();
+void _SpiOverflowReset();
+void _WaitDelay(uint16_t delay);
+
+sTSC2046PositionsTypedef tsc2046_data[TSC2046_OVERSAMPLE];
+
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void TSC2046_HM_Init()
+{
+	TSC2046_HW_LOOP_TIMER->PSC = 0;
+	TSC2046_HW_LOOP_TIMER->ARR = 4095;
+	TSC2046_HW_LOOP_TIMER->CR1 |= TIM_CR1_CEN;
+	TSC2046_HW_LOOP_TIMER->DIER |= TIM_DIER_UIE;
+
+
+#if TSC2046_OVERSAMPLE > 0
+
+	// statically initialise the array to hold
+	// read values from TSC2046 touch controller
+	for(int p = 0; p < TSC2046_OVERSAMPLE; p++)
+	{
+		tsc2046_data[p].XPOS = 0;
+		tsc2046_data[p].YPOS = 0;
+	}
+
+#else
+	#error "TSC2046_OVERSAMPLE (TSC2046_STM32_HardwareManager.h) cannot be zero!"
+#endif
+
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+eTSC2046ReadStatusTypedef TSC2046_HM_RunConversion()
+{
+	eTSC2046ReadStatusTypedef status = TSC2046_DATAOK;
+
+
+	#ifdef TSC2046_USE_HAL
+		// Control Bytes (8 bits)
+		// https://www.ti.com/lit/ds/symlink/tsc2046.pdf
+		uint8_t tsc2046_read_ypos_cmd[1] = { 0x90 };			// 1001 0000 - Read Y, 12-bit, DFR mode
+		uint8_t tsc2046_read_xpos_cmd[1] = { 0xD0 };			// 1101 0000
+
+		// Read Data Bytes (2 x 8 bits)
+		uint8_t tsc2046_read_xpos_data[2] = {};
+		uint8_t tsc2046_read_ypos_data[2] = {};
+	#else
+
+	#endif
+
+
+	// pull CS line high - Pre-transaction reset
+	#ifdef TSC2046_USE_HAL
+		HAL_GPIO_WritePin(TS_CS_GPIO_Port, TS_CS_Pin, GPIO_PIN_SET);
+	#else
+		//TS_CS_GPIO_Port->ODR |= TS_CS_Pin;
+		//_SetCsPinHigh();
+	#endif
+
+	if(TSC2046_EM_GetTouchScreenState() == TSC2046_ConversionState)
+	{
+
+	// Check SPI is enabled
+		_EnableSPI();
+
+	// START Transaction
+		#ifdef TSC2046_USE_HAL
+			HAL_GPIO_WritePin(TS_CS_GPIO_Port, TS_CS_Pin, GPIO_PIN_RESET);
+
+			HAL_SPI_Transmit(&hspi2, tsc2046_read_xpos_cmd, 1, 1);
+			HAL_SPI_Receive(&hspi2, tsc2046_read_xpos_data, 2, 1);
+
+			HAL_SPI_Transmit(&hspi2, tsc2046_read_ypos_cmd, 1, 1);
+			HAL_SPI_Receive(&hspi2, tsc2046_read_ypos_data, 2, 1);
+
+			HAL_GPIO_WritePin(TS_CS_GPIO_Port, TS_CS_Pin, GPIO_PIN_SET);
+		#else
+
+			for( int s = 0; s < TSC2046_OVERSAMPLE; s++)
+			{
+				_SetCsPinLow();
+				//_WaitDelay(100);
+
+				_SpiTransmit8(YPOSCMD);							// Y POS CMD transmit
+				_SpiReceive16();								// dummy receive
+
+				//_WaitDelay(0);
+
+				_SpiTransmit8(YPOSCMD);							// Y POS CMD transmit
+				tsc2046_data[s].YPOS = _SpiReceive16();		// Y POS receive
+
+				//_WaitDelay(100);
+				_SetCsPinHigh();
+
+				_SetCsPinLow();
+				//_WaitDelay(100);
+
+				_SpiTransmit8(XPOSCMD);							// X POS CMD transmit
+				_SpiReceive16();								// dummy receive
+
+				//_WaitDelay(0);
+
+				_SpiTransmit8(XPOSCMD);							// X POS CMD transmit
+				tsc2046_data[s].XPOS = _SpiReceive16();		// Y POS receive
+
+				//_WaitDelay(100);
+				_SetCsPinHigh();
+			}
+
+			if(TSC2046_OVERSAMPLE > 1)
+			{
+				// TODO Write oversampling code here
+			}
+
+		#endif
+
+		#ifdef USE_QVGA
+			TSC2046_HM_ConvertToQVGA();
+		#endif
+
+	}
+	else
+	{
+		tsc2046_data[0].XPOS = 0;
+		tsc2046_data[0].YPOS = 0;
+		status = TSC2046_DATAERR;
+	}
+
+	return status;
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void TSC2046_HM_ConvertToQVGA()
+{
+	uint16_t QVGA_HORIZON = 	320;
+	uint16_t QVGA_VERTICAL = 	240;
+
+	tsc2046_data[0].XPOS /= 100;
+	tsc2046_data[0].YPOS /= 100;
+
+	// Invert coordinates
+	tsc2046_data[0].XPOS = QVGA_HORIZON - tsc2046_data[0].XPOS;
+	tsc2046_data[0].YPOS = QVGA_VERTICAL - tsc2046_data[0].YPOS;
+
+	// Offset adjustment
+	tsc2046_data[0].XPOS += 0;
+	tsc2046_data[0].YPOS += 75;
+
+	// Scale adjustment
+	tsc2046_data[0].XPOS *= 0.75;
+	tsc2046_data[0].YPOS *= 0.5;
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _SetCsPinHigh()
+{
+	TS_CS_GPIO_Port->ODR |= TS_CS_Pin;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _SetCsPinLow()
+{
+	TS_CS_GPIO_Port->ODR &= ~TS_CS_Pin;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _EnableSPI()
+{
+	// Check SPI is enabled
+	if ((TSC2046_SPI->CR1 & SPI_CR1_SPE) != SPI_CR1_SPE)
+	{
+		TSC2046_SPI->CR1 |= SPI_CR1_SPE;
+	}
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _SpiTransmit8(uint8_t data)
+{
+	if ((SPI2->SR & SPI_SR_TXE) == SPI_SR_TXE)
+	{
+		*(volatile uint8_t *)&(SPI2->DR) = data;
+	}
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+uint16_t _SpiReceive16()
+{
+	uint16_t data = 0;
+	if ((SPI2->SR & SPI_SR_RXNE) == SPI_SR_RXNE)
+	{
+		data = (uint16_t)SPI2->DR;
+	}
+	return data;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _SpiOverflowReset()
+{
+	SPI2->SR &= ~(SPI_SR_OVR);		// clear SPI overrun flag, if set
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void _WaitDelay(uint16_t delay)
+{
+	for(int t=0 ; t<delay; t++)
+		asm("NOP");
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+uint16_t TSC4026_STM32_HM_GetXpos()
+{
+	return tsc2046_data[0].XPOS;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+uint16_t TSC4026_STM32_HM_GetYpos()
+{
+	return tsc2046_data[0].YPOS;
+}
