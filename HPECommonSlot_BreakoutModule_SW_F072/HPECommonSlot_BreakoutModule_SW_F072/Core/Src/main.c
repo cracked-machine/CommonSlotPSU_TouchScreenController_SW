@@ -118,9 +118,9 @@ int main(void)
 		  if( TSC2046_HM_ReadAnalogInput(Positions) == TSC2046_DATAOK )
 		  {
 			  ILI9341_Draw_Filled_Circle(Positions[0], Positions[1], 2, WHITE);
-			  char pos_string[10];
-			  snprintf(pos_string, sizeof(pos_string), "%u,%u      ", Positions[0], Positions[1]);
-			  ILI9341_Draw_Text(pos_string, 200, 10, BLACK, 2, RED);
+			  char pos_string[15];
+			  snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", Positions[0], Positions[1]);
+			  ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
 		  }
 		  else
 		  {
