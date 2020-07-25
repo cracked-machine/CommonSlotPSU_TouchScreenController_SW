@@ -4046,9 +4046,9 @@ LOAD /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube
  .text.SysTick_Handler
                 0x000000000800075c        0xe Core/Src/stm32f0xx_it.o
                 0x000000000800075c                SysTick_Handler
- .text.EXTI0_1_IRQHandler
+ .text.EXTI4_15_IRQHandler
                 0x000000000800076a       0x14 Core/Src/stm32f0xx_it.o
-                0x000000000800076a                EXTI0_1_IRQHandler
+                0x000000000800076a                EXTI4_15_IRQHandler
  *fill*         0x000000000800077e        0x2 
  .text.TIM17_IRQHandler
                 0x0000000008000780       0x1c Core/Src/stm32f0xx_it.o
@@ -4086,12 +4086,12 @@ LOAD /home/chris/opt/STM32CubeIDE/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube
                 0x00000000080008f0                DMA1_Channel4_5_6_7_IRQHandler
                 0x00000000080008f0                TIM16_IRQHandler
                 0x00000000080008f0                TIM3_IRQHandler
-                0x00000000080008f0                EXTI4_15_IRQHandler
                 0x00000000080008f0                DMA1_Channel1_IRQHandler
                 0x00000000080008f0                Default_Handler
                 0x00000000080008f0                TIM14_IRQHandler
                 0x00000000080008f0                TIM7_IRQHandler
                 0x00000000080008f0                TIM15_IRQHandler
+                0x00000000080008f0                EXTI0_1_IRQHandler
                 0x00000000080008f0                USB_IRQHandler
                 0x00000000080008f0                SPI2_IRQHandler
                 0x00000000080008f0                WWDG_IRQHandler
@@ -4841,49 +4841,49 @@ OUTPUT(HPECommonSlot_BreakoutModule_SW_F072.elf elf32-littlearm)
  .debug_line    0x000000000000b706      0x8fd Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.o
  .debug_line    0x000000000000c003      0x7a6 Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.o
 
-.debug_str      0x0000000000000000    0x7ee4d
+.debug_str      0x0000000000000000    0x7ee4e
  .debug_str     0x0000000000000000    0x76618 Core/Src/gpio.o
-                                      0x768ad (size before relaxing)
+                                      0x768ae (size before relaxing)
  .debug_str     0x0000000000076618     0x4b88 Core/Src/main.o
-                                      0x7b230 (size before relaxing)
+                                      0x7b231 (size before relaxing)
  .debug_str     0x000000000007b1a0       0x58 Core/Src/spi.o
-                                      0x76ae0 (size before relaxing)
+                                      0x76ae1 (size before relaxing)
  .debug_str     0x000000000007b1f8       0x2c Core/Src/stm32f0xx_hal_msp.o
-                                      0x7662f (size before relaxing)
- .debug_str     0x000000000007b224       0x9a Core/Src/stm32f0xx_it.o
-                                      0x76b30 (size before relaxing)
- .debug_str     0x000000000007b2be      0x4d1 Core/Src/sysmem.o
+                                      0x76630 (size before relaxing)
+ .debug_str     0x000000000007b224       0x9b Core/Src/stm32f0xx_it.o
+                                      0x76b32 (size before relaxing)
+ .debug_str     0x000000000007b2bf      0x4d1 Core/Src/sysmem.o
                                        0x7a99 (size before relaxing)
- .debug_str     0x000000000007b78f       0x5f Core/Src/system_stm32f0xx.o
+ .debug_str     0x000000000007b790       0x5f Core/Src/system_stm32f0xx.o
                                       0x764c7 (size before relaxing)
- .debug_str     0x000000000007b7ee       0x5b Core/Src/tim.o
-                                      0x76c29 (size before relaxing)
- .debug_str     0x000000000007b849       0x36 Core/Startup/startup_stm32f072rbtx.o
+ .debug_str     0x000000000007b7ef       0x5b Core/Src/tim.o
+                                      0x76c2a (size before relaxing)
+ .debug_str     0x000000000007b84a       0x36 Core/Startup/startup_stm32f072rbtx.o
                                          0xc4 (size before relaxing)
- .debug_str     0x000000000007b87f      0x39c Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o
+ .debug_str     0x000000000007b880      0x39c Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o
                                       0x76a35 (size before relaxing)
- .debug_str     0x000000000007bc1b      0x220 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o
+ .debug_str     0x000000000007bc1c      0x220 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o
                                       0x768e9 (size before relaxing)
- .debug_str     0x000000000007be3b      0x213 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o
+ .debug_str     0x000000000007be3c      0x213 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o
                                       0x76763 (size before relaxing)
- .debug_str     0x000000000007c04e      0x254 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o
+ .debug_str     0x000000000007c04f      0x254 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o
                                       0x768dc (size before relaxing)
- .debug_str     0x000000000007c2a2      0x57c Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.o
+ .debug_str     0x000000000007c2a3      0x57c Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.o
                                       0x76e00 (size before relaxing)
- .debug_str     0x000000000007c81e      0xe2a Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o
+ .debug_str     0x000000000007c81f      0xe2a Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o
                                       0x776c0 (size before relaxing)
- .debug_str     0x000000000007d648      0x579 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o
+ .debug_str     0x000000000007d649      0x579 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o
                                       0x76e74 (size before relaxing)
- .debug_str     0x000000000007dbc1      0xc05 Optimized_STM32_ILI9341/ILI9341_GFX.o
-                                      0x7ba3c (size before relaxing)
- .debug_str     0x000000000007e7c6      0x2b6 Optimized_STM32_ILI9341/ILI9341_STM32_Driver.o
-                                      0x76f5d (size before relaxing)
- .debug_str     0x000000000007ea7c      0x159 Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManager.o
-                                      0x7672a (size before relaxing)
- .debug_str     0x000000000007ebd5      0x194 Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.o
-                                      0x76ecd (size before relaxing)
- .debug_str     0x000000000007ed69       0xe4 Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.o
-                                      0x76bc9 (size before relaxing)
+ .debug_str     0x000000000007dbc2      0xc05 Optimized_STM32_ILI9341/ILI9341_GFX.o
+                                      0x7ba3d (size before relaxing)
+ .debug_str     0x000000000007e7c7      0x2b6 Optimized_STM32_ILI9341/ILI9341_STM32_Driver.o
+                                      0x76f5e (size before relaxing)
+ .debug_str     0x000000000007ea7d      0x159 Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManager.o
+                                      0x7672b (size before relaxing)
+ .debug_str     0x000000000007ebd6      0x194 Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.o
+                                      0x76ece (size before relaxing)
+ .debug_str     0x000000000007ed6a       0xe4 Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.o
+                                      0x76bca (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b Core/Src/gpio.o
