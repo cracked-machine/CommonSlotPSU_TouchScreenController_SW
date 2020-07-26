@@ -1,0 +1,14 @@
+/*
+ * TSC2046_STM32_TaskManager.h
+ *
+ *  Created on: Jul 26, 2020
+ *      Author: chris
+ */
+
+#ifndef TSC2046_STM32_TASKMANAGER_H_
+#define TSC2046_STM32_TASKMANAGER_H_
+
+
+void TSC2046_TM_DisplayTask();
+
+#endif /* TSC2046_STM32_TASKMANAGER_H_ */

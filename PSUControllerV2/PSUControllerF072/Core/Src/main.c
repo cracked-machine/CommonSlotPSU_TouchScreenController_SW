@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
@@ -29,6 +30,8 @@
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
 #include "TSC2046_STM32.h"
+
+#include "UserTasks.h"
 
 #include <stdio.h>
 /* USER CODE END Includes */
@@ -50,6 +53,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+
 
 /* USER CODE END PV */
 
@@ -94,41 +99,30 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
+  MX_ADC_Init();
   MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
+  // init ILI9341 library
   ILI9341_Init();
-  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-  ILI9341_Fill_Screen(BLUE);
+  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
+  ILI9341_Fill_Screen(LBLUE);
 
+  // init TSC2046 library
   TSC2046_HM_Init();
+
+  // init ADC
+  HAL_ADCEx_Calibration_Start(&hadc);
+  HAL_ADC_Start(&hadc);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  ILI9341_Draw_Text("TEST6", 10, 10, BLACK, 2, RED);
-
-	  if(TSC2046_EM_GetTouchScreenState())
-	  {
-		  ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
-		  //uint16_t Positions[2];
-		  if( TSC2046_HM_RunConversion() == TSC2046_DATAOK )
-		  {
-			  ILI9341_Draw_Filled_Circle(TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos(), 2, WHITE);
-			  char pos_string[15];
-			  snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos());
-			  ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
-		  }
-		  else
-		  {
-			  ILI9341_Draw_Text("DATAERR   ", 200, 10, BLACK, 2, RED);
-		  }
-	  }
-	  else
-	  {
-		  ILI9341_Draw_Text("NONE", 100, 10, BLACK, 2, RED);
-	  }
+	  UserDisplayTask();
+	  UserPollADC();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
