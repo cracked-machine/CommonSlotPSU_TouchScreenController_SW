@@ -1,0 +1,4 @@
+TSC2046_STM32_EventManager.c:41:24:TSC2046_EM_GetTouchScreenState	8	static
+TSC2046_STM32_EventManager.c:54:6:TSC2046_EM_ProcessEvent	16	static
+TSC2046_STM32_EventManager.c:84:23:TSC2046_EM_EnableConversionState	8	static
+TSC2046_STM32_EventManager.c:99:23:TSC2046_EM_EnableIdleState	8	static
