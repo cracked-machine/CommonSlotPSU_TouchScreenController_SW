@@ -1,2 +1,2 @@
-UserTasks.c:63:6:UserDisplayTask	40	static
-UserTasks.c:103:6:UserPollADC	40	static
+UserTasks.c:44:6:UserDisplayTask	40	static
+UserTasks.c:83:6:UserPollADC	32	static

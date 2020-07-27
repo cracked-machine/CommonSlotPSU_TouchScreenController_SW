@@ -19,3 +19,6 @@ stream_buffer.c:1020:15:prvWriteBytesToBuffer	32	static,ignoring_inline_asm
 stream_buffer.c:1066:15:prvReadBytesFromBuffer	40	static,ignoring_inline_asm
 stream_buffer.c:1121:15:prvBytesInBuffer	24	static
 stream_buffer.c:1141:13:prvInitialiseNewStreamBuffer	32	static,ignoring_inline_asm
+stream_buffer.c:1173:14:uxStreamBufferGetStreamBufferNumber	16	static
+stream_buffer.c:1183:7:vStreamBufferSetStreamBufferNumber	16	static
+stream_buffer.c:1193:10:ucStreamBufferGetStreamBufferType	16	static

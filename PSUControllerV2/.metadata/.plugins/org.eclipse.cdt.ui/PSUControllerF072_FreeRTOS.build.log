@@ -1,14 +1,14 @@
-19:45:47 **** Incremental Build of configuration Debug for project PSUControllerF072_FreeRTOS ****
+21:44:15 **** Incremental Build of configuration Debug for project PSUControllerF072_FreeRTOS ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/UserTasks.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I../Core/Inc -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/UserTasks.d" -MT"Core/Src/UserTasks.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/UserTasks.o"
-arm-none-eabi-gcc -o "PSUControllerF072_FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072_FreeRTOS/STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PSUControllerF072_FreeRTOS.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc "../Core/Src/UserTasks.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I../Core/Inc -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/UserTasks.d" -MT"Core/Src/UserTasks.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/UserTasks.o"
+arm-none-eabi-gcc -o "PSUControllerF072_FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072_FreeRTOS/STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PSUControllerF072_FreeRTOS.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: PSUControllerF072_FreeRTOS.elf
  
 arm-none-eabi-objdump -h -S  PSUControllerF072_FreeRTOS.elf  > "PSUControllerF072_FreeRTOS.list"
 arm-none-eabi-objcopy  -O binary  PSUControllerF072_FreeRTOS.elf  "PSUControllerF072_FreeRTOS.bin"
 arm-none-eabi-size   PSUControllerF072_FreeRTOS.elf 
    text	   data	    bss	    dec	    hex	filename
-  37200	    496	   5920	  43616	   aa60	PSUControllerF072_FreeRTOS.elf
+  50720	    496	  11232	  62448	   f3f0	PSUControllerF072_FreeRTOS.elf
 Finished building: default.size.stdout
 Finished building: PSUControllerF072_FreeRTOS.bin
  
@@ -16,5 +16,5 @@ Finished building: PSUControllerF072_FreeRTOS.bin
 Finished building: PSUControllerF072_FreeRTOS.list
  
 
-19:45:48 Build Finished. 0 errors, 0 warnings. (took 957ms)
+21:44:16 Build Finished. 0 errors, 0 warnings. (took 987ms)
 

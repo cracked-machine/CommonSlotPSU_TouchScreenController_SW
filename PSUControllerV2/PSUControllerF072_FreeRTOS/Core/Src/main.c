@@ -103,15 +103,19 @@ int main(void)
 
   // init ILI9341 library
   ILI9341_Init();
-  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-  ILI9341_Fill_Screen(BLUE);
+  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
+  ILI9341_Fill_Screen(LBLUE);
 
   // init TSC2046 library
   TSC2046_HM_Init();
+  HAL_GPIO_WritePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin, GPIO_PIN_SET);
 
+  HAL_ADCEx_Calibration_Start(&hadc);
+  HAL_ADC_Start(&hadc);
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in freertos.c) */
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
   /* Start scheduler */
   osKernelStart();
