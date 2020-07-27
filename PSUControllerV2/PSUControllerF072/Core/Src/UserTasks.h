@@ -10,5 +10,6 @@
 
 
 void UserDisplayTask();
+void UserPollADC();
 
 #endif /* TSC2046_STM32_TASKMANAGER_H_ */

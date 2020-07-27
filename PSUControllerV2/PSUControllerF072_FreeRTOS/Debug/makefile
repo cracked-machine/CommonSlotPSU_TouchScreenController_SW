@@ -21,6 +21,12 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
 endif
@@ -47,7 +53,7 @@ all: PSUControllerF072_FreeRTOS.elf secondary-outputs
 
 # Tool invocations
 PSUControllerF072_FreeRTOS.elf: $(OBJS) $(USER_OBJS) /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072_FreeRTOS/STM32F072RBTX_FLASH.ld
-	arm-none-eabi-gcc -o "PSUControllerF072_FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072_FreeRTOS/STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PSUControllerF072_FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "PSUControllerF072_FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072_FreeRTOS/STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PSUControllerF072_FreeRTOS.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

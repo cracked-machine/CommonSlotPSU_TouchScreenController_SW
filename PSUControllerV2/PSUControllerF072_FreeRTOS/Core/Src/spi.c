@@ -87,12 +87,12 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
   /* USER CODE END SPI1_MspInit 0 */
     /* SPI1 clock enable */
     __HAL_RCC_SPI1_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**SPI1 GPIO Configuration    
+    /**SPI1 GPIO Configuration
     PA5     ------> SPI1_SCK
     PA6     ------> SPI1_MISO
-    PA7     ------> SPI1_MOSI 
+    PA7     ------> SPI1_MOSI
     */
     GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -112,12 +112,12 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
   /* USER CODE END SPI2_MspInit 0 */
     /* SPI2 clock enable */
     __HAL_RCC_SPI2_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**SPI2 GPIO Configuration    
+    /**SPI2 GPIO Configuration
     PB13     ------> SPI2_SCK
     PB14     ------> SPI2_MISO
-    PB15     ------> SPI2_MOSI 
+    PB15     ------> SPI2_MOSI
     */
     GPIO_InitStruct.Pin = TS_SCK_Pin|TS_MISO_Pin|TS_MOSI_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -142,11 +142,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
   /* USER CODE END SPI1_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_SPI1_CLK_DISABLE();
-  
-    /**SPI1 GPIO Configuration    
+
+    /**SPI1 GPIO Configuration
     PA5     ------> SPI1_SCK
     PA6     ------> SPI1_MISO
-    PA7     ------> SPI1_MOSI 
+    PA7     ------> SPI1_MOSI
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
 
@@ -161,11 +161,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
   /* USER CODE END SPI2_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_SPI2_CLK_DISABLE();
-  
-    /**SPI2 GPIO Configuration    
+
+    /**SPI2 GPIO Configuration
     PB13     ------> SPI2_SCK
     PB14     ------> SPI2_MISO
-    PB15     ------> SPI2_MOSI 
+    PB15     ------> SPI2_MOSI
     */
     HAL_GPIO_DeInit(GPIOB, TS_SCK_Pin|TS_MISO_Pin|TS_MOSI_Pin);
 
@@ -173,7 +173,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 
   /* USER CODE END SPI2_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

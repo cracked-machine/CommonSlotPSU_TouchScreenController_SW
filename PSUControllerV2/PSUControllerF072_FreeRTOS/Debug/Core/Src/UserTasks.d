@@ -39,7 +39,7 @@ Core/Src/UserTasks.o: ../Core/Src/UserTasks.c \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h \
- ../Core/Src/UserTasks.h
+ ../Core/Src/UserTasks.h ../Core/Inc/adc.h
 
 /home/chris/Projects/Embedded/Optimized_STM32_ILI9341/ILI9341_STM32_Driver.h:
 
@@ -124,3 +124,5 @@ Core/Src/UserTasks.o: ../Core/Src/UserTasks.c \
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h:
 
 ../Core/Src/UserTasks.h:
+
+../Core/Inc/adc.h:

@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  000201e0  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000106c0  00000000  00000000  00020208  2**0
+ 12 .debug_info   000106a8  00000000  00000000  00020208  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00002933  00000000  00000000  000308c8  2**0
+ 13 .debug_abbrev 00002914  00000000  00000000  000308b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000e18  00000000  00000000  00033200  2**3
+ 14 .debug_aranges 00000e18  00000000  00000000  000331c8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000ca0  00000000  00000000  00034018  2**3
+ 15 .debug_ranges 00000ca0  00000000  00000000  00033fe0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00018a0b  00000000  00000000  00034cb8  2**0
+ 16 .debug_macro  00018a0b  00000000  00000000  00034c80  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0000eb6a  00000000  00000000  0004d6c3  2**0
+ 17 .debug_line   0000eb6a  00000000  00000000  0004d68b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0008191f  00000000  00000000  0005c22d  2**0
+ 18 .debug_str    0008191f  00000000  00000000  0005c1f5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000ddb4c  2**0
+ 19 .comment      0000007b  00000000  00000000  000ddb14  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003b18  00000000  00000000  000ddbc8  2**2
+ 20 .debug_frame  00003b18  00000000  00000000  000ddb90  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4884,7 +4884,7 @@ void MX_ADC_Init(void)
  800268e:	2100      	movs	r1, #0
  8002690:	f003 fd6c 	bl	800616c <memset>
 
-  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc.Instance = ADC1;
  8002694:	4b26      	ldr	r3, [pc, #152]	; (8002730 <MX_ADC_Init+0xb0>)
@@ -4955,7 +4955,7 @@ void MX_ADC_Init(void)
     Error_Handler();
  80026fa:	f000 f980 	bl	80029fe <Error_Handler>
   }
-  /** Configure for the selected ADC regular channel to be converted. 
+  /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_0;
  80026fe:	1d3b      	adds	r3, r7, #4
@@ -5035,7 +5035,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  8002770:	4013      	ands	r3, r2
  8002772:	613b      	str	r3, [r7, #16]
  8002774:	693b      	ldr	r3, [r7, #16]
-  
+
     __HAL_RCC_GPIOA_CLK_ENABLE();
  8002776:	4b12      	ldr	r3, [pc, #72]	; (80027c0 <HAL_ADC_MspInit+0x88>)
  8002778:	695a      	ldr	r2, [r3, #20]
@@ -5051,8 +5051,8 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  800278c:	4013      	ands	r3, r2
  800278e:	60fb      	str	r3, [r7, #12]
  8002790:	68fb      	ldr	r3, [r7, #12]
-    /**ADC GPIO Configuration    
-    PA0     ------> ADC_IN0 
+    /**ADC GPIO Configuration
+    PA0     ------> ADC_IN0
     */
     GPIO_InitStruct.Pin = GPIO_PIN_0;
  8002792:	2114      	movs	r1, #20
@@ -5364,7 +5364,7 @@ int main(void)
  8002956:	f7ff fd81 	bl	800245c <UserDisplayTask>
 	  UserPollADC();
  800295a:	f7ff fe09 	bl	8002570 <UserPollADC>
-  {
+	  UserDisplayTask();
  800295e:	e7fa      	b.n	8002956 <main+0x46>
  8002960:	00004cf6 	.word	0x00004cf6
  8002964:	20000218 	.word	0x20000218
@@ -5395,7 +5395,7 @@ void SystemClock_Config(void)
  8002986:	2100      	movs	r1, #0
  8002988:	f003 fbf0 	bl	800616c <memset>
 
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
  800298c:	0021      	movs	r1, r4
@@ -5438,7 +5438,7 @@ void SystemClock_Config(void)
     Error_Handler();
  80029c8:	f000 f819 	bl	80029fe <Error_Handler>
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
  80029cc:	1d3b      	adds	r3, r7, #4
@@ -5707,7 +5707,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
  8002b38:	4013      	ands	r3, r2
  8002b3a:	61bb      	str	r3, [r7, #24]
  8002b3c:	69bb      	ldr	r3, [r7, #24]
-  
+
     __HAL_RCC_GPIOA_CLK_ENABLE();
  8002b3e:	4b32      	ldr	r3, [pc, #200]	; (8002c08 <HAL_SPI_MspInit+0x108>)
  8002b40:	695a      	ldr	r2, [r3, #20]
@@ -5723,10 +5723,10 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
  8002b54:	4013      	ands	r3, r2
  8002b56:	617b      	str	r3, [r7, #20]
  8002b58:	697b      	ldr	r3, [r7, #20]
-    /**SPI1 GPIO Configuration    
+    /**SPI1 GPIO Configuration
     PA5     ------> SPI1_SCK
     PA6     ------> SPI1_MISO
-    PA7     ------> SPI1_MOSI 
+    PA7     ------> SPI1_MOSI
     */
     GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
  8002b5a:	211c      	movs	r1, #28

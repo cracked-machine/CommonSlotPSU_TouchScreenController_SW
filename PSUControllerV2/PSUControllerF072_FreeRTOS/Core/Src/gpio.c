@@ -30,9 +30,9 @@
 
 /* USER CODE END 1 */
 
-/** Configure pins as 
-        * Analog 
-        * Input 
+/** Configure pins as
+        * Analog
+        * Input
         * Output
         * EVENT_OUT
         * EXTI
@@ -81,7 +81,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(PSU_SW_ON_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 3, 0);
+  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
 }

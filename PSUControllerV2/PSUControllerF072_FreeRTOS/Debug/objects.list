@@ -1,6 +1,5 @@
 "Core/Src/UserTasks.o"
 "Core/Src/adc.o"
-"Core/Src/dma.o"
 "Core/Src/freertos.o"
 "Core/Src/gpio.o"
 "Core/Src/main.o"

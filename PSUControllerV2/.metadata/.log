@@ -2947,3 +2947,352 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1441)
+!SESSION 2020-07-27 19:19:39.457 -----------------------------------------------
+eclipse.buildId=Version 1.3.1
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-07-27 19:19:49.023
+!MESSAGE Log4j initialized with config file /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-07-27 19:19:56.743
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-07-27 19:19:57.091
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+!SESSION 2020-07-27 19:23:11.736 -----------------------------------------------
+eclipse.buildId=Version 1.3.1
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -data file:/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/ -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-07-27 19:23:17.562
+!MESSAGE Log4j initialized with config file /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-07-27 19:23:23.902
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-07-27 19:23:24.404
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+!SESSION 2020-07-27 19:24:37.996 -----------------------------------------------
+eclipse.buildId=Version 1.3.1
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -data file:/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/ -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-07-27 19:24:44.328
+!MESSAGE Log4j initialized with config file /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-07-27 19:24:51.963
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-07-27 19:24:52.447
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.jface 2 0 2020-07-27 19:37:56.941
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:515)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1965)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:656)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1582)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.556
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.556
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.557
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.557
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.557
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.557
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.557
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.557
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.558
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.558
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.572
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.572
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.572
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.573
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.573
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.573
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.573
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.573
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.574
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.574
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.578
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.578
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.578
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.578
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.579
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.579
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.579
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.579
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.579
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.580
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.584
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.585
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.585
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.585
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.585
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.586
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.586
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.586
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.586
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.586
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.590
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.590
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.590
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.590
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.591
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.591
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.591
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.591
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.591
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.591
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.598
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.598
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.598
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.599
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.599
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.599
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.599
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.599
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.600
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.600
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.615
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.616
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.616
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.616
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.616
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.616
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.617
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.617
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.617
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.617
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.627
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.627
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.628
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.628
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.628
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.628
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.628
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.629
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.629
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.629
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.639
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.639
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.640
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.640
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.640
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.640
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.641
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.641
+!MESSAGE Falling back to default toolchain
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2020-07-27 19:42:23.641
+!MESSAGE Type or version is empty: ; 
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 2 2 2020-07-27 19:42:23.641
+!MESSAGE Falling back to default toolchain
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-07-27 19:45:47.185
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@6bd6c08a): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status null children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #8 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@313c5a13): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #8 null Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@38e9f946): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #8 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@313c5a13): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #8 null' resulted in a rejected execution exception. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2020-07-27 19:45:47.186
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #8 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@313c5a13): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #8
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2020-07-27 19:45:47.186
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@38e9f946): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #8 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@313c5a13): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #8 null' resulted in a rejected execution exception.
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2020-07-27 19:46:34.473
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.NullPointerException
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:899)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1231)
+	at java.lang.Thread.run(Thread.java:748)
