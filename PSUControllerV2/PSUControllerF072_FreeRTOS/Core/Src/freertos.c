@@ -30,7 +30,6 @@
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
-typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -49,53 +48,42 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
+osThreadId defaultTaskHandle;
 uint32_t defaultTaskBuffer[ 128 ];
 osStaticThreadDef_t defaultTaskControlBlock;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .stack_mem = &defaultTaskBuffer[0],
-  .stack_size = sizeof(defaultTaskBuffer),
-  .cb_mem = &defaultTaskControlBlock,
-  .cb_size = sizeof(defaultTaskControlBlock),
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for PollADCTask */
-osThreadId_t PollADCTaskHandle;
+osThreadId PollADCTaskHandle;
 uint32_t PollADCTaskBuffer[ 128 ];
 osStaticThreadDef_t PollADCTaskControlBlock;
-const osThreadAttr_t PollADCTask_attributes = {
-  .name = "PollADCTask",
-  .stack_mem = &PollADCTaskBuffer[0],
-  .stack_size = sizeof(PollADCTaskBuffer),
-  .cb_mem = &PollADCTaskControlBlock,
-  .cb_size = sizeof(PollADCTaskControlBlock),
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for DisplayTask */
-osThreadId_t DisplayTaskHandle;
+osThreadId DisplayTaskHandle;
 uint32_t DIsplayTaskBuffer[ 128 ];
 osStaticThreadDef_t DIsplayTaskControlBlock;
-const osThreadAttr_t DisplayTask_attributes = {
-  .name = "DisplayTask",
-  .stack_mem = &DIsplayTaskBuffer[0],
-  .stack_size = sizeof(DIsplayTaskBuffer),
-  .cb_mem = &DIsplayTaskControlBlock,
-  .cb_size = sizeof(DIsplayTaskControlBlock),
-  .priority = (osPriority_t) osPriorityNormal,
-};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void *argument);
-void StartPollADCTask(void *argument);
-void StartDisplayTask(void *argument);
+void StartDefaultTask(void const * argument);
+void StartPollADCTask(void const * argument);
+void StartDisplayTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* GetIdleTaskMemory prototype (linked to static allocation support) */
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+
+/* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
+static StaticTask_t xIdleTaskTCBBuffer;
+static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
+
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
+{
+  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+  *ppxIdleTaskStackBuffer = &xIdleStack[0];
+  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+  /* place for user code */
+}
+/* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
   * @brief  FreeRTOS initialization
@@ -124,14 +112,17 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* definition and creation of defaultTask */
+  osThreadStaticDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128, defaultTaskBuffer, &defaultTaskControlBlock);
+  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* creation of PollADCTask */
-  PollADCTaskHandle = osThreadNew(StartPollADCTask, NULL, &PollADCTask_attributes);
+  /* definition and creation of PollADCTask */
+  osThreadStaticDef(PollADCTask, StartPollADCTask, osPriorityLow, 0, 128, PollADCTaskBuffer, &PollADCTaskControlBlock);
+  PollADCTaskHandle = osThreadCreate(osThread(PollADCTask), NULL);
 
-  /* creation of DisplayTask */
-  DisplayTaskHandle = osThreadNew(StartDisplayTask, NULL, &DisplayTask_attributes);
+  /* definition and creation of DisplayTask */
+  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityNormal, 0, 128, DIsplayTaskBuffer, &DIsplayTaskControlBlock);
+  DisplayTaskHandle = osThreadCreate(osThread(DisplayTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -146,7 +137,7 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
 
@@ -180,7 +171,7 @@ void StartDefaultTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartPollADCTask */
-void StartPollADCTask(void *argument)
+void StartPollADCTask(void const * argument)
 {
   /* USER CODE BEGIN StartPollADCTask */
 	while(1)
@@ -204,7 +195,7 @@ void StartPollADCTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartDisplayTask */
-void StartDisplayTask(void *argument)
+void StartDisplayTask(void const * argument)
 {
   /* USER CODE BEGIN StartDisplayTask */
 	while(1)

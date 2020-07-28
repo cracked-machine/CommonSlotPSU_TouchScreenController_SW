@@ -108,14 +108,13 @@ int main(void)
 
   // init TSC2046 library
   TSC2046_HM_Init();
-  HAL_GPIO_WritePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin, GPIO_PIN_SET);
+
 
   HAL_ADCEx_Calibration_Start(&hadc);
   HAL_ADC_Start(&hadc);
   /* USER CODE END 2 */
 
-  /* Init scheduler */
-  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
   /* Start scheduler */
   osKernelStart();

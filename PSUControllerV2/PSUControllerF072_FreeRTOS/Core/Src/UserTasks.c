@@ -14,7 +14,7 @@
 
 #include "adc.h"
 
-//#define USE_FLOAT
+#define USE_FLOAT
 
 #ifdef USE_FLOAT
 
@@ -39,6 +39,8 @@
  *	@retval
  *
  */
+
+
 
 
 void UserDisplayTask()
@@ -114,7 +116,7 @@ void UserPollADC()
 
 #ifdef USE_FLOAT
 		char imon_string[12];
-		snprintf(imon_string, sizeof(imon_string), "%f mV", final_adc_data);
+		sprintf(imon_string, "%f mV", final_adc_data);
 		ILI9341_Draw_Text(imon_string, 10, 100, BLACK, 3, RED);
 #else
 		char imon_string[12];
