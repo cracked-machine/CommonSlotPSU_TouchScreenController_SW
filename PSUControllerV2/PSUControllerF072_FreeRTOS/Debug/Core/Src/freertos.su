@@ -1,5 +1,4 @@
-freertos.c:79:6:vApplicationGetIdleTaskMemory	24	static
-freertos.c:93:6:MX_FREERTOS_Init	104	static
-freertos.c:140:6:StartDefaultTask	16	static
-freertos.c:174:6:StartPollADCTask	16	static
-freertos.c:198:6:StartDisplayTask	16	static
+freertos.c:71:6:MX_FREERTOS_Init	80	static
+freertos.c:118:6:StartDefaultTask	16	static
+freertos.c:152:6:StartPollADCTask	16	static
+freertos.c:176:6:StartDisplayTask	16	static

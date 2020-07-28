@@ -14,22 +14,22 @@
 
 #include "adc.h"
 
+
 #define USE_FLOAT
-
 #ifdef USE_FLOAT
-
-	#define ADC_DATA_SIZE 3.0
-
+	#define ADC_DATA_SIZE 1.0
 	float final_adc_data = 0;
 #else
 	#define ADC_DATA_SIZE 3
-
 	uint32_t final_adc_data = 0;
-
 #endif // USE_FLOAT
-	uint32_t adc_data = 0;
 
-	uint8_t adc_count = 0;
+
+//#define ADC_TO_VOLTS_RES	0.000805	// 3.3v / 4096
+#define ADC_TO_VOLTS_RES	0.001611	// 3.3v / 2048
+
+uint32_t adc_data = 0;
+uint8_t adc_count = 0;
 
 /*
  *
@@ -96,7 +96,7 @@ void UserPollADC()
 
 #ifdef USE_FLOAT
 				   final_adc_data = (float)adc_data / ADC_DATA_SIZE;
-				   final_adc_data = final_adc_data/4095.0;		// convert to decimal
+				   final_adc_data = final_adc_data * ADC_TO_VOLTS_RES;		// convert to decimal
 #else
 				   final_adc_data = adc_data / ADC_DATA_SIZE;
 
