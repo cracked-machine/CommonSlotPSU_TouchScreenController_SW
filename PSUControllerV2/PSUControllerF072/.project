@@ -42,5 +42,10 @@
 			<type>2</type>
 			<location>/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen</location>
 		</link>
+		<link>
+			<name>UserApplication</name>
+			<type>2</type>
+			<location>/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication</location>
+		</link>
 	</linkedResources>
 </projectDescription>

@@ -24,4 +24,5 @@ Core/Startup \
 Drivers/STM32F0xx_HAL_Driver/Src \
 Optimized_STM32_ILI9341 \
 Optimized_TSC2046_TouchSceen \
+UserApplication \
 

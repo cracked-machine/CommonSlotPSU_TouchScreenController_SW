@@ -1,4 +1,4 @@
 freertos.c:71:6:MX_FREERTOS_Init	80	static
 freertos.c:118:6:StartDefaultTask	16	static
-freertos.c:152:6:StartPollADCTask	16	static
-freertos.c:176:6:StartDisplayTask	16	static
+freertos.c:144:6:StartPollADCTask	16	static
+freertos.c:168:6:StartDisplayTask	16	static

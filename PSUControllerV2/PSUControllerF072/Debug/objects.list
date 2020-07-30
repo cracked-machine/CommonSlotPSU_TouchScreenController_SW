@@ -1,4 +1,3 @@
-"Core/Src/UserTasks.o"
 "Core/Src/adc.o"
 "Core/Src/gpio.o"
 "Core/Src/main.o"
@@ -34,3 +33,4 @@
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManager.o"
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.o"
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.o"
+"UserApplication/UserTasks.o"

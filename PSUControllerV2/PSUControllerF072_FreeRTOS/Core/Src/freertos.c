@@ -123,15 +123,7 @@ void StartDefaultTask(void const * argument)
 	while(1)
 	{
 
-		osThreadSuspend(PollADCTaskHandle);
-		osThreadResume(DisplayTaskHandle);
-
-		osDelay(3000);
-
-		osThreadSuspend(DisplayTaskHandle);
-		osThreadResume(PollADCTaskHandle);
-
-		osDelay(150);
+		UserDefaultTask();
 
 	}
   /* Infinite loop */

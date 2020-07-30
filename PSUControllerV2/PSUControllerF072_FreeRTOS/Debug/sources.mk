@@ -27,4 +27,5 @@ Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0 \
 Optimized_STM32_ILI9341 \
 Optimized_TSC2046_TouchSceen \
+UserApplication \
 

@@ -40,7 +40,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManger.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h \
- ../Core/Src/UserTasks.h
+ /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UserTasks.h
 
 ../Core/Inc/main.h:
 
@@ -132,4 +132,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h:
 
-../Core/Src/UserTasks.h:
+/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UserTasks.h:

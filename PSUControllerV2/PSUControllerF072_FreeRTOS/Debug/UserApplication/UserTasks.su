@@ -1,0 +1,3 @@
+UserTasks.c:46:7:UserDefaultTask	8	static
+UserTasks.c:60:6:UserDisplayTask	40	static
+UserTasks.c:99:6:UserPollADC	40	static

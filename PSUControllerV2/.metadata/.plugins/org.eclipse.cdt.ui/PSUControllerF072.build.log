@@ -1,7 +1,7 @@
-19:43:55 **** Incremental Build of configuration Debug for project PSUControllerF072 ****
+21:16:55 **** Incremental Build of configuration Debug for project PSUControllerF072 ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/UserTasks.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/UserTasks.d" -MT"Core/Src/UserTasks.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/UserTasks.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UserTasks.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"UserApplication/UserTasks.d" -MT"UserApplication/UserTasks.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "UserApplication/UserTasks.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F072xB -DDEBUG -c -I"/home/chris/Projects/Embedded/Optimized_STM32_ILI9341" -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Include -I"/home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen" -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "PSUControllerF072.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/PSUControllerF072/STM32F072RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PSUControllerF072.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: PSUControllerF072.elf
  
@@ -9,13 +9,13 @@ arm-none-eabi-objdump -h -S  PSUControllerF072.elf  > "PSUControllerF072.list"
 arm-none-eabi-objcopy  -O binary  PSUControllerF072.elf  "PSUControllerF072.bin"
 arm-none-eabi-size   PSUControllerF072.elf 
    text	   data	    bss	    dec	    hex	filename
-  35036	    488	   1936	  37460	   9254	PSUControllerF072.elf
+  34408	    488	   1936	  36832	   8fe0	PSUControllerF072.elf
 Finished building: default.size.stdout
-Finished building: PSUControllerF072.bin
  
+Finished building: PSUControllerF072.bin
  
 Finished building: PSUControllerF072.list
  
 
-19:43:56 Build Finished. 0 errors, 0 warnings. (took 925ms)
+21:16:56 Build Finished. 0 errors, 0 warnings. (took 875ms)
 

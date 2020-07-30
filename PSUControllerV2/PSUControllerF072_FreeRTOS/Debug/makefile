@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include UserApplication/subdir.mk
 -include Optimized_TSC2046_TouchSceen/subdir.mk
 -include Optimized_STM32_ILI9341/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0/subdir.mk
