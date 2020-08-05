@@ -14,17 +14,22 @@
 
 	#include "cmsis_os.h"
 
-	void UserDefaultTask();
+	void UserDisplayManager();
+	void UserPenIrqManager();
 
 	// auto-generated in freertos.c
-	osThreadId defaultTaskHandle;
-	osThreadId PollADCTaskHandle;
 	osThreadId DisplayTaskHandle;
+	osThreadId AdcTaskHandle;
+	osThreadId PenIrqTaskHandle;
+
+	osSemaphoreId myBinarySem01Handle;
 
 #endif	//USE_FREERTOS
 
 
 void UserDisplayTask();
-void UserPollADC();
+void UserAdcTask();
+void UserPenIrqISR();
+
 
 #endif /* TSC2046_STM32_TASKMANAGER_H_ */

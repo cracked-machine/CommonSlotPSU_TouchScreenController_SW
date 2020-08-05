@@ -1,2 +1,2 @@
 TSC2046_STM32_InterruptManager.c:26:6:TSC2046_IM_PENIRQ_EXTI_Handler	8	static
-TSC2046_STM32_InterruptManager.c:46:6:TSC2046_IM_HardwareManagerLoopHandler	8	static
+TSC2046_STM32_InterruptManager.c:48:6:TSC2046_IM_HardwareManagerLoopHandler	8	static

@@ -1,2 +1,3 @@
-UserTasks.c:61:6:UserDisplayTask	40	static
-UserTasks.c:100:6:UserPollADC	40	static
+UserTasks.c:91:6:UserPenIrqISR	8	static
+UserTasks.c:100:6:UserDisplayTask	40	static
+UserTasks.c:143:6:UserAdcTask	40	static

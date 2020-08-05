@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  000201e0  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000106b8  00000000  00000000  00020208  2**0
+ 12 .debug_info   000106cd  00000000  00000000  00020208  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00002905  00000000  00000000  000308c0  2**0
+ 13 .debug_abbrev 00002914  00000000  00000000  000308d5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000e18  00000000  00000000  000331c8  2**3
+ 14 .debug_aranges 00000e20  00000000  00000000  000331f0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000ca0  00000000  00000000  00033fe0  2**3
+ 15 .debug_ranges 00000ca8  00000000  00000000  00034010  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00018a17  00000000  00000000  00034c80  2**0
+ 16 .debug_macro  00018a17  00000000  00000000  00034cb8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0000ec28  00000000  00000000  0004d697  2**0
+ 17 .debug_line   0000ec34  00000000  00000000  0004d6cf  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000819a0  00000000  00000000  0005c2bf  2**0
+ 18 .debug_str    000819ae  00000000  00000000  0005c303  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000ddc5f  2**0
+ 19 .comment      0000007b  00000000  00000000  000ddcb1  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003b24  00000000  00000000  000ddcdc  2**2
+ 20 .debug_frame  00003b40  00000000  00000000  000ddd2c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4795,8 +4795,8 @@ int main(void)
   {
 	  UserDisplayTask();
  800250e:	f003 fbe5 	bl	8005cdc <UserDisplayTask>
-	  UserPollADC();
- 8002512:	f003 fc6d 	bl	8005df0 <UserPollADC>
+	  UserAdcTask();
+ 8002512:	f003 fc6d 	bl	8005df0 <UserAdcTask>
 	  UserDisplayTask();
  8002516:	e7fa      	b.n	800250e <main+0x46>
  8002518:	00004cf6 	.word	0x00004cf6
@@ -14640,8 +14640,10 @@ eTSC2046ReadStatusTypedef TSC2046_HM_RunConversion()
 				_SpiTransmit8(YPOSCMD);							// Y POS CMD transmit
  8005a8c:	20d0      	movs	r0, #208	; 0xd0
  8005a8e:	f000 f8c3 	bl	8005c18 <_SpiTransmit8>
+
 				_SpiReceive16();								// dummy receive
  8005a92:	f000 f8d9 	bl	8005c48 <_SpiReceive16>
+
 
 				//_WaitDelay(0);
 
@@ -14878,6 +14880,7 @@ void _SetCsPinLow()
  8005bda:	4904      	ldr	r1, [pc, #16]	; (8005bec <_SetCsPinLow+0x1c>)
  8005bdc:	400a      	ands	r2, r1
  8005bde:	615a      	str	r2, [r3, #20]
+
 }
  8005be0:	46c0      	nop			; (mov r8, r8)
  8005be2:	46bd      	mov	sp, r7
@@ -14911,6 +14914,7 @@ void _EnableSPI()
  8005c06:	2140      	movs	r1, #64	; 0x40
  8005c08:	430a      	orrs	r2, r1
  8005c0a:	601a      	str	r2, [r3, #0]
+
 	}
 
 }
@@ -14946,7 +14950,9 @@ void _SpiTransmit8(uint8_t data)
  8005c32:	1dfb      	adds	r3, r7, #7
  8005c34:	781b      	ldrb	r3, [r3, #0]
  8005c36:	7013      	strb	r3, [r2, #0]
+
 	}
+
 }
  8005c38:	46c0      	nop			; (mov r8, r8)
  8005c3a:	46bd      	mov	sp, r7
@@ -14982,6 +14988,7 @@ uint16_t _SpiReceive16()
  8005c62:	68da      	ldr	r2, [r3, #12]
  8005c64:	1dbb      	adds	r3, r7, #6
  8005c66:	801a      	strh	r2, [r3, #0]
+
 	}
 	return data;
  8005c68:	1dbb      	adds	r3, r7, #6
@@ -15040,11 +15047,12 @@ void TSC2046_IM_PENIRQ_EXTI_Handler()
 {
  8005ca0:	b580      	push	{r7, lr}
  8005ca2:	af00      	add	r7, sp, #0
-//	uint32_t interrupt_time = TSC2046_HW_DEBOUNCE_TIMER->CNT;
 
 //	if( (interrupt_time - touchscreen_last_interrupt_time) > MAX_TOUCHSCREEN_DEBOUNCE_DELAY )
 //	{
-		TSC2046_EM_ProcessEvent(TSC2046_evPen);
+
+
+	TSC2046_EM_ProcessEvent(TSC2046_evPen);
  8005ca4:	2001      	movs	r0, #1
  8005ca6:	f7ff fe77 	bl	8005998 <TSC2046_EM_ProcessEvent>
 //	}
@@ -15092,9 +15100,9 @@ void TSC2046_IM_HardwareManagerLoopHandler()
  8005cd8:	48000800 	.word	0x48000800
 
 08005cdc <UserDisplayTask>:
-		osDelay(150);
-	}
-#endif	//USE_FREERTOS
+	TSC2046_IM_PENIRQ_EXTI_Handler();
+#endif
+}
 
 void UserDisplayTask()
 {
@@ -15102,203 +15110,210 @@ void UserDisplayTask()
  8005cde:	b087      	sub	sp, #28
  8005ce0:	af02      	add	r7, sp, #8
 
+
+
+	   // check for penirq interrupt
+	   if(TSC2046_EM_GetTouchScreenState())
+ 8005ce2:	f7ff fe4f 	bl	8005984 <TSC2046_EM_GetTouchScreenState>
+ 8005ce6:	1e03      	subs	r3, r0, #0
+ 8005ce8:	d043      	beq.n	8005d72 <UserDisplayTask+0x96>
+	   {
+		 ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
+ 8005cea:	4837      	ldr	r0, [pc, #220]	; (8005dc8 <UserDisplayTask+0xec>)
+ 8005cec:	4b37      	ldr	r3, [pc, #220]	; (8005dcc <UserDisplayTask+0xf0>)
+ 8005cee:	9301      	str	r3, [sp, #4]
+ 8005cf0:	2302      	movs	r3, #2
+ 8005cf2:	9300      	str	r3, [sp, #0]
+ 8005cf4:	2300      	movs	r3, #0
+ 8005cf6:	220a      	movs	r2, #10
+ 8005cf8:	2164      	movs	r1, #100	; 0x64
+ 8005cfa:	f7fe ff03 	bl	8004b04 <ILI9341_Draw_Text>
+
+		 // turn on PSU
+		 HAL_GPIO_TogglePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin);
+ 8005cfe:	4b34      	ldr	r3, [pc, #208]	; (8005dd0 <UserDisplayTask+0xf4>)
+ 8005d00:	2108      	movs	r1, #8
+ 8005d02:	0018      	movs	r0, r3
+ 8005d04:	f7fd fda8 	bl	8003858 <HAL_GPIO_TogglePin>
+
+		 // get touchscreen coordinate data
+		 if( TSC2046_HM_RunConversion() == TSC2046_DATAOK )
+ 8005d08:	f7ff feae 	bl	8005a68 <TSC2046_HM_RunConversion>
+ 8005d0c:	1e03      	subs	r3, r0, #0
+ 8005d0e:	d125      	bne.n	8005d5c <UserDisplayTask+0x80>
+		 {
+		   ILI9341_Draw_Filled_Circle(TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos(), 2, WHITE);
+ 8005d10:	f7ff ffb2 	bl	8005c78 <TSC4026_STM32_HM_GetXpos>
+ 8005d14:	0003      	movs	r3, r0
+ 8005d16:	001c      	movs	r4, r3
+ 8005d18:	f7ff ffb8 	bl	8005c8c <TSC4026_STM32_HM_GetYpos>
+ 8005d1c:	0003      	movs	r3, r0
+ 8005d1e:	0019      	movs	r1, r3
+ 8005d20:	4b2c      	ldr	r3, [pc, #176]	; (8005dd4 <UserDisplayTask+0xf8>)
+ 8005d22:	2202      	movs	r2, #2
+ 8005d24:	0020      	movs	r0, r4
+ 8005d26:	f7fe fd4b 	bl	80047c0 <ILI9341_Draw_Filled_Circle>
+		   char pos_string[15];
+		   snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos());
+ 8005d2a:	f7ff ffa5 	bl	8005c78 <TSC4026_STM32_HM_GetXpos>
+ 8005d2e:	0003      	movs	r3, r0
+ 8005d30:	001c      	movs	r4, r3
+ 8005d32:	f7ff ffab 	bl	8005c8c <TSC4026_STM32_HM_GetYpos>
+ 8005d36:	0003      	movs	r3, r0
+ 8005d38:	4a27      	ldr	r2, [pc, #156]	; (8005dd8 <UserDisplayTask+0xfc>)
+ 8005d3a:	0038      	movs	r0, r7
+ 8005d3c:	9300      	str	r3, [sp, #0]
+ 8005d3e:	0023      	movs	r3, r4
+ 8005d40:	210f      	movs	r1, #15
+ 8005d42:	f000 fd5f 	bl	8006804 <sniprintf>
+		   ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
+ 8005d46:	0038      	movs	r0, r7
+ 8005d48:	4b20      	ldr	r3, [pc, #128]	; (8005dcc <UserDisplayTask+0xf0>)
+ 8005d4a:	9301      	str	r3, [sp, #4]
+ 8005d4c:	2302      	movs	r3, #2
+ 8005d4e:	9300      	str	r3, [sp, #0]
+ 8005d50:	2300      	movs	r3, #0
+ 8005d52:	220a      	movs	r2, #10
+ 8005d54:	21b4      	movs	r1, #180	; 0xb4
+ 8005d56:	f7fe fed5 	bl	8004b04 <ILI9341_Draw_Text>
+ 8005d5a:	e014      	b.n	8005d86 <UserDisplayTask+0xaa>
+		 }
+		 else
+		 {
+		   ILI9341_Draw_Text("DATAERR   ", 200, 10, BLACK, 2, RED);
+ 8005d5c:	481f      	ldr	r0, [pc, #124]	; (8005ddc <UserDisplayTask+0x100>)
+ 8005d5e:	4b1b      	ldr	r3, [pc, #108]	; (8005dcc <UserDisplayTask+0xf0>)
+ 8005d60:	9301      	str	r3, [sp, #4]
+ 8005d62:	2302      	movs	r3, #2
+ 8005d64:	9300      	str	r3, [sp, #0]
+ 8005d66:	2300      	movs	r3, #0
+ 8005d68:	220a      	movs	r2, #10
+ 8005d6a:	21c8      	movs	r1, #200	; 0xc8
+ 8005d6c:	f7fe feca 	bl	8004b04 <ILI9341_Draw_Text>
+ 8005d70:	e009      	b.n	8005d86 <UserDisplayTask+0xaa>
+		 }
+	   }
+
+	   else
+	   {
+		 ILI9341_Draw_Text("NONE", 100, 10, BLACK, 2, RED);
+ 8005d72:	481b      	ldr	r0, [pc, #108]	; (8005de0 <UserDisplayTask+0x104>)
+ 8005d74:	4b15      	ldr	r3, [pc, #84]	; (8005dcc <UserDisplayTask+0xf0>)
+ 8005d76:	9301      	str	r3, [sp, #4]
+ 8005d78:	2302      	movs	r3, #2
+ 8005d7a:	9300      	str	r3, [sp, #0]
+ 8005d7c:	2300      	movs	r3, #0
+ 8005d7e:	220a      	movs	r2, #10
+ 8005d80:	2164      	movs	r1, #100	; 0x64
+ 8005d82:	f7fe febf 	bl	8004b04 <ILI9341_Draw_Text>
+	   }
+
+	   // update screen ON/OFF label
 	   if(HAL_GPIO_ReadPin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin) == GPIO_PIN_SET)
- 8005ce2:	4b39      	ldr	r3, [pc, #228]	; (8005dc8 <UserDisplayTask+0xec>)
- 8005ce4:	2108      	movs	r1, #8
- 8005ce6:	0018      	movs	r0, r3
- 8005ce8:	f7fd fd7c 	bl	80037e4 <HAL_GPIO_ReadPin>
- 8005cec:	0003      	movs	r3, r0
- 8005cee:	2b01      	cmp	r3, #1
- 8005cf0:	d10a      	bne.n	8005d08 <UserDisplayTask+0x2c>
+ 8005d86:	4b12      	ldr	r3, [pc, #72]	; (8005dd0 <UserDisplayTask+0xf4>)
+ 8005d88:	2108      	movs	r1, #8
+ 8005d8a:	0018      	movs	r0, r3
+ 8005d8c:	f7fd fd2a 	bl	80037e4 <HAL_GPIO_ReadPin>
+ 8005d90:	0003      	movs	r3, r0
+ 8005d92:	2b01      	cmp	r3, #1
+ 8005d94:	d10a      	bne.n	8005dac <UserDisplayTask+0xd0>
 	   {
 		   ILI9341_Draw_Text("ON ", 10, 50, BLACK, 3, GREEN);
- 8005cf2:	4836      	ldr	r0, [pc, #216]	; (8005dcc <UserDisplayTask+0xf0>)
- 8005cf4:	4b36      	ldr	r3, [pc, #216]	; (8005dd0 <UserDisplayTask+0xf4>)
- 8005cf6:	9301      	str	r3, [sp, #4]
- 8005cf8:	2303      	movs	r3, #3
- 8005cfa:	9300      	str	r3, [sp, #0]
- 8005cfc:	2300      	movs	r3, #0
- 8005cfe:	2232      	movs	r2, #50	; 0x32
- 8005d00:	210a      	movs	r1, #10
- 8005d02:	f7fe feff 	bl	8004b04 <ILI9341_Draw_Text>
- 8005d06:	e009      	b.n	8005d1c <UserDisplayTask+0x40>
+ 8005d96:	4813      	ldr	r0, [pc, #76]	; (8005de4 <UserDisplayTask+0x108>)
+ 8005d98:	4b13      	ldr	r3, [pc, #76]	; (8005de8 <UserDisplayTask+0x10c>)
+ 8005d9a:	9301      	str	r3, [sp, #4]
+ 8005d9c:	2303      	movs	r3, #3
+ 8005d9e:	9300      	str	r3, [sp, #0]
+ 8005da0:	2300      	movs	r3, #0
+ 8005da2:	2232      	movs	r2, #50	; 0x32
+ 8005da4:	210a      	movs	r1, #10
+ 8005da6:	f7fe fead 	bl	8004b04 <ILI9341_Draw_Text>
 	   }
 	   else
 	   {
 		   ILI9341_Draw_Text("OFF", 10, 50, BLACK, 3, RED);
- 8005d08:	4832      	ldr	r0, [pc, #200]	; (8005dd4 <UserDisplayTask+0xf8>)
- 8005d0a:	4b33      	ldr	r3, [pc, #204]	; (8005dd8 <UserDisplayTask+0xfc>)
- 8005d0c:	9301      	str	r3, [sp, #4]
- 8005d0e:	2303      	movs	r3, #3
- 8005d10:	9300      	str	r3, [sp, #0]
- 8005d12:	2300      	movs	r3, #0
- 8005d14:	2232      	movs	r2, #50	; 0x32
- 8005d16:	210a      	movs	r1, #10
- 8005d18:	f7fe fef4 	bl	8004b04 <ILI9341_Draw_Text>
 	   }
-
-	   // check for penirq interrupt
-	   if(TSC2046_EM_GetTouchScreenState())
- 8005d1c:	f7ff fe32 	bl	8005984 <TSC2046_EM_GetTouchScreenState>
- 8005d20:	1e03      	subs	r3, r0, #0
- 8005d22:	d043      	beq.n	8005dac <UserDisplayTask+0xd0>
-	   {
-		 ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
- 8005d24:	482d      	ldr	r0, [pc, #180]	; (8005ddc <UserDisplayTask+0x100>)
- 8005d26:	4b2c      	ldr	r3, [pc, #176]	; (8005dd8 <UserDisplayTask+0xfc>)
- 8005d28:	9301      	str	r3, [sp, #4]
- 8005d2a:	2302      	movs	r3, #2
- 8005d2c:	9300      	str	r3, [sp, #0]
- 8005d2e:	2300      	movs	r3, #0
- 8005d30:	220a      	movs	r2, #10
- 8005d32:	2164      	movs	r1, #100	; 0x64
- 8005d34:	f7fe fee6 	bl	8004b04 <ILI9341_Draw_Text>
-		 HAL_GPIO_TogglePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin);
- 8005d38:	4b23      	ldr	r3, [pc, #140]	; (8005dc8 <UserDisplayTask+0xec>)
- 8005d3a:	2108      	movs	r1, #8
- 8005d3c:	0018      	movs	r0, r3
- 8005d3e:	f7fd fd8b 	bl	8003858 <HAL_GPIO_TogglePin>
-
-		 // get touchscreen coordinate data
-		 if( TSC2046_HM_RunConversion() == TSC2046_DATAOK )
- 8005d42:	f7ff fe91 	bl	8005a68 <TSC2046_HM_RunConversion>
- 8005d46:	1e03      	subs	r3, r0, #0
- 8005d48:	d125      	bne.n	8005d96 <UserDisplayTask+0xba>
-		 {
-		   ILI9341_Draw_Filled_Circle(TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos(), 2, WHITE);
- 8005d4a:	f7ff ff95 	bl	8005c78 <TSC4026_STM32_HM_GetXpos>
- 8005d4e:	0003      	movs	r3, r0
- 8005d50:	001c      	movs	r4, r3
- 8005d52:	f7ff ff9b 	bl	8005c8c <TSC4026_STM32_HM_GetYpos>
- 8005d56:	0003      	movs	r3, r0
- 8005d58:	0019      	movs	r1, r3
- 8005d5a:	4b21      	ldr	r3, [pc, #132]	; (8005de0 <UserDisplayTask+0x104>)
- 8005d5c:	2202      	movs	r2, #2
- 8005d5e:	0020      	movs	r0, r4
- 8005d60:	f7fe fd2e 	bl	80047c0 <ILI9341_Draw_Filled_Circle>
-		   char pos_string[15];
-		   snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos());
- 8005d64:	f7ff ff88 	bl	8005c78 <TSC4026_STM32_HM_GetXpos>
- 8005d68:	0003      	movs	r3, r0
- 8005d6a:	001c      	movs	r4, r3
- 8005d6c:	f7ff ff8e 	bl	8005c8c <TSC4026_STM32_HM_GetYpos>
- 8005d70:	0003      	movs	r3, r0
- 8005d72:	4a1c      	ldr	r2, [pc, #112]	; (8005de4 <UserDisplayTask+0x108>)
- 8005d74:	0038      	movs	r0, r7
- 8005d76:	9300      	str	r3, [sp, #0]
- 8005d78:	0023      	movs	r3, r4
- 8005d7a:	210f      	movs	r1, #15
- 8005d7c:	f000 fd42 	bl	8006804 <sniprintf>
-		   ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
- 8005d80:	0038      	movs	r0, r7
- 8005d82:	4b15      	ldr	r3, [pc, #84]	; (8005dd8 <UserDisplayTask+0xfc>)
- 8005d84:	9301      	str	r3, [sp, #4]
- 8005d86:	2302      	movs	r3, #2
- 8005d88:	9300      	str	r3, [sp, #0]
- 8005d8a:	2300      	movs	r3, #0
- 8005d8c:	220a      	movs	r2, #10
- 8005d8e:	21b4      	movs	r1, #180	; 0xb4
- 8005d90:	f7fe feb8 	bl	8004b04 <ILI9341_Draw_Text>
-	   else
-	   {
-		 ILI9341_Draw_Text("NONE", 100, 10, BLACK, 2, RED);
-	   }
-
-}
- 8005d94:	e014      	b.n	8005dc0 <UserDisplayTask+0xe4>
-		   ILI9341_Draw_Text("DATAERR   ", 200, 10, BLACK, 2, RED);
- 8005d96:	4814      	ldr	r0, [pc, #80]	; (8005de8 <UserDisplayTask+0x10c>)
- 8005d98:	4b0f      	ldr	r3, [pc, #60]	; (8005dd8 <UserDisplayTask+0xfc>)
- 8005d9a:	9301      	str	r3, [sp, #4]
- 8005d9c:	2302      	movs	r3, #2
- 8005d9e:	9300      	str	r3, [sp, #0]
- 8005da0:	2300      	movs	r3, #0
- 8005da2:	220a      	movs	r2, #10
- 8005da4:	21c8      	movs	r1, #200	; 0xc8
- 8005da6:	f7fe fead 	bl	8004b04 <ILI9341_Draw_Text>
 }
  8005daa:	e009      	b.n	8005dc0 <UserDisplayTask+0xe4>
-		 ILI9341_Draw_Text("NONE", 100, 10, BLACK, 2, RED);
+		   ILI9341_Draw_Text("OFF", 10, 50, BLACK, 3, RED);
  8005dac:	480f      	ldr	r0, [pc, #60]	; (8005dec <UserDisplayTask+0x110>)
- 8005dae:	4b0a      	ldr	r3, [pc, #40]	; (8005dd8 <UserDisplayTask+0xfc>)
+ 8005dae:	4b07      	ldr	r3, [pc, #28]	; (8005dcc <UserDisplayTask+0xf0>)
  8005db0:	9301      	str	r3, [sp, #4]
- 8005db2:	2302      	movs	r3, #2
+ 8005db2:	2303      	movs	r3, #3
  8005db4:	9300      	str	r3, [sp, #0]
  8005db6:	2300      	movs	r3, #0
- 8005db8:	220a      	movs	r2, #10
- 8005dba:	2164      	movs	r1, #100	; 0x64
+ 8005db8:	2232      	movs	r2, #50	; 0x32
+ 8005dba:	210a      	movs	r1, #10
  8005dbc:	f7fe fea2 	bl	8004b04 <ILI9341_Draw_Text>
 }
  8005dc0:	46c0      	nop			; (mov r8, r8)
  8005dc2:	46bd      	mov	sp, r7
  8005dc4:	b005      	add	sp, #20
  8005dc6:	bd90      	pop	{r4, r7, pc}
- 8005dc8:	48000400 	.word	0x48000400
- 8005dcc:	08008100 	.word	0x08008100
- 8005dd0:	000014a2 	.word	0x000014a2
- 8005dd4:	08008104 	.word	0x08008104
- 8005dd8:	0000d8c3 	.word	0x0000d8c3
- 8005ddc:	08008108 	.word	0x08008108
- 8005de0:	0000ffff 	.word	0x0000ffff
- 8005de4:	08008110 	.word	0x08008110
- 8005de8:	08008120 	.word	0x08008120
- 8005dec:	0800812c 	.word	0x0800812c
+ 8005dc8:	08008100 	.word	0x08008100
+ 8005dcc:	0000d8c3 	.word	0x0000d8c3
+ 8005dd0:	48000400 	.word	0x48000400
+ 8005dd4:	0000ffff 	.word	0x0000ffff
+ 8005dd8:	08008108 	.word	0x08008108
+ 8005ddc:	08008118 	.word	0x08008118
+ 8005de0:	08008124 	.word	0x08008124
+ 8005de4:	0800812c 	.word	0x0800812c
+ 8005de8:	000014a2 	.word	0x000014a2
+ 8005dec:	08008130 	.word	0x08008130
 
-08005df0 <UserPollADC>:
+08005df0 <UserAdcTask>:
 
-void UserPollADC()
+void UserAdcTask()
 {
  8005df0:	b590      	push	{r4, r7, lr}
  8005df2:	b087      	sub	sp, #28
  8005df4:	af02      	add	r7, sp, #8
-
-
 		// if PSU enabled, poll imonitor pin
 		if(HAL_GPIO_ReadPin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin) == GPIO_PIN_SET)
- 8005df6:	4b34      	ldr	r3, [pc, #208]	; (8005ec8 <UserPollADC+0xd8>)
+ 8005df6:	4b34      	ldr	r3, [pc, #208]	; (8005ec8 <UserAdcTask+0xd8>)
  8005df8:	2108      	movs	r1, #8
  8005dfa:	0018      	movs	r0, r3
  8005dfc:	f7fd fcf2 	bl	80037e4 <HAL_GPIO_ReadPin>
  8005e00:	0003      	movs	r3, r0
  8005e02:	2b01      	cmp	r3, #1
- 8005e04:	d142      	bne.n	8005e8c <UserPollADC+0x9c>
+ 8005e04:	d142      	bne.n	8005e8c <UserAdcTask+0x9c>
 		{
 		   if(HAL_ADC_PollForConversion(&hadc, 1) == HAL_OK)
- 8005e06:	4b31      	ldr	r3, [pc, #196]	; (8005ecc <UserPollADC+0xdc>)
+ 8005e06:	4b31      	ldr	r3, [pc, #196]	; (8005ecc <UserAdcTask+0xdc>)
  8005e08:	2101      	movs	r1, #1
  8005e0a:	0018      	movs	r0, r3
  8005e0c:	f7fc ffce 	bl	8002dac <HAL_ADC_PollForConversion>
  8005e10:	1e03      	subs	r3, r0, #0
- 8005e12:	d13e      	bne.n	8005e92 <UserPollADC+0xa2>
+ 8005e12:	d13e      	bne.n	8005e92 <UserAdcTask+0xa2>
 		   {
 			   if(adc_count == ADC_DATA_SIZE)			// calc adc mean, reset adc data + count
- 8005e14:	4b2e      	ldr	r3, [pc, #184]	; (8005ed0 <UserPollADC+0xe0>)
+ 8005e14:	4b2e      	ldr	r3, [pc, #184]	; (8005ed0 <UserAdcTask+0xe0>)
  8005e16:	781b      	ldrb	r3, [r3, #0]
  8005e18:	0018      	movs	r0, r3
  8005e1a:	f7fc f8ad 	bl	8001f78 <__aeabi_i2d>
  8005e1e:	2200      	movs	r2, #0
- 8005e20:	4b2c      	ldr	r3, [pc, #176]	; (8005ed4 <UserPollADC+0xe4>)
+ 8005e20:	4b2c      	ldr	r3, [pc, #176]	; (8005ed4 <UserAdcTask+0xe4>)
  8005e22:	f7fa fb09 	bl	8000438 <__aeabi_dcmpeq>
  8005e26:	1e03      	subs	r3, r0, #0
- 8005e28:	d01f      	beq.n	8005e6a <UserPollADC+0x7a>
+ 8005e28:	d01f      	beq.n	8005e6a <UserAdcTask+0x7a>
 			   {
 
 #ifdef USE_FLOAT
 				   final_adc_data = (float)adc_data / ADC_DATA_SIZE;
- 8005e2a:	4b2b      	ldr	r3, [pc, #172]	; (8005ed8 <UserPollADC+0xe8>)
+ 8005e2a:	4b2b      	ldr	r3, [pc, #172]	; (8005ed8 <UserAdcTask+0xe8>)
  8005e2c:	681b      	ldr	r3, [r3, #0]
  8005e2e:	0018      	movs	r0, r3
  8005e30:	f7fa fb30 	bl	8000494 <__aeabi_ui2f>
  8005e34:	1c02      	adds	r2, r0, #0
- 8005e36:	4b29      	ldr	r3, [pc, #164]	; (8005edc <UserPollADC+0xec>)
+ 8005e36:	4b29      	ldr	r3, [pc, #164]	; (8005edc <UserAdcTask+0xec>)
  8005e38:	601a      	str	r2, [r3, #0]
 				   final_adc_data = final_adc_data * ADC_TO_VOLTS_RES;		// convert to decimal
- 8005e3a:	4b28      	ldr	r3, [pc, #160]	; (8005edc <UserPollADC+0xec>)
+ 8005e3a:	4b28      	ldr	r3, [pc, #160]	; (8005edc <UserAdcTask+0xec>)
  8005e3c:	681b      	ldr	r3, [r3, #0]
  8005e3e:	1c18      	adds	r0, r3, #0
  8005e40:	f7fc f906 	bl	8002050 <__aeabi_f2d>
- 8005e44:	4a26      	ldr	r2, [pc, #152]	; (8005ee0 <UserPollADC+0xf0>)
- 8005e46:	4b27      	ldr	r3, [pc, #156]	; (8005ee4 <UserPollADC+0xf4>)
+ 8005e44:	4a26      	ldr	r2, [pc, #152]	; (8005ee0 <UserAdcTask+0xf0>)
+ 8005e46:	4b27      	ldr	r3, [pc, #156]	; (8005ee4 <UserAdcTask+0xf4>)
  8005e48:	f7fb fa8a 	bl	8001360 <__aeabi_dmul>
  8005e4c:	0003      	movs	r3, r0
  8005e4e:	000c      	movs	r4, r1
@@ -15306,46 +15321,46 @@ void UserPollADC()
  8005e52:	0021      	movs	r1, r4
  8005e54:	f7fc f94e 	bl	80020f4 <__aeabi_d2f>
  8005e58:	1c02      	adds	r2, r0, #0
- 8005e5a:	4b20      	ldr	r3, [pc, #128]	; (8005edc <UserPollADC+0xec>)
+ 8005e5a:	4b20      	ldr	r3, [pc, #128]	; (8005edc <UserAdcTask+0xec>)
  8005e5c:	601a      	str	r2, [r3, #0]
 #else
 				   final_adc_data = adc_data / ADC_DATA_SIZE;
 
 #endif	//USE_FLOAT
 				   adc_data = 0;						// clear the total
- 8005e5e:	4b1e      	ldr	r3, [pc, #120]	; (8005ed8 <UserPollADC+0xe8>)
+ 8005e5e:	4b1e      	ldr	r3, [pc, #120]	; (8005ed8 <UserAdcTask+0xe8>)
  8005e60:	2200      	movs	r2, #0
  8005e62:	601a      	str	r2, [r3, #0]
 				   adc_count = 0;
- 8005e64:	4b1a      	ldr	r3, [pc, #104]	; (8005ed0 <UserPollADC+0xe0>)
+ 8005e64:	4b1a      	ldr	r3, [pc, #104]	; (8005ed0 <UserAdcTask+0xe0>)
  8005e66:	2200      	movs	r2, #0
  8005e68:	701a      	strb	r2, [r3, #0]
 			   }
 
 			   adc_data += HAL_ADC_GetValue(&hadc);		// add next read value to total
- 8005e6a:	4b18      	ldr	r3, [pc, #96]	; (8005ecc <UserPollADC+0xdc>)
+ 8005e6a:	4b18      	ldr	r3, [pc, #96]	; (8005ecc <UserAdcTask+0xdc>)
  8005e6c:	0018      	movs	r0, r3
  8005e6e:	f7fd f82f 	bl	8002ed0 <HAL_ADC_GetValue>
  8005e72:	0002      	movs	r2, r0
- 8005e74:	4b18      	ldr	r3, [pc, #96]	; (8005ed8 <UserPollADC+0xe8>)
+ 8005e74:	4b18      	ldr	r3, [pc, #96]	; (8005ed8 <UserAdcTask+0xe8>)
  8005e76:	681b      	ldr	r3, [r3, #0]
  8005e78:	18d2      	adds	r2, r2, r3
- 8005e7a:	4b17      	ldr	r3, [pc, #92]	; (8005ed8 <UserPollADC+0xe8>)
+ 8005e7a:	4b17      	ldr	r3, [pc, #92]	; (8005ed8 <UserAdcTask+0xe8>)
  8005e7c:	601a      	str	r2, [r3, #0]
 			   adc_count++;
- 8005e7e:	4b14      	ldr	r3, [pc, #80]	; (8005ed0 <UserPollADC+0xe0>)
+ 8005e7e:	4b14      	ldr	r3, [pc, #80]	; (8005ed0 <UserAdcTask+0xe0>)
  8005e80:	781b      	ldrb	r3, [r3, #0]
  8005e82:	3301      	adds	r3, #1
  8005e84:	b2da      	uxtb	r2, r3
- 8005e86:	4b12      	ldr	r3, [pc, #72]	; (8005ed0 <UserPollADC+0xe0>)
+ 8005e86:	4b12      	ldr	r3, [pc, #72]	; (8005ed0 <UserAdcTask+0xe0>)
  8005e88:	701a      	strb	r2, [r3, #0]
- 8005e8a:	e002      	b.n	8005e92 <UserPollADC+0xa2>
+ 8005e8a:	e002      	b.n	8005e92 <UserAdcTask+0xa2>
 		   }
 		}
 		else
 		{
 			final_adc_data = 0;
- 8005e8c:	4b13      	ldr	r3, [pc, #76]	; (8005edc <UserPollADC+0xec>)
+ 8005e8c:	4b13      	ldr	r3, [pc, #76]	; (8005edc <UserAdcTask+0xec>)
  8005e8e:	2200      	movs	r2, #0
  8005e90:	601a      	str	r2, [r3, #0]
 		}
@@ -15353,20 +15368,20 @@ void UserPollADC()
 #ifdef USE_FLOAT
 		char imon_string[12];
 		sprintf(imon_string, "%f mV", final_adc_data);
- 8005e92:	4b12      	ldr	r3, [pc, #72]	; (8005edc <UserPollADC+0xec>)
+ 8005e92:	4b12      	ldr	r3, [pc, #72]	; (8005edc <UserAdcTask+0xec>)
  8005e94:	681b      	ldr	r3, [r3, #0]
  8005e96:	1c18      	adds	r0, r3, #0
  8005e98:	f7fc f8da 	bl	8002050 <__aeabi_f2d>
  8005e9c:	0003      	movs	r3, r0
  8005e9e:	000c      	movs	r4, r1
- 8005ea0:	4911      	ldr	r1, [pc, #68]	; (8005ee8 <UserPollADC+0xf8>)
+ 8005ea0:	4911      	ldr	r1, [pc, #68]	; (8005ee8 <UserAdcTask+0xf8>)
  8005ea2:	1d38      	adds	r0, r7, #4
  8005ea4:	001a      	movs	r2, r3
  8005ea6:	0023      	movs	r3, r4
  8005ea8:	f000 fcde 	bl	8006868 <siprintf>
 		ILI9341_Draw_Text(imon_string, 10, 100, BLACK, 3, RED);
  8005eac:	1d38      	adds	r0, r7, #4
- 8005eae:	4b0f      	ldr	r3, [pc, #60]	; (8005eec <UserPollADC+0xfc>)
+ 8005eae:	4b0f      	ldr	r3, [pc, #60]	; (8005eec <UserAdcTask+0xfc>)
  8005eb0:	9301      	str	r3, [sp, #4]
  8005eb2:	2303      	movs	r3, #3
  8005eb4:	9300      	str	r3, [sp, #0]

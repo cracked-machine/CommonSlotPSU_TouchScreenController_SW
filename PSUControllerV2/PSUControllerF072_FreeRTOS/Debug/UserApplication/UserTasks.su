@@ -1,3 +1,6 @@
-UserTasks.c:46:7:UserDefaultTask	8	static
-UserTasks.c:60:6:UserDisplayTask	40	static
-UserTasks.c:99:6:UserPollADC	40	static
+UserTasks.c:49:6:_PauseEXTI	16	static
+UserTasks.c:54:6:_ResumeEXTI	16	static
+UserTasks.c:59:6:UserPenIrqManager	8	static
+UserTasks.c:91:6:UserPenIrqISR	8	static
+UserTasks.c:100:6:UserDisplayTask	40	static
+UserTasks.c:143:6:UserAdcTask	40	static

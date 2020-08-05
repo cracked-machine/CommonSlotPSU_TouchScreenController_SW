@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TSC2046_STM32.h"
+#include "UserTasks.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -130,7 +131,11 @@ void SysTick_Handler(void)
 void EXTI4_15_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI4_15_IRQn 0 */
-	TSC2046_IM_PENIRQ_EXTI_Handler();
+	if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_6))
+	{
+		UserPenIrqISR();
+	}
+
   /* USER CODE END EXTI4_15_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   /* USER CODE BEGIN EXTI4_15_IRQn 1 */
@@ -144,7 +149,7 @@ void EXTI4_15_IRQHandler(void)
 void TIM17_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM17_IRQn 0 */
-	TSC2046_IM_HardwareManagerLoopHandler();
+//	TSC2046_IM_HardwareManagerLoopHandler();
   /* USER CODE END TIM17_IRQn 0 */
   HAL_TIM_IRQHandler(&htim17);
   /* USER CODE BEGIN TIM17_IRQn 1 */

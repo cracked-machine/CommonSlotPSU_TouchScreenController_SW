@@ -48,20 +48,44 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-osThreadId defaultTaskHandle;
-osThreadId PollADCTaskHandle;
 osThreadId DisplayTaskHandle;
+uint32_t DisplayTaskBuffer[ 128 ];
+osStaticThreadDef_t DisplayTaskControlBlock;
+osThreadId AdcTaskHandle;
+uint32_t AdcTaskBuffer[ 128 ];
+osStaticThreadDef_t AdcTaskControlBlock;
+osThreadId PenIrqTaskHandle;
+uint32_t PenIrqTaskBuffer[ 2048 ];
+osStaticThreadDef_t PenIrqTaskControlBlock;
+osSemaphoreId myBinarySem01Handle;
+osStaticSemaphoreDef_t myBinarySem01ControlBlock;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void StartPollADCTask(void const * argument);
 void StartDisplayTask(void const * argument);
+void StartAdcTask(void const * argument);
+void StartPenIrqTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* GetIdleTaskMemory prototype (linked to static allocation support) */
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+
+/* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
+static StaticTask_t xIdleTaskTCBBuffer;
+static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
+
+void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
+{
+  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+  *ppxIdleTaskStackBuffer = &xIdleStack[0];
+  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+  /* place for user code */
+}
+/* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
   * @brief  FreeRTOS initialization
@@ -77,6 +101,11 @@ void MX_FREERTOS_Init(void) {
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
+  /* Create the semaphores(s) */
+  /* definition and creation of myBinarySem01 */
+  osSemaphoreStaticDef(myBinarySem01, &myBinarySem01ControlBlock);
+  myBinarySem01Handle = osSemaphoreCreate(osSemaphore(myBinarySem01), 1);
+
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
@@ -90,72 +119,22 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
-
-  /* definition and creation of PollADCTask */
-  osThreadDef(PollADCTask, StartPollADCTask, osPriorityLow, 0, 512);
-  PollADCTaskHandle = osThreadCreate(osThread(PollADCTask), NULL);
-
   /* definition and creation of DisplayTask */
-  osThreadDef(DisplayTask, StartDisplayTask, osPriorityNormal, 0, 128);
+  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityNormal, 0, 128, DisplayTaskBuffer, &DisplayTaskControlBlock);
   DisplayTaskHandle = osThreadCreate(osThread(DisplayTask), NULL);
+
+  /* definition and creation of AdcTask */
+  osThreadStaticDef(AdcTask, StartAdcTask, osPriorityLow, 0, 128, AdcTaskBuffer, &AdcTaskControlBlock);
+  AdcTaskHandle = osThreadCreate(osThread(AdcTask), NULL);
+
+  /* definition and creation of PenIrqTask */
+  osThreadStaticDef(PenIrqTask, StartPenIrqTask, osPriorityNormal, 0, 2048, PenIrqTaskBuffer, &PenIrqTaskControlBlock);
+  PenIrqTaskHandle = osThreadCreate(osThread(PenIrqTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
-}
-
-/* USER CODE BEGIN Header_StartDefaultTask */
-/**
-  * @brief  Function implementing the defaultTask thread.
-  * @param  argument: Not used
-  * @retval None
-  */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
-{
-  /* USER CODE BEGIN StartDefaultTask */
-
-
-	while(1)
-	{
-
-		UserDefaultTask();
-
-	}
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartDefaultTask */
-}
-
-/* USER CODE BEGIN Header_StartPollADCTask */
-/**
-* @brief Function implementing the PollADCTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartPollADCTask */
-void StartPollADCTask(void const * argument)
-{
-  /* USER CODE BEGIN StartPollADCTask */
-	while(1)
-	{
-		UserPollADC();
-	}
-
-
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartPollADCTask */
 }
 
 /* USER CODE BEGIN Header_StartDisplayTask */
@@ -168,10 +147,7 @@ void StartPollADCTask(void const * argument)
 void StartDisplayTask(void const * argument)
 {
   /* USER CODE BEGIN StartDisplayTask */
-	while(1)
-	{
-		UserDisplayTask();
-	}
+
 
   /* Infinite loop */
   for(;;)
@@ -179,6 +155,44 @@ void StartDisplayTask(void const * argument)
     osDelay(1);
   }
   /* USER CODE END StartDisplayTask */
+}
+
+/* USER CODE BEGIN Header_StartAdcTask */
+/**
+* @brief Function implementing the AdcTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartAdcTask */
+void StartAdcTask(void const * argument)
+{
+  /* USER CODE BEGIN StartAdcTask */
+
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartAdcTask */
+}
+
+/* USER CODE BEGIN Header_StartPenIrqTask */
+/**
+* @brief Function implementing the PenIrqTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartPenIrqTask */
+void StartPenIrqTask(void const * argument)
+{
+  /* USER CODE BEGIN StartPenIrqTask */
+	UserPenIrqManager();
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartPenIrqTask */
 }
 
 /* Private application code --------------------------------------------------*/

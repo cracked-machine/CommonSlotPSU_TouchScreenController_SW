@@ -44,7 +44,16 @@ Core/Src/stm32f0xx_it.o: ../Core/Src/stm32f0xx_it.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManger.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h \
- ../Core/Inc/tim.h ../Core/Inc/main.h
+ ../Core/Inc/tim.h ../Core/Inc/main.h \
+ /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UserTasks.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 
 ../Core/Inc/main.h:
 
@@ -141,3 +150,21 @@ Core/Src/stm32f0xx_it.o: ../Core/Src/stm32f0xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/tim.h:
 
 ../Core/Inc/main.h:
+
+/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UserTasks.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
