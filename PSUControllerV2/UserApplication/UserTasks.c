@@ -44,18 +44,6 @@ uint8_t adc_count = 0;
  */
 #ifdef USE_FREERTOS
 
-
-
-void _PauseEXTI(uint16_t gpio)
-{
-
-}
-
-void _ResumeEXTI(uint16_t gpio)
-{
-
-}
-
 void UserPenIrqManager()
 {
 
@@ -67,22 +55,17 @@ void UserPenIrqManager()
 
 			TSC2046_EM_ProcessEvent(TSC2046_evPen);
 
-			EXTI->IMR &= ~(TS_IRQ_Pin);	// make sure UserDisplayTask() is not interrupted
+			// make sure UserDisplayTask() is not interrupted
+			EXTI->IMR &= ~(TS_IRQ_Pin);
 
 			UserDisplayTask();
 
+			// clear bit and resume EXTI
 			__HAL_GPIO_EXTI_CLEAR_IT(TS_IRQ_Pin);
 			EXTI->IMR |= (TS_IRQ_Pin);
 		}
-
-
-
-
-
 	}
 }
-
-
 
 #endif
 

@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  000201ec  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00018ccd  00000000  00000000  00020214  2**0
+ 12 .debug_info   00018c89  00000000  00000000  00020214  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00003a6f  00000000  00000000  00038ee1  2**0
+ 13 .debug_abbrev 00003a2e  00000000  00000000  00038e9d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 000013f8  00000000  00000000  0003c950  2**3
+ 14 .debug_aranges 000013e8  00000000  00000000  0003c8d0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00001220  00000000  00000000  0003dd48  2**3
+ 15 .debug_ranges 00001210  00000000  00000000  0003dcb8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0001ac59  00000000  00000000  0003ef68  2**0
+ 16 .debug_macro  0001ac59  00000000  00000000  0003eec8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00013471  00000000  00000000  00059bc1  2**0
+ 17 .debug_line   00013451  00000000  00000000  00059b21  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0008a0e9  00000000  00000000  0006d032  2**0
+ 18 .debug_str    0008a0d2  00000000  00000000  0006cf72  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000f711b  2**0
+ 19 .comment      0000007b  00000000  00000000  000f7044  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000537c  00000000  00000000  000f7198  2**2
+ 20 .debug_frame  0000533c  00000000  00000000  000f70c0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -20820,9 +20820,9 @@ uint16_t TSC4026_STM32_HM_GetYpos()
  800784c:	20002dc8 	.word	0x20002dc8
 
 08007850 <UserPenIrqManager>:
-{
-
-}
+ *
+ */
+#ifdef USE_FREERTOS
 
 void UserPenIrqManager()
 {
@@ -20850,7 +20850,8 @@ void UserPenIrqManager()
  800786c:	2001      	movs	r0, #1
  800786e:	f7ff fe6b 	bl	8007548 <TSC2046_EM_ProcessEvent>
 
-			EXTI->IMR &= ~(TS_IRQ_Pin);	// make sure UserDisplayTask() is not interrupted
+			// make sure UserDisplayTask() is not interrupted
+			EXTI->IMR &= ~(TS_IRQ_Pin);
  8007872:	4b0a      	ldr	r3, [pc, #40]	; (800789c <UserPenIrqManager+0x4c>)
  8007874:	681a      	ldr	r2, [r3, #0]
  8007876:	4b09      	ldr	r3, [pc, #36]	; (800789c <UserPenIrqManager+0x4c>)
@@ -20861,6 +20862,7 @@ void UserPenIrqManager()
 			UserDisplayTask();
  800787e:	f000 f81b 	bl	80078b8 <UserDisplayTask>
 
+			// clear bit and resume EXTI
 			__HAL_GPIO_EXTI_CLEAR_IT(TS_IRQ_Pin);
  8007882:	4b06      	ldr	r3, [pc, #24]	; (800789c <UserPenIrqManager+0x4c>)
  8007884:	2240      	movs	r2, #64	; 0x40

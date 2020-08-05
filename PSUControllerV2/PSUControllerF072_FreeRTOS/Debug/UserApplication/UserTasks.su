@@ -1,6 +1,4 @@
-UserTasks.c:49:6:_PauseEXTI	16	static
-UserTasks.c:54:6:_ResumeEXTI	16	static
-UserTasks.c:59:6:UserPenIrqManager	8	static
-UserTasks.c:91:6:UserPenIrqISR	8	static
-UserTasks.c:100:6:UserDisplayTask	40	static
-UserTasks.c:143:6:UserAdcTask	40	static
+UserTasks.c:47:6:UserPenIrqManager	8	static
+UserTasks.c:74:6:UserPenIrqISR	8	static
+UserTasks.c:83:6:UserDisplayTask	40	static
+UserTasks.c:126:6:UserAdcTask	40	static
