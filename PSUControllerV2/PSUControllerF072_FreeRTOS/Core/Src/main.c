@@ -22,6 +22,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "adc.h"
+#include "i2c.h"
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
@@ -65,6 +66,30 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+void smbus_scan() {
+
+
+    int device_found=0;
+    char address[20] = "";
+
+    HAL_StatusTypeDef res;
+    for(uint16_t i = 0; i < 128; i++) {
+        res = HAL_SMBUS_IsDeviceReady(&hsmbus1, i << 1, 1, 10);
+        if(res == HAL_OK) {
+        	device_found++;
+
+        	snprintf(address, sizeof(address), "SMBUS FOUND: %d", i);
+        	ILI9341_Draw_Text(address, 1, 180 + (device_found*20), GREEN, 2, BLACK);
+
+        }
+    }
+    if(!device_found)
+    {
+
+    	ILI9341_Draw_Text("SMBUS ERROR", 1, 200, RED, 2, BLACK);
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -99,7 +124,9 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM17_Init();
   MX_ADC_Init();
+  MX_I2C1_SMBUS_Init();
   /* USER CODE BEGIN 2 */
+
 
   // init ILI9341 library
   ILI9341_Init();
@@ -108,7 +135,7 @@ int main(void)
 
   // init TSC2046 library
   TSC2046_HM_Init();
-
+  smbus_scan();
 
   HAL_ADCEx_Calibration_Start(&hadc);
   HAL_ADC_Start(&hadc);
@@ -140,6 +167,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks
   */
@@ -165,6 +193,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C1;
+  PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

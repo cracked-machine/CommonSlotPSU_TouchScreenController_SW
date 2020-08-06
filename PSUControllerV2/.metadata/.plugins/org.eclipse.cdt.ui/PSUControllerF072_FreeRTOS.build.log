@@ -1,10 +1,10 @@
-21:55:52 **** Incremental Build of configuration Debug for project PSUControllerF072_FreeRTOS ****
+22:36:05 **** Incremental Build of configuration Debug for project PSUControllerF072_FreeRTOS ****
 make -j4 all 
 arm-none-eabi-size   PSUControllerF072_FreeRTOS.elf 
    text	   data	    bss	    dec	    hex	filename
-  50236	    500	   9788	  60524	   ec6c	PSUControllerF072_FreeRTOS.elf
+  52596	    500	   9868	  62964	   f5f4	PSUControllerF072_FreeRTOS.elf
 Finished building: default.size.stdout
  
 
-21:55:53 Build Finished. 0 errors, 0 warnings. (took 533ms)
+22:36:05 Build Finished. 0 errors, 0 warnings. (took 536ms)
 
