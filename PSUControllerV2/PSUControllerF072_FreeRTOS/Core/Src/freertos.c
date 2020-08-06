@@ -59,6 +59,8 @@ uint32_t PenIrqTaskBuffer[ 512 ];
 osStaticThreadDef_t PenIrqTaskControlBlock;
 osSemaphoreId myBinarySem01Handle;
 osStaticSemaphoreDef_t myBinarySem01ControlBlock;
+osSemaphoreId myBinarySem02Handle;
+osStaticSemaphoreDef_t myBinarySem02ControlBlock;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -106,6 +108,10 @@ void MX_FREERTOS_Init(void) {
   osSemaphoreStaticDef(myBinarySem01, &myBinarySem01ControlBlock);
   myBinarySem01Handle = osSemaphoreCreate(osSemaphore(myBinarySem01), 1);
 
+  /* definition and creation of myBinarySem02 */
+  osSemaphoreStaticDef(myBinarySem02, &myBinarySem02ControlBlock);
+  myBinarySem02Handle = osSemaphoreCreate(osSemaphore(myBinarySem02), 1);
+
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
@@ -120,11 +126,11 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of DisplayTask */
-  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityLow, 0, 512, DisplayTaskBuffer, &DisplayTaskControlBlock);
+  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityNormal, 0, 512, DisplayTaskBuffer, &DisplayTaskControlBlock);
   DisplayTaskHandle = osThreadCreate(osThread(DisplayTask), NULL);
 
   /* definition and creation of AdcTask */
-  osThreadStaticDef(AdcTask, StartAdcTask, osPriorityNormal, 0, 512, AdcTaskBuffer, &AdcTaskControlBlock);
+  osThreadStaticDef(AdcTask, StartAdcTask, osPriorityLow, 0, 512, AdcTaskBuffer, &AdcTaskControlBlock);
   AdcTaskHandle = osThreadCreate(osThread(AdcTask), NULL);
 
   /* definition and creation of PenIrqTask */
@@ -148,7 +154,7 @@ void StartDisplayTask(void const * argument)
 {
   /* USER CODE BEGIN StartDisplayTask */
 
-	//UserDisplayManager();
+	UserDisplayManager();
   /* Infinite loop */
   for(;;)
   {

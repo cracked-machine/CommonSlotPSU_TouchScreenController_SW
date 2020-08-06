@@ -70,41 +70,46 @@ void UserPenIrqManager()
 		{
 			osSemaphoreWait(myBinarySem01Handle, osWaitForever);
 
-
 			_togglePSU();
 
-
-
 			// update display
-			UserDisplayTask();
+			//UserDisplayTask();
 		}
-	}
-}
-
-void UserAdcManager()
-{
-	while(1)
-	{
-		osDelay(1000);
-
-		UserAdcTask();
-
-		UserDisplayTask();
 	}
 }
 
 void UserDisplayManager()
 {
+
 	while(1)
 	{
-		osDelay(100);
-		//osThreadSuspend(AdcTaskHandle);
+		osSemaphoreWait(myBinarySem02Handle, 100);
+
 		// update display
 		UserDisplayTask();
-		//osThreadResume(AdcTaskHandle);
+
+		osSemaphoreRelease(myBinarySem02Handle);
+		osThreadSuspend(NULL);
+	}
+}
+
+void UserAdcManager()
+{
+
+	while(1)
+	{
+		osSemaphoreWait(myBinarySem02Handle, 100);
+
+		UserAdcTask();
+
+		osThreadResume(DisplayTaskHandle);
+		osSemaphoreRelease(myBinarySem02Handle);
+
 
 	}
 }
+
+
 
 #endif
 

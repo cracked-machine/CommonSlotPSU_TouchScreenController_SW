@@ -24,6 +24,7 @@
 	osThreadId PenIrqTaskHandle;
 
 	osSemaphoreId myBinarySem01Handle;
+	osSemaphoreId myBinarySem02Handle;
 
 #endif	//USE_FREERTOS
 

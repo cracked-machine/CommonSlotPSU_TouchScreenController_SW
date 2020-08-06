@@ -10,47 +10,49 @@ This approach may interrupt DisplayTask in the middle of a display write!
 ##### System Definition:
 
   - Define tasks:
-    - DisplayTask (Priority: Low)
+    - DisplayTask (Priority: Normal)
+    - AdcTask     (Priority: Low)
     - PenIrqTask  (Priority: High)
-    - AdcTask     (Priority: Normal)
-  - Define Semaphore with 1 token
+
+
+  - Define binary semaphore IrqSem
+  - Define binary semaphore MainSem
 
 ##### System Runtime:
 
   - DisplayTask:
-    - Task (Infinite Loop):
-      - Take semaphore
-      - Executes display code (use Touchscreen coordinates and ADC data)
-      - Release Semaphore
+      - Task (Infinite Loop):
+        - Take MainSem (wait: 100ms)
+        - Executes display code (use Touchscreen coordinates and ADC data)
+        - Release MainSem
+        - Suspend this task
+
+
+  - AdcTask:
+      - Task  (Infinite Loop):
+        - Take MainSem (wait: 100ms)
+        - Capture ADC data (global variable?)
+        - Resume DisplayTask
+        - Release MainSem
+
+
 
 
   - PenIrqTask:
     - ISR:
-      - Release Semapore
-      - Suspend DisplayTask, AdcTask (prevent race condition)
-      - Take Semaphore
-      - Resume PenIrqTask (this task)
+      - Update StateChart
+      - Release IrqSem
     - Task (Infinite Loop):
-      - Resume DisplayTask, AdcTask (still blocked by semaphore)
-      - Capture Touch screen coordinates (global variable?)
-      - Release Semaphore
-      - Suspend PenIrqTask (this task)
-
-  - AdcTask:
-    - ISR:
-      - Release Semapore
-      - Suspend DisplayTask, PenIrqTask (prevent race condition)
-      - Take Semaphore
-      - Resume AdcTask (this task)
-    - Task:
-      - Resume DisplayTask, PenIrqTask (still blocked by semaphore)
-      - Capture ADC data (global variable?)
-      - Release Semaphore
-      - Suspend AdcTask (this task)
+      - Take IrqSem (wait: forever)
+      - Toggle PSU output
+      - Display touchscreen coordinates and ADC data
 
 
-  
-#### Using (Event) Queue 
+
+
+
+
+#### Using (Event) Queue
 
 ##### System Definition:
 
@@ -58,14 +60,14 @@ This approach may interrupt DisplayTask in the middle of a display write!
   - DisplayTask (Priority: High)
   - PenIrqTask  (Priority: Medium)
   - AdcTask     (Priority: Low)
-  
+
  - Define Queues:
   - Event queue with 1 item (Register DisplayTask as receiver)
-  
+
 ##### System Runtime:
 
 - DisplayTask (state machine):
-   
+
   - Task (Infinite Loop):
     - Wait for message on event queue (Suspended)
     - Process Event (Blocking):   
@@ -78,7 +80,7 @@ This approach may interrupt DisplayTask in the middle of a display write!
 
   - ISR:
     - Resume PenIrqTask
-  
+
   - Task (Infinite Loop):
     - capture data from Touchscreen IC over SPI (global variable?)
     - Send PENIRQ message on event queue
@@ -89,9 +91,8 @@ This approach may interrupt DisplayTask in the middle of a display write!
 
   - ISR:
     - Resume AdcTask
-  
+
   - Task (Infinite Loop):
     - Capture data from data from ADC peripheral (global variable?)
     - Send ADC message on event queue
     - Suspend AdcTask
-  

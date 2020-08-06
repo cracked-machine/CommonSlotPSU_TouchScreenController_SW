@@ -1,5 +1,5 @@
-freertos.c:81:6:vApplicationGetIdleTaskMemory	24	static
-freertos.c:95:6:MX_FREERTOS_Init	112	static
-freertos.c:147:6:StartDisplayTask	16	static
-freertos.c:167:6:StartAdcTask	16	static
-freertos.c:186:6:StartPenIrqTask	16	static
+freertos.c:83:6:vApplicationGetIdleTaskMemory	24	static
+freertos.c:97:6:MX_FREERTOS_Init	120	static
+freertos.c:153:6:StartDisplayTask	16	static
+freertos.c:173:6:StartAdcTask	16	static
+freertos.c:192:6:StartPenIrqTask	16	static
