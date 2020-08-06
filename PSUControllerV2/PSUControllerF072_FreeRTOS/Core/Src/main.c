@@ -136,6 +136,11 @@ int main(void)
   // init TSC2046 library
   TSC2046_HM_Init();
   smbus_scan();
+  if(HAL_SMBUS_GetState(&hsmbus1) == HAL_SMBUS_STATE_READY)
+  {
+	  __HAL_SMBUS_ENABLE_IT(&hsmbus1, SMBUS_IT_ADDRI);
+  }
+
 
   HAL_ADCEx_Calibration_Start(&hadc);
   HAL_ADC_Start(&hadc);

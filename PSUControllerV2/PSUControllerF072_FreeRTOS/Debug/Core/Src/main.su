@@ -1,4 +1,4 @@
 main.c:69:6:smbus_scan	56	static
 main.c:99:5:main	8	static
-main.c:166:6:SystemClock_Config	112	static
-main.c:215:6:Error_Handler	8	static
+main.c:171:6:SystemClock_Config	112	static
+main.c:220:6:Error_Handler	8	static
