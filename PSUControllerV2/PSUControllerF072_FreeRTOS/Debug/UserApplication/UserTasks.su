@@ -1,4 +1,7 @@
-UserTasks.c:47:6:UserPenIrqManager	8	static
-UserTasks.c:74:6:UserPenIrqISR	8	static
-UserTasks.c:83:6:UserDisplayTask	40	static
-UserTasks.c:126:6:UserAdcTask	40	static
+UserTasks.c:47:6:_togglePSU	8	static
+UserTasks.c:62:6:UserPenIrqManager	8	static
+UserTasks.c:84:6:UserAdcManager	8	static
+UserTasks.c:96:6:UserDisplayManager	8	static
+UserTasks.c:111:6:HAL_GPIO_EXTI_Callback	16	static
+UserTasks.c:129:6:UserDisplayTask	40	static
+UserTasks.c:181:6:UserAdcTask	40	static

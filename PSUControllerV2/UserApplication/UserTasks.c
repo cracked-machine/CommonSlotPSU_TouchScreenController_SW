@@ -44,8 +44,25 @@ uint8_t adc_count = 0;
  */
 #ifdef USE_FREERTOS
 
+void _togglePSU()
+{
+	// turn on PSU
+	if(HAL_GPIO_ReadPin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin) == GPIO_PIN_SET)
+	{
+		HAL_GPIO_WritePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin, GPIO_PIN_RESET);
+
+	}
+	else
+	{
+		HAL_GPIO_WritePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin, GPIO_PIN_SET);
+
+	}
+}
+
 void UserPenIrqManager()
 {
+
+	UserDisplayTask();
 
 	while(1)
 	{
@@ -53,45 +70,76 @@ void UserPenIrqManager()
 		{
 			osSemaphoreWait(myBinarySem01Handle, osWaitForever);
 
-			TSC2046_EM_ProcessEvent(TSC2046_evPen);
 
-			// make sure UserDisplayTask() is not interrupted
-			EXTI->IMR &= ~(TS_IRQ_Pin);
+			_togglePSU();
 
+
+
+			// update display
 			UserDisplayTask();
-
-			// clear bit and resume EXTI
-			__HAL_GPIO_EXTI_CLEAR_IT(TS_IRQ_Pin);
-			EXTI->IMR |= (TS_IRQ_Pin);
 		}
+	}
+}
+
+void UserAdcManager()
+{
+	while(1)
+	{
+		osDelay(1000);
+
+		UserAdcTask();
+
+		UserDisplayTask();
+	}
+}
+
+void UserDisplayManager()
+{
+	while(1)
+	{
+		osDelay(100);
+		//osThreadSuspend(AdcTaskHandle);
+		// update display
+		UserDisplayTask();
+		//osThreadResume(AdcTaskHandle);
+
 	}
 }
 
 #endif
 
-
-
-void UserPenIrqISR()
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-#ifdef USE_FREERTOS
-	osSemaphoreRelease(myBinarySem01Handle);
-#else
-	TSC2046_IM_PENIRQ_EXTI_Handler();
-#endif
+
+
+
+	#ifdef USE_FREERTOS
+		TSC2046_EM_ProcessEvent(TSC2046_evPen);
+		//xQueueGenericSendFromISR(xQueue, pvItemToQueue, pxHigherPriorityTaskWoken, xCopyPosition)
+
+		osSemaphoreRelease(myBinarySem01Handle);
+	#else
+		TSC2046_IM_PENIRQ_EXTI_Handler();
+	#endif
+
 }
+
+
 
 void UserDisplayTask()
 {
 
-
+#ifdef USE_FREERTOS
+	// make sure UserDisplayTask() is not interrupted
+	EXTI->IMR &= ~(TS_IRQ_Pin);
+#endif
 
 	   // check for penirq interrupt
 	   if(TSC2046_EM_GetTouchScreenState())
 	   {
 		 ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
 
-		 // turn on PSU
-		 HAL_GPIO_TogglePin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin);
+
 
 		 // get touchscreen coordinate data
 		 if( TSC2046_HM_RunConversion() == TSC2046_DATAOK )
@@ -121,6 +169,13 @@ void UserDisplayTask()
 	   {
 		   ILI9341_Draw_Text("OFF", 10, 50, BLACK, 3, RED);
 	   }
+
+#ifdef USE_FREERTOS
+		// clear bit and resume EXTI
+		__HAL_GPIO_EXTI_CLEAR_IT(TS_IRQ_Pin);
+		EXTI->IMR |= (TS_IRQ_Pin);
+#endif
+
 }
 
 void UserAdcTask()

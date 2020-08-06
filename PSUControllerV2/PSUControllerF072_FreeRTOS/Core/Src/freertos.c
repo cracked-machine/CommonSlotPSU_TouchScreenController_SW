@@ -49,13 +49,13 @@
 
 /* USER CODE END Variables */
 osThreadId DisplayTaskHandle;
-uint32_t DisplayTaskBuffer[ 128 ];
+uint32_t DisplayTaskBuffer[ 512 ];
 osStaticThreadDef_t DisplayTaskControlBlock;
 osThreadId AdcTaskHandle;
-uint32_t AdcTaskBuffer[ 128 ];
+uint32_t AdcTaskBuffer[ 512 ];
 osStaticThreadDef_t AdcTaskControlBlock;
 osThreadId PenIrqTaskHandle;
-uint32_t PenIrqTaskBuffer[ 2048 ];
+uint32_t PenIrqTaskBuffer[ 512 ];
 osStaticThreadDef_t PenIrqTaskControlBlock;
 osSemaphoreId myBinarySem01Handle;
 osStaticSemaphoreDef_t myBinarySem01ControlBlock;
@@ -120,15 +120,15 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of DisplayTask */
-  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityNormal, 0, 128, DisplayTaskBuffer, &DisplayTaskControlBlock);
+  osThreadStaticDef(DisplayTask, StartDisplayTask, osPriorityLow, 0, 512, DisplayTaskBuffer, &DisplayTaskControlBlock);
   DisplayTaskHandle = osThreadCreate(osThread(DisplayTask), NULL);
 
   /* definition and creation of AdcTask */
-  osThreadStaticDef(AdcTask, StartAdcTask, osPriorityLow, 0, 128, AdcTaskBuffer, &AdcTaskControlBlock);
+  osThreadStaticDef(AdcTask, StartAdcTask, osPriorityNormal, 0, 512, AdcTaskBuffer, &AdcTaskControlBlock);
   AdcTaskHandle = osThreadCreate(osThread(AdcTask), NULL);
 
   /* definition and creation of PenIrqTask */
-  osThreadStaticDef(PenIrqTask, StartPenIrqTask, osPriorityNormal, 0, 2048, PenIrqTaskBuffer, &PenIrqTaskControlBlock);
+  osThreadStaticDef(PenIrqTask, StartPenIrqTask, osPriorityHigh, 0, 512, PenIrqTaskBuffer, &PenIrqTaskControlBlock);
   PenIrqTaskHandle = osThreadCreate(osThread(PenIrqTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -148,7 +148,7 @@ void StartDisplayTask(void const * argument)
 {
   /* USER CODE BEGIN StartDisplayTask */
 
-
+	//UserDisplayManager();
   /* Infinite loop */
   for(;;)
   {
@@ -167,7 +167,7 @@ void StartDisplayTask(void const * argument)
 void StartAdcTask(void const * argument)
 {
   /* USER CODE BEGIN StartAdcTask */
-
+	UserAdcManager();
   /* Infinite loop */
   for(;;)
   {

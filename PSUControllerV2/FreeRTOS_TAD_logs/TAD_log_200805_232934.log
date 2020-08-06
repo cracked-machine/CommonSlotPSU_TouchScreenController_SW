@@ -1,0 +1,129 @@
+"FreeRTOS Task Aware Debugger for GDB" version 1.0.2 (201704260904)
+(c) 2016 NXP Semiconductors, Inc.
+==================================
+23:26:05.553 INFO: [TadModel] DSF session ID 0 has started.
+23:26:10.715 INFO: [TadState] TAD state changed:  DEBUG_STARTED -> DEBUG_INIT_0 (RESUMED, USER_REQUEST)
+23:26:10.725 INFO: [TadState] TAD state changed:  DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, SIGNAL)
+23:26:13.710 INFO: [TadState] TAD state changed:  DEBUG_INIT_1 -> DEBUG_SUSPENDED (RESUMED, USER_REQUEST)
+23:26:13.791 INFO: [TadState] TAD state changed:  DEBUG_SUSPENDED -> DEBUG_SUSPENDED (SUSPENDED, BREAKPOINT)
+23:26:15.958 INFO: [TadState] TAD state changed:  DEBUG_SUSPENDED -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:26:34.789 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, SIGNAL)
+23:26:34.798 INFO: [Benchmark] Loading data for "Task List" has started.
+23:26:35.799 ERROR: [QueueFactory] Queue registry size is zero! Each queue must be registered with vQueueAddToRegistry() and configQUEUE_REGISTRY_SIZE macro 
+must be greater than zero (found in FreeRTOSConfig.h)
+23:26:36.804 INFO: [FreeRTOS] FreeRTOS macro "configGENERATE_RUN_TIME_STATS" is disabled.
+23:26:37.840 INFO: [FreeRTOS] FreeRTOS macro "configRECORD_STACK_HIGH_ADDRESS" is disabled.
+23:26:38.847 INFO: [FreeRTOS] FreeRTOS macro "configUSE_TRACE_FACILITY" is disabled.
+23:26:38.956 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:26:38.957 INFO: [Benchmark] Loading data for "Task List" took 4159 ms.
+23:26:51.37 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:27:00.82 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:27:00.82 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:00.270 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:00.270 INFO: [Benchmark] Loading data for "Task List" took 188 ms.
+23:27:04.759 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, STEP)
+23:27:04.916 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, STEP)
+23:27:04.916 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:05.86 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:05.86 INFO: [Benchmark] Loading data for "Task List" took 170 ms.
+23:27:07.349 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:27:07.383 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:27:07.383 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:07.540 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:07.540 INFO: [Benchmark] Loading data for "Task List" took 157 ms.
+23:27:09.518 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:27:09.582 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:27:09.583 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:09.736 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:09.736 INFO: [Benchmark] Loading data for "Task List" took 154 ms.
+23:27:16.102 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, STEP)
+23:27:16.188 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, STEP)
+23:27:16.189 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:16.336 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:16.336 INFO: [Benchmark] Loading data for "Task List" took 147 ms.
+23:27:58.192 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:27:58.330 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:27:58.331 INFO: [Benchmark] Loading data for "Task List" has started.
+23:27:58.470 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:27:58.470 INFO: [Benchmark] Loading data for "Task List" took 140 ms.
+23:28:01.451 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:02.24 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:02.25 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:02.173 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:02.173 INFO: [Benchmark] Loading data for "Task List" took 148 ms.
+23:28:03.251 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:04.530 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:04.530 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:04.673 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:04.674 INFO: [Benchmark] Loading data for "Task List" took 143 ms.
+23:28:05.347 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:06.635 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:06.636 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:06.770 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:06.771 INFO: [Benchmark] Loading data for "Task List" took 135 ms.
+23:28:07.451 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:08.731 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:08.732 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:08.873 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:08.874 INFO: [Benchmark] Loading data for "Task List" took 141 ms.
+23:28:09.795 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:11.84 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:11.84 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:11.250 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:11.250 INFO: [Benchmark] Loading data for "Task List" took 166 ms.
+23:28:11.900 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:13.179 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:13.180 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:13.353 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:13.353 INFO: [Benchmark] Loading data for "Task List" took 173 ms.
+23:28:13.928 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:15.208 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:15.212 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:15.352 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:15.352 INFO: [Benchmark] Loading data for "Task List" took 144 ms.
+23:28:16.04 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:17.290 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:17.292 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:17.422 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:17.422 INFO: [Benchmark] Loading data for "Task List" took 131 ms.
+23:28:23.45 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:24.899 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:24.900 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:25.39 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:25.39 INFO: [Benchmark] Loading data for "Task List" took 139 ms.
+23:28:28.636 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:28.725 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:28.725 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:28.859 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:28.859 INFO: [Benchmark] Loading data for "Task List" took 134 ms.
+23:28:31.820 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:31.979 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:31.980 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:32.99 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:32.99 INFO: [Benchmark] Loading data for "Task List" took 119 ms.
+23:28:42.220 INFO: [TadState] TAD state changed:  READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+23:28:46.522 INFO: [TadState] TAD state changed:  DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+23:28:46.523 INFO: [Benchmark] Loading data for "Task List" has started.
+23:28:46.693 ERROR: [TaskFactory] Could not read pxEndOfStack variable needed for determining correct stack size! 
+	Please enable "configRECORD_STACK_HIGH_ADDRESS" macro in FreeRTOSConfig.h.
+23:28:46.693 INFO: [Benchmark] Loading data for "Task List" took 171 ms.
+23:29:34.239 INFO: [TadModel] DSF session ID 1 has started.
+23:29:34.308 INFO: [TadModel] DSF session ID 0 has ended.
