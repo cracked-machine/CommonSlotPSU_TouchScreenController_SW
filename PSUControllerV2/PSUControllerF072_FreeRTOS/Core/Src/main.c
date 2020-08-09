@@ -32,6 +32,7 @@
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
 #include "TSC2046_STM32.h"
+#include "SMBUS_Manager.h"
 
 #include <stdio.h>
 /* USER CODE END Includes */
@@ -65,31 +66,6 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-void smbus_scan() {
-
-
-    int device_found=0;
-    char address[20] = "";
-
-    HAL_StatusTypeDef res;
-    for(uint16_t i = 0; i < 128; i++) {
-        res = HAL_SMBUS_IsDeviceReady(&hsmbus1, i << 1, 1, 10);
-        if(res == HAL_OK) {
-        	device_found++;
-
-        	snprintf(address, sizeof(address), "SMBUS FOUND: %d", i);
-        	ILI9341_Draw_Text(address, 1, 180 + (device_found*20), GREEN, 2, BLACK);
-
-        }
-    }
-    if(!device_found)
-    {
-
-    	ILI9341_Draw_Text("SMBUS ERROR", 1, 200, RED, 2, BLACK);
-    }
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -135,12 +111,12 @@ int main(void)
 
   // init TSC2046 library
   TSC2046_HM_Init();
-  smbus_scan();
-  if(HAL_SMBUS_GetState(&hsmbus1) == HAL_SMBUS_STATE_READY)
-  {
-	  __HAL_SMBUS_ENABLE_IT(&hsmbus1, SMBUS_IT_ADDRI);
-  }
 
+  SM_Init(&hsmbus1);
+
+  SM_InitDiagnostics();
+
+  SM_DisplayDiagnostics();
 
   HAL_ADCEx_Calibration_Start(&hadc);
   HAL_ADC_Start(&hadc);
@@ -221,7 +197,10 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
+	while(1)
+	{
 
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 

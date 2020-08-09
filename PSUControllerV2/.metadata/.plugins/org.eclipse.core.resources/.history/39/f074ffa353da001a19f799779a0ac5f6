@@ -1,0 +1,68 @@
+/*
+ * SMBUS_Manager.h
+ *
+ *  Created on: 9 Aug 2020
+ *      Author: chris
+ */
+
+#ifndef SMBUS_MANAGER_H_
+#define SMBUS_MANAGER_H_
+
+/*
+ * dependencies
+ */
+#include "stm32f0xx.h"
+#include "stm32f0xx_hal_smbus.h"
+#include "stdint.h"
+#include "i2c.h"
+#include "ILI9341_GFX.h"
+#include "ILI9341_STM32_Driver.h"
+
+#define NUMBER_OF_BOOT_TESTS	128
+
+/*
+ * SMBUS manager handle
+ */
+typedef enum
+{
+	SMBUS_DEVICE_MISSING = 0U,
+	SMBUS_DEVICE_FOUND
+} SM_DeviceFoundTypedef;
+
+typedef struct
+{
+	SMBUS_HandleTypeDef *instance;
+	SM_DeviceFoundTypedef status;
+	uint16_t addr[2];
+	uint8_t *last_cmd;
+
+} SM_DeviceHandleTypedef;
+
+
+/*
+ * Boot tests
+ */
+typedef struct
+{
+	uint8_t smbus_cmd;
+	uint8_t status;
+
+} SM_BootTestItemTypedef;
+
+typedef struct
+{
+	SM_BootTestItemTypedef test[NUMBER_OF_BOOT_TESTS];
+	uint8_t exe_cmds_count;
+	uint8_t tx_failed_count;
+	uint8_t isr_failed_count;
+
+} SM_BootTestPlanTypedef;
+
+/*
+ * Function declarations
+ */
+void SM_Init(SMBUS_HandleTypeDef *instance);
+SM_DeviceFoundTypedef SM_DeviceScan();
+void SM_CompleteStartupTests();
+
+#endif /* SMBUS_MANAGER_H_ */

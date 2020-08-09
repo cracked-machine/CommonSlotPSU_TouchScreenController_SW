@@ -1,0 +1,134 @@
+/*
+ * SMBUS_Manager.c
+ *
+ *  Created on: 9 Aug 2020
+ *      Author: chris
+ */
+
+#include "SMBUS_Manager.h"
+
+/*
+ *	Function Prototypes
+ */
+void SM_CompleteStartupTests();
+SM_DeviceFoundTypedef SM_DeviceScan();
+
+/*
+ *	Private Variables
+ */
+uint8_t smbus_cmd[1] = {};				// next SMBUS command to run
+uint32_t cmds_tried_count = 0;			// count of SMBUS commands tried
+uint32_t cmds_failed_count = 0;			// count of SMBUS commands failed
+
+SM_DeviceHandleTypedef the_smbus_device;
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void SM_Init(SMBUS_HandleTypeDef *instance)
+{
+	the_smbus_device.instance = instance;
+	the_smbus_device.status = SM_DeviceScan();
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+SM_DeviceFoundTypedef SM_DeviceScan() {
+
+	SM_DeviceFoundTypedef smbus_found = SMBUS_DEVICE_MISSING;
+    int num_addr_found=0;
+    char address[20] = "";
+
+    HAL_StatusTypeDef res;
+    for(uint16_t i = 0; i < 128; i++)
+    {
+        res = HAL_SMBUS_IsDeviceReady(&hsmbus1, i << 1, 1, 10);
+        if(res == HAL_OK)
+        {
+        	num_addr_found++;
+           	smbus_found = SMBUS_DEVICE_FOUND;
+
+        	// add dual addresses to the SM_DeviceHandleTypedef handle
+           	switch(num_addr_found)
+           	{
+           		case 1:
+           			the_smbus_device.addr[0] = i;
+           			break;
+           		case 2:
+           			the_smbus_device.addr[1] = i;
+           			break;
+           	}
+
+        	snprintf(address, sizeof(address), "SMBUS FOUND: %d", i);
+        	ILI9341_Draw_Text(address, 1, 180 + (num_addr_found*20), GREEN, 2, BLACK);
+
+        }
+    }
+    if(!smbus_found)
+    {
+
+    	ILI9341_Draw_Text("SMBUS ERROR", 1, 200, RED, 2, BLACK);
+    }
+
+    return smbus_found;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void SM_CompleteStartupTests()
+{
+	  if(HAL_SMBUS_GetState(the_smbus_device.instance) != HAL_SMBUS_STATE_READY)
+	  {
+		  Error_Handler();
+	  }
+
+
+	  for(uint8_t cmd = 0; cmd < 128; cmd++)
+	  {
+		  cmds_tried_count++;
+		  smbus_cmd[0] = cmd;
+		  if(HAL_SMBUS_Master_Transmit_IT(&hsmbus1, 0x87 << 1, &smbus_cmd[0], 1, SMBUS_FIRST_AND_LAST_FRAME_NO_PEC) != HAL_OK)
+		  {
+			  Error_Handler();
+		  }
+	  }
+	  char smbus_results[25] = "";
+	  snprintf(smbus_results, sizeof(smbus_results), "TRIED: %lu FAILED: %lu", cmds_tried_count, cmds_failed_count);
+	  ILI9341_Draw_Text(smbus_results, 1, 1, BLACK, 2, LBLUE);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void HAL_SMBUS_ErrorCallback(SMBUS_HandleTypeDef *hsmbus)
+{
+	cmds_failed_count++;
+
+	char tmp[25] = "";
+	snprintf(tmp, sizeof(tmp), "CMD (%d) 0x%x ERR %lu", smbus_cmd[0], smbus_cmd[0], hsmbus->ErrorCode);
+	ILI9341_Draw_Text(tmp, 1, (cmds_failed_count * 20), BLACK, 2, LBLUE);
+
+}

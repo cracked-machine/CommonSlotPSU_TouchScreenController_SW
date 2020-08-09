@@ -57,7 +57,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32.h \
  /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManger.h \
- /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h
+ /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h \
+ /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/SMBUS_Manager.h
 
 ../Core/Inc/main.h:
 
@@ -186,3 +187,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManger.h:
 
 /home/chris/Projects/Embedded/Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.h:
+
+/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/SMBUS_Manager.h:

@@ -1,0 +1,7 @@
+SMBUS_Manager.c:51:6:SM_Init	16	static
+SMBUS_Manager.c:66:23:SM_DeviceScan	32	static
+SMBUS_Manager.c:108:6:SM_InitDiagnostics	24	static
+SMBUS_Manager.c:189:9:SM_GetLastCommand	8	static
+SMBUS_Manager.c:202:10:SM_GetDeviceAddress	16	static
+SMBUS_Manager.c:215:6:SM_DisplayDiagnostics	96	static
+SMBUS_Manager.c:272:6:HAL_SMBUS_ErrorCallback	16	static

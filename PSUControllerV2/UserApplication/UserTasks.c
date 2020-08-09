@@ -59,10 +59,18 @@ void _togglePSU()
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void UserPenIrqManager()
 {
 
-	UserDisplayTask();
+
 
 	while(1)
 	{
@@ -78,8 +86,19 @@ void UserPenIrqManager()
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void UserDisplayManager()
 {
+	osDelay(5000);
+	ILI9341_Fill_Screen(LBLUE);
+
 
 	while(1)
 	{
@@ -93,8 +112,18 @@ void UserDisplayManager()
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void UserAdcManager()
 {
+
+	osDelay(5000);
 
 	while(1)
 	{
@@ -113,6 +142,14 @@ void UserAdcManager()
 
 #endif
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 
@@ -130,7 +167,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 }
 
 
-
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void UserDisplayTask()
 {
 
@@ -183,6 +227,14 @@ void UserDisplayTask()
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
 void UserAdcTask()
 {
 		// if PSU enabled, poll imonitor pin

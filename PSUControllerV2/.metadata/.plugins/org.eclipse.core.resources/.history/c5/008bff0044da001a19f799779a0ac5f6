@@ -1,0 +1,35 @@
+/*
+ * SMBUS_Manager.c
+ *
+ *  Created on: 9 Aug 2020
+ *      Author: chris
+ */
+
+#include "SMBUS_Manager.h"
+
+
+void smbus_scan() {
+
+
+    int device_found=0;
+    char address[20] = "";
+
+    HAL_StatusTypeDef res;
+    for(uint16_t i = 0; i < 128; i++)
+    {
+        res = HAL_SMBUS_IsDeviceReady(&hsmbus1, i << 1, 1, 10);
+        if(res == HAL_OK)
+        {
+        	device_found++;
+
+        	snprintf(address, sizeof(address), "SMBUS FOUND: %d", i);
+        	ILI9341_Draw_Text(address, 1, 180 + (device_found*20), GREEN, 2, BLACK);
+
+        }
+    }
+    if(!device_found)
+    {
+
+    	ILI9341_Draw_Text("SMBUS ERROR", 1, 200, RED, 2, BLACK);
+    }
+}

@@ -1,0 +1,58 @@
+/*
+ * SMBUS_Manager.h
+ *
+ *  Created on: 9 Aug 2020
+ *      Author: chris
+ */
+
+#ifndef SMBUS_MANAGER_H_
+#define SMBUS_MANAGER_H_
+
+/*
+ *	ST dependencies
+ */
+#include "stm32f0xx.h"
+#include "stm32f0xx_hal_smbus.h"
+
+/*
+ * C Lib dependencies
+ */
+#include "stdint.h"
+
+/*
+ * ST CubeMX-generated dependencies
+ */
+#include "i2c.h"
+
+/*
+ * ILI9341 gfx lib dependencies
+ */
+#include "ILI9341_GFX.h"
+#include "ILI9341_STM32_Driver.h"
+
+/*
+ * SMBUS manager handle
+ */
+typedef enum
+{
+	SMBUS_DEVICE_MISSING = 0U,
+	SMBUS_DEVICE_FOUND
+} SM_DeviceFoundTypedef;
+
+typedef struct
+{
+	SMBUS_HandleTypeDef *instance;
+	SM_DeviceFoundTypedef status;
+	uint16_t addr[2];
+	uint16_t last_cmd;
+
+} SM_DeviceHandleTypedef;
+
+/*
+ * Function declarations
+ */
+void SM_Init(SMBUS_HandleTypeDef *instance);
+SM_DeviceFoundTypedef SM_DeviceScan();
+void SM_CompleteStartupTests();
+
+#endif /* SMBUS_MANAGER_H_ */

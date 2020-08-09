@@ -47,4 +47,5 @@
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_EventManager.o"
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_HardwareManager.o"
 "Optimized_TSC2046_TouchSceen/TSC2046_STM32_InterruptManager.o"
+"UserApplication/SMBUS_Manager.o"
 "UserApplication/UserTasks.o"

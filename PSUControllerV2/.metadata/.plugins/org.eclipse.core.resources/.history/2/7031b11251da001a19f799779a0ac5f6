@@ -1,0 +1,180 @@
+/*
+ * SMBUS_Manager.c
+ *
+ *  Created on: 9 Aug 2020
+ *      Author: chris
+ */
+
+#include "SMBUS_Manager.h"
+
+#define NUMBER_OF_TESTS	128
+
+/*
+ *	Function Prototypes
+ */
+void SM_CompleteStartupTests();
+SM_DeviceFoundTypedef SM_DeviceScan();
+uint8_t SM_GetLastCommand();
+uint16_t SM_GetDeviceAddress(uint8_t device);
+
+/*
+ *	Private Variables
+ */
+
+
+
+SM_DeviceHandleTypedef the_smbus_device;
+SM_TestResultsTypedef test_results[NUMBER_OF_TESTS];
+uint8_t test_index = 0;
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void SM_Init(SMBUS_HandleTypeDef *instance)
+{
+	the_smbus_device.instance = instance;
+	the_smbus_device.status = SM_DeviceScan();
+	the_smbus_device.last_cmd = 0;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+SM_DeviceFoundTypedef SM_DeviceScan() {
+
+	SM_DeviceFoundTypedef smbus_found = SMBUS_DEVICE_MISSING;
+    int num_addr_found=0;
+    char address[20] = "";
+
+    HAL_StatusTypeDef res;
+    for(uint16_t i = 0; i < 128; i++)
+    {
+        res = HAL_SMBUS_IsDeviceReady(&hsmbus1, i << 1, 1, 10);
+        if(res == HAL_OK)
+        {
+        	num_addr_found++;
+           	smbus_found = SMBUS_DEVICE_FOUND;
+
+        	// add dual addresses to the SM_DeviceHandleTypedef handle
+           	switch(num_addr_found)
+           	{
+           		case 1:
+           			the_smbus_device.addr[0] = i;
+           			break;
+           		case 2:
+           			the_smbus_device.addr[1] = i;
+           			break;
+           	}
+
+        	snprintf(address, sizeof(address), "SMBUS FOUND: %d", i);
+        	ILI9341_Draw_Text(address, 1, 180 + (num_addr_found*20), GREEN, 2, BLACK);
+
+        }
+    }
+    if(!smbus_found)
+    {
+
+    	ILI9341_Draw_Text("SMBUS ERROR", 1, 200, RED, 2, BLACK);
+    }
+
+    return smbus_found;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+void SM_CompleteStartupTests()
+{
+	// make sure device is ready
+	if(HAL_SMBUS_GetState(the_smbus_device.instance) != HAL_SMBUS_STATE_READY)
+	{
+		Error_Handler();
+	}
+
+	// try sending PMBUS commands to device, see if any call HAL_SMBUS_ErrorCallback.
+	for(uint8_t tmp_cmd = 0; tmp_cmd < NUMBER_OF_TESTS; tmp_cmd++)
+	{
+		test_results[test_index].smbus_cmd = tmp_cmd;
+		test_results[test_index].exe_cmds_count++;
+
+		uint16_t tmp_smbus_addr = SM_GetDeviceAddress(0);			// next SMBUS device address to use
+		the_smbus_device.last_cmd = &tmp_cmd;							// next SMBUS command to run
+
+		if(HAL_SMBUS_Master_Transmit_IT(the_smbus_device.instance, tmp_smbus_addr << 1, (uint8_t *)the_smbus_device.last_cmd, 1, SMBUS_FIRST_AND_LAST_FRAME_NO_PEC) != HAL_OK)
+		{
+			test_results[test_index].tx_failed_count++;
+/*
+			char tmp[25] = "";
+			snprintf(tmp, sizeof(tmp), "CMD (%d) 0x%x ERR %lu", SM_GetLastCommand(), SM_GetLastCommand(), the_smbus_device.instance->ErrorCode);
+			ILI9341_Draw_Text(tmp, 1, (cmds_tx_failed_count * 20), BLACK, 2, LBLUE);
+*/
+		}
+	}
+
+	  // print out status report to TFTLCD
+	  char smbus_results[50] = "";
+	  snprintf(smbus_results, sizeof(smbus_results), "TRIED: %d", test_results[test_index].exe_cmds_count);
+	  ILI9341_Draw_Text(smbus_results, 1, 1, BLACK, 2, LBLUE);
+	  snprintf(smbus_results, sizeof(smbus_results), "TX FAIL: %d", test_results[test_index].tx_failed_count);
+			  ILI9341_Draw_Text(smbus_results, 1, 1, BLACK, 2, LBLUE);
+	  snprintf(smbus_results, sizeof(smbus_results), "ISR FAIL: %d", test_results[test_index].isr_failed_count);
+
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+uint8_t SM_GetLastCommand()
+{
+	return *the_smbus_device.last_cmd;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval
+ *
+ */
+uint16_t SM_GetDeviceAddress(uint8_t device)
+{
+	return the_smbus_device.addr[device];
+}
+
+
+/*
+ *	HAL SMBUS Callbacks
+ */
+void HAL_SMBUS_ErrorCallback(SMBUS_HandleTypeDef *hsmbus)
+{
+	test_results[test_index].isr_failed_count++;
+	test_results[test_index].status = hsmbus->ErrorCode;
+
+/*
+	char tmp[25] = "";
+	snprintf(tmp, sizeof(tmp), "CMD (%d) 0x%x ERR %lu", SM_GetLastCommand(), SM_GetLastCommand(), hsmbus->ErrorCode);
+	ILI9341_Draw_Text(tmp, 1, (cmds_failed_count * 20), BLACK, 2, LBLUE);
+*/
+}
