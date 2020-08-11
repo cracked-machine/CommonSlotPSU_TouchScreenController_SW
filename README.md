@@ -1,6 +1,7 @@
 HPECommonSlot_BreakoutModule_SW
 
 
+
 ### TODO
 
 #### Using Sempahores
@@ -49,7 +50,7 @@ This approach may interrupt DisplayTask in the middle of a display write!
 
 
 
-
+![CommonSlotPSU_TouchScreenController_SW_FreeRTOS](Docs/SWDesign/CommonSlotPSU_TouchScreenController_SW_FreeRTOS_Transparent.svg)
 
 
 #### Using (Event) Queue
