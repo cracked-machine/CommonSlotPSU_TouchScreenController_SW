@@ -1,12 +1,21 @@
-HPECommonSlot_BreakoutModule_SW
+### HPECommonSlot BreakoutModule (SW)
 
 
+<details>
+<summary>Using Sempahores</summary>
+<p>
 
-### TODO
+EXTI is disabled during Touchscreen scan as this caused unexpected updates to the EXTI Pending register (EXTI_PR), which resulted in an infinite loop of interrupts and ISR calls. STM32F072 HW bug?
 
-#### Using Sempahores
+Below is the activity diagram for the three tasks.
 
-This approach may interrupt DisplayTask in the middle of a display write!
+DISPLAY_TASK and ADC_TASK share a semaphore to alternate their execution. No timer is used and their duration is entirely determined by the number of cycles they take to run their respective "Update Display" and "Read ADC" functions.
+
+PENIRQ_TASK enables/disables the PSU power status. The task blocks itself using a single semaphore, which is released only when an interrupt is received from the touchscreen controller IC.
+
+More information on the HW design can be found [here](https://github.com/cracked-machine/CommonSlotPSU_TouchScreenController_HW)
+
+![CommonSlotPSU_TouchScreenController_SW_FreeRTOS](Docs/SWDesign/CommonSlotPSU_TouchScreenController_SW_FreeRTOS.svg)
 
 ##### System Definition:
 
@@ -47,13 +56,12 @@ This approach may interrupt DisplayTask in the middle of a display write!
       - Take IrqSem (wait: forever)
       - Toggle PSU output
       - Display touchscreen coordinates and ADC data
+</p>
+</details>
+<details>
 
-
-
-![CommonSlotPSU_TouchScreenController_SW_FreeRTOS](Docs/SWDesign/CommonSlotPSU_TouchScreenController_SW_FreeRTOS_Transparent.svg)
-
-
-#### Using (Event) Queue
+<summary>Using Event Queue (Not Implemented)</summary>
+<p>
 
 ##### System Definition:
 
@@ -97,3 +105,5 @@ This approach may interrupt DisplayTask in the middle of a display write!
     - Capture data from data from ADC peripheral (global variable?)
     - Send ADC message on event queue
     - Suspend AdcTask
+</p>
+</details>
