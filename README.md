@@ -2,7 +2,7 @@
 
 
 <details>
-<summary>Using Sempahores</summary>
+<summary><b><ins>Using Sempahores</ins></b></summary>
 <p>
 
 #### <ins>Overview</ins>
@@ -66,7 +66,7 @@ ___
 </details>
 <details>
 
-<summary>Using Event Queue (Not Implemented)</summary>
+<summary><b><ins>Using Event Queue (Not Implemented)</ins></b></summary>
 <p>
 
 #### <ins>Pseudocode</ins>
