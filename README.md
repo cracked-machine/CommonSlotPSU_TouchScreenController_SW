@@ -5,6 +5,8 @@
 <summary>Using Sempahores</summary>
 <p>
 
+#### <ins>Overview</ins>
+
 EXTI is disabled during Touchscreen scan as this caused unexpected updates to the EXTI Pending register (EXTI_PR), which resulted in an infinite loop of interrupts and ISR calls. STM32F072 HW bug?
 
 Below is the activity diagram for the three tasks.
@@ -17,7 +19,11 @@ More information on the HW design can be found [here](https://github.com/cracked
 
 ![CommonSlotPSU_TouchScreenController_SW_FreeRTOS](Docs/SWDesign/CommonSlotPSU_TouchScreenController_SW_FreeRTOS.svg)
 
-##### System Definition:
+___
+
+#### <ins>Pseudocode</ins>
+
+###### System Definition:
 
   - Define tasks:
     - DisplayTask (Priority: Normal)
@@ -28,7 +34,7 @@ More information on the HW design can be found [here](https://github.com/cracked
   - Define binary semaphore IrqSem
   - Define binary semaphore MainSem
 
-##### System Runtime:
+###### System Runtime:
 
   - DisplayTask:
       - Task (Infinite Loop):
@@ -63,7 +69,9 @@ More information on the HW design can be found [here](https://github.com/cracked
 <summary>Using Event Queue (Not Implemented)</summary>
 <p>
 
-##### System Definition:
+#### <ins>Pseudocode</ins>
+
+###### System Definition:
 
  - Define tasks:
   - DisplayTask (Priority: High)
@@ -73,7 +81,7 @@ More information on the HW design can be found [here](https://github.com/cracked
  - Define Queues:
   - Event queue with 1 item (Register DisplayTask as receiver)
 
-##### System Runtime:
+###### System Runtime:
 
 - DisplayTask (state machine):
 
