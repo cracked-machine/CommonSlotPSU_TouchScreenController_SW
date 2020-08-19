@@ -1,5 +1,6 @@
 UserApplication/SMBUS_Manager.o: \
  /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/SMBUS_Manager.c \
+ /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UxManager.h \
  /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/SMBUS_Manager.h \
  ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h \
@@ -37,6 +38,8 @@ UserApplication/SMBUS_Manager.o: \
  /home/chris/Projects/Embedded/Optimized_STM32_ILI9341/STMBasicGui.h \
  /home/chris/Projects/Embedded/Optimized_STM32_ILI9341/ILI9341_STM32_Driver.h \
  /home/chris/Projects/Embedded/Optimized_STM32_ILI9341/fade_log_seq.h
+
+/home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/UxManager.h:
 
 /home/chris/Projects/Embedded/CommonSlotPSU_TouchScreenController_SW/PSUControllerV2/UserApplication/SMBUS_Manager.h:
 

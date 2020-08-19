@@ -20,6 +20,7 @@
 
 #define NUMBER_OF_BOOT_TESTS	128
 
+
 /*
  * SMBUS manager handle
  */

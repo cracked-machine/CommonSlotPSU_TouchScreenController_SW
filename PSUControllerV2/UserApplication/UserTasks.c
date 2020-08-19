@@ -8,6 +8,7 @@
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
 #include "TSC2046_STM32.h"
+#include "UxManager.h"
 
 #include <stdio.h>
 #include "UserTasks.h"
@@ -15,7 +16,7 @@
 #include "adc.h"
 
 
-
+#define IMONITOR_VOLT_RATIO		0.06015		// analogue output voltage = 60.15mV/Amp
 
 #define USE_FLOAT
 
@@ -28,8 +29,8 @@
 #endif // USE_FLOAT
 
 
-//#define ADC_TO_VOLTS_RES	0.000805	// 3.3v / 4096
-#define ADC_TO_VOLTS_RES	0.001611	// 3.3v / 2048
+#define ADC_TO_VOLTS_RES	0.000805	// 3.3v / 4096
+
 
 uint32_t adc_data = 0;
 uint8_t adc_count = 0;
@@ -97,7 +98,7 @@ void UserPenIrqManager()
 void UserDisplayManager()
 {
 	osDelay(5000);
-	ILI9341_Fill_Screen(LBLUE);
+	UxDrawLayout(UxPsuDisplayLayout);
 
 
 	while(1)
@@ -178,6 +179,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void UserDisplayTask()
 {
 
+	ILI9341_Draw_Text("PSU Display", 25, UxDisplayLayout.title_ypos, UX_H1_TXT_FGCOLOR, 2, UX_TITLE_BGCOLOR);
+	ILI9341_Draw_Text("Status", 40, UxDisplayLayout.section1_heading_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+	ILI9341_Draw_Text("OUTPUT", 40, UxDisplayLayout.section2_heading_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+
 #ifdef USE_FREERTOS
 	// make sure UserDisplayTask() is not interrupted
 	EXTI->IMR &= ~(TS_IRQ_Pin);
@@ -186,7 +191,7 @@ void UserDisplayTask()
 	   // check for penirq interrupt
 	   if(TSC2046_EM_GetTouchScreenState())
 	   {
-		 ILI9341_Draw_Text("HIT ", 100, 10, BLACK, 2, RED);
+		 ILI9341_Draw_Text("HIT ", 10, UxDisplayLayout.footer_ypos, UX_H1_TXT_FGCOLOR, 1, UX_TITLE_BGCOLOR);
 
 
 
@@ -196,27 +201,27 @@ void UserDisplayTask()
 		   ILI9341_Draw_Filled_Circle(TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos(), 2, WHITE);
 		   char pos_string[15];
 		   snprintf(pos_string, sizeof(pos_string), "Y:%u,X:%u      ", TSC4026_STM32_HM_GetXpos(), TSC4026_STM32_HM_GetYpos());
-		   ILI9341_Draw_Text(pos_string, 180, 10, BLACK, 2, RED);
+		   ILI9341_Draw_Text(pos_string, 50, UxDisplayLayout.footer_ypos, UX_H1_TXT_FGCOLOR, 1, UX_TITLE_BGCOLOR);
 		 }
 		 else
 		 {
-		   ILI9341_Draw_Text("DATAERR   ", 200, 10, BLACK, 2, RED);
+		   ILI9341_Draw_Text("DATAERR   ", 50, UxDisplayLayout.footer_ypos, UX_H1_TXT_FGCOLOR, 1, UX_TITLE_BGCOLOR);
 		 }
 	   }
 
 	   else
 	   {
-		 ILI9341_Draw_Text("NONE", 100, 10, BLACK, 2, RED);
+		 ILI9341_Draw_Text("NONE", 10, UxDisplayLayout.footer_ypos, UX_H1_TXT_FGCOLOR, 1, UX_TITLE_BGCOLOR);
 	   }
 
 	   // update screen ON/OFF label
 	   if(HAL_GPIO_ReadPin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin) == GPIO_PIN_SET)
 	   {
-		   ILI9341_Draw_Text("ON ", 10, 50, BLACK, 3, GREEN);
+		   ILI9341_Draw_Text("ON ", 50, UxDisplayLayout.section1_line1_ypos, BLACK, 2, GREEN);
 	   }
 	   else
 	   {
-		   ILI9341_Draw_Text("OFF", 10, 50, BLACK, 3, RED);
+		   ILI9341_Draw_Text("OFF", 50, UxDisplayLayout.section1_line1_ypos, BLACK, 2, RED);
 	   }
 
 #ifdef USE_FREERTOS
@@ -266,13 +271,16 @@ void UserAdcTask()
 		}
 
 #ifdef USE_FLOAT
-		char imon_string[12];
-		sprintf(imon_string, "%f mV", final_adc_data);
-		ILI9341_Draw_Text(imon_string, 10, 100, BLACK, 3, RED);
+		char imon_string[15];
+		sprintf(imon_string, "%f A", final_adc_data / IMONITOR_VOLT_RATIO);
+		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+
+		sprintf(imon_string, "(%f mV)", final_adc_data);
+		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line2_ypos, BLACK, 2, UX_BODY_BGCOLOR);
 #else
 		char imon_string[12];
-		snprintf(imon_string, sizeof(imon_string), "%lu mV", final_adc_data);
-		ILI9341_Draw_Text(imon_string, 10, 100, BLACK, 3, RED);
+		snprintf(imon_string, sizeof(imon_string), "%lu mV", final_adc_data / IMONITOR_VOLT_RATIO);
+		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
 #endif	//USE_FLOAT
 
 

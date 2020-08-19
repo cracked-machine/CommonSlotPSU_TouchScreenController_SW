@@ -5,8 +5,8 @@
  *      Author: chris
  */
 
+#include "UxManager.h"
 #include "SMBUS_Manager.h"
-
 /*
  * UNIT TESTS
  */
@@ -53,6 +53,8 @@ void SM_Init(SMBUS_HandleTypeDef *instance)
 	the_smbus_device.instance = instance;
 	the_smbus_device.status = SM_DeviceScan();
 	the_smbus_device.last_cmd = 0;
+
+	UxInit();
 }
 
 /*
@@ -214,54 +216,66 @@ uint16_t SM_GetDeviceAddress(uint8_t device)
  */
 void SM_DisplayDiagnostics()
 {
+	UxDrawLayout(UxSMBusDiagnosticsLayout);
 
-	ILI9341_Draw_Text("SMBUS Init Diagnostics", 20, 20, LBLUE, 2, BLACK);
+
+	ILI9341_Draw_Text("SMBUS Init Diagnostics", 25, UxDiagLayout.title_ypos, UX_H1_TXT_FGCOLOR, 2, UX_TITLE_BGCOLOR);
 
 	// print out SMBUS device scan results to TFTLCD
+
+	ILI9341_Draw_Text("ADDRESS DISCOVERY:", 40, UxDiagLayout.section1_heading_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+
 	char address[20] = "";
 	if(the_smbus_device.status == SMBUS_DEVICE_FOUND)
 	{
 		if(the_smbus_device.addr[0] != 0)
 		{
-			snprintf(address, sizeof(address), "SMBUS FOUND: %d", the_smbus_device.addr[0]);
-			ILI9341_Draw_Text(address, 50, 50, BLACK, 2, GREEN);
+			snprintf(address, sizeof(address), "1.MCU = %d", the_smbus_device.addr[0]);
+			ILI9341_Draw_Text(address, 70, UxDiagLayout.section1_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+			ILI9341_Draw_Text("OK", 230, UxDiagLayout.section1_line1_ypos, BLACK, 2, GREEN);
 		}
 		if(the_smbus_device.addr[1] != 0)
 		{
-			snprintf(address, sizeof(address), "SMBUS FOUND: %d", the_smbus_device.addr[1]);
-			ILI9341_Draw_Text(address, 50, 65, BLACK, 2, GREEN);
+			snprintf(address, sizeof(address), "2.ROM = %d", the_smbus_device.addr[1]);
+			ILI9341_Draw_Text(address, 70, UxDiagLayout.section1_line2_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+			ILI9341_Draw_Text("OK", 230, UxDiagLayout.section1_line2_ypos, BLACK, 2, GREEN);
 		}
 	}
 	else
 	{
-			ILI9341_Draw_Text("SMBUS ERROR", 50, 50, BLACK, 2, RED);
-			return;
+		ILI9341_Draw_Text("1.MCU = ", 70, UxDiagLayout.section1_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+		ILI9341_Draw_Text("ERR", 230, UxDiagLayout.section1_line1_ypos, BLACK, 2, RED);
+		ILI9341_Draw_Text("2.ROM = ", 70, UxDiagLayout.section1_line2_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+		ILI9341_Draw_Text("ERR", 230, UxDiagLayout.section1_line2_ypos, BLACK, 2, RED);
+		return;
 	}
-
 
 	// print out SMBUS command test report to TFTLCD
 	char smbus_results[50] = "";
 
-	snprintf(smbus_results, sizeof(smbus_results), "RAN %d TESTS:", the_diagnostic_plan.exe_cmds_count);
-	ILI9341_Draw_Text(smbus_results, 50, 90, LBLUE, 2, BLACK);
+	snprintf(smbus_results, sizeof(smbus_results), "TEST RESULTS (%d)", the_diagnostic_plan.exe_cmds_count);
+	ILI9341_Draw_Text(smbus_results, 40, UxDiagLayout.section2_heading_ypos, BLACK, 2, UX_BODY_BGCOLOR);
 
-	snprintf(smbus_results, sizeof(smbus_results), "TRANSMIT ERR: %d", the_diagnostic_plan.tx_failed_count);
+	ILI9341_Draw_Text("TRANSMIT ERR:", 70, UxDiagLayout.section2_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+	snprintf(smbus_results, sizeof(smbus_results),  "%d", the_diagnostic_plan.tx_failed_count);
 	if(the_diagnostic_plan.tx_failed_count == 0)
-		ILI9341_Draw_Text(smbus_results, 50, 120, BLACK, 2, GREEN);
+		ILI9341_Draw_Text(smbus_results, 230, UxDiagLayout.section2_line1_ypos, BLACK, 2, GREEN);
 	else
-		ILI9341_Draw_Text(smbus_results, 50, 120, BLACK, 2, RED);
+		ILI9341_Draw_Text(smbus_results, 230, UxDiagLayout.section2_line1_ypos, BLACK, 2, RED);
 
-	snprintf(smbus_results, sizeof(smbus_results), "RECEIVE ERR: %d", the_diagnostic_plan.rx_failed_count);
+	ILI9341_Draw_Text("RECEIVE ERR:", 70, UxDiagLayout.section2_line2_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+	snprintf(smbus_results, sizeof(smbus_results), "%d", the_diagnostic_plan.rx_failed_count);
 	if(the_diagnostic_plan.rx_failed_count == 0)
-		ILI9341_Draw_Text(smbus_results, 50, 135, BLACK, 2, GREEN);
+		ILI9341_Draw_Text(smbus_results, 230, UxDiagLayout.section2_line2_ypos, BLACK, 2, GREEN);
 	else
-		ILI9341_Draw_Text(smbus_results, 50, 135, BLACK, 2, RED);
+		ILI9341_Draw_Text(smbus_results, 230, UxDiagLayout.section2_line2_ypos, BLACK, 2, RED);
 
-	snprintf(smbus_results, sizeof(smbus_results), "DEVICE ERR: %d", the_diagnostic_plan.isr_failed_count);
+	ILI9341_Draw_Text("DEVICE ERR:", 70, UxDiagLayout.section2_line3_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+	snprintf(smbus_results, sizeof(smbus_results), "%d", the_diagnostic_plan.isr_failed_count);
 	if(the_diagnostic_plan.isr_failed_count == 0)
-		ILI9341_Draw_Text(smbus_results, 50, 150, BLACK, 2, GREEN);
+		ILI9341_Draw_Text(smbus_results, 230, UxDiagLayout.section2_line3_ypos, BLACK, 2, GREEN);
 	else
-		ILI9341_Draw_Text(smbus_results, 50, 150, BLACK, 2, RED);
+		ILI9341_Draw_Text(smbus_results, 2, UxDiagLayout.section2_line3_ypos, BLACK, 2, RED);
 
 }
 

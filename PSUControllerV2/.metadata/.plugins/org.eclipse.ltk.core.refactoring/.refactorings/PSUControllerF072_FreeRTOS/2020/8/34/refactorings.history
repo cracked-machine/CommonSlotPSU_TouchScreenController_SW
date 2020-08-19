@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PSUControllerF072_FreeRTOS/UserApplication/UxColorPalette.h&apos; to &apos;UxManager.h&apos;" description="Rename resource &apos;UxColorPalette.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="UserApplication/UxColorPalette.h" name="UxManager.h" stamp="1597868227169" updateReferences="true"/>
+</session>

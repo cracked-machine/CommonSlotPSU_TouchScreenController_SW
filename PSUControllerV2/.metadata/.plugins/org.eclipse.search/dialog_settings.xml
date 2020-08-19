@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FORCE_RX_ERRS"/>
+			<item key="textPattern" value="footer_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -43,7 +43,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FORCE_TX_ERRS"/>
+			<item key="textPattern" value="title_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -56,7 +56,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FORCE_CLBK_ERRS"/>
+			<item key="textPattern" value="section2_line3_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -69,7 +69,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="boot_test_plan"/>
+			<item key="textPattern" value="section2_line2_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -82,7 +82,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SM_BootTestPlanTypedef"/>
+			<item key="textPattern" value="section2_line1_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -95,7 +95,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SM_BootTestItemTypedef"/>
+			<item key="textPattern" value="section2_heading_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -108,9 +108,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="USE_HAL_SMBUS_REGISTER_CALLBACKS"/>
+			<item key="textPattern" value="section2_box_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -120,9 +121,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="TS_CS_Pin"/>
+			<item key="textPattern" value="section1_line2_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -132,9 +134,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="EXTI4_15_IRQHandler"/>
+			<item key="textPattern" value="section1_line1_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -144,9 +147,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="malloc"/>
+			<item key="textPattern" value="section1_heading_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -156,9 +160,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="configUSE_NEWLIB_REENTRANT"/>
+			<item key="textPattern" value="section1_box_xpos"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -168,9 +173,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="StartPollADCTask"/>
+			<item key="textPattern" value="imon_string"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -196,17 +202,18 @@
 	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 		<item key="showEnclosingDefinitions" value="true"/>
 	</section>
-	<section name="">
-		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
-	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
-			<item value="FORCE_SMBUS_DEV_RX_ERRS"/>
-			<item value="FORCE_SMBUS_DEV_TX_ERRS"/>
-			<item value="FORCE_SMBUS_DEV_CLBK_ERRS"/>
-			<item value="the_diagnostic_plan"/>
-			<item value="SM_DiagnosticPlanTypedef"/>
-			<item value="SM_DiagnosticItemTypedef"/>
+			<item value="footer_ypos"/>
+			<item value="title_ypos"/>
+			<item value="section2_line3_ypos"/>
+			<item value="section2_line2_ypos"/>
+			<item value="section2_line1_ypos"/>
+			<item value="section2_heading_ypos"/>
+			<item value="section2_box_ypos"/>
 		</list>
+	</section>
+	<section name="">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 </section>
