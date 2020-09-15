@@ -129,7 +129,7 @@ void SM_InitDiagnostics()
 		#ifdef FORCE_SMBUS_DEV_CLBK_ERRS
 				uint16_t tmp_smbus_addr = 0x87 << 1;							// force DEV CMD ERRs on all commmands
 		#else
-				uint16_t tmp_smbus_addr = SM_GetDeviceAddress(0) << 1;			// next SMBUS device address to use
+				uint16_t tmp_smbus_addr = SM_GetDeviceAddress(1) << 1;			// next SMBUS device address to use
 		#endif //FORCE_SMBUS_DEV_CLBK_ERRS
 
 		the_smbus_device.last_cmd = &tmp_cmd;							// next SMBUS command to run
@@ -178,6 +178,77 @@ void SM_InitDiagnostics()
 	}
 
 
+}
+
+
+uint16_t SM_SendByte(uint8_t newByte, uint8_t returntwobytes)
+{
+	uint8_t one_byte_bufferrx[1] = {0};
+	uint8_t two_bytes_bufferrx[2] = {0};
+	uint16_t result = 0;
+
+	uint16_t tmp_smbus_addr = SM_GetDeviceAddress(0) << 1;			// next SMBUS device address to use
+	if(HAL_SMBUS_Master_Transmit_IT(	the_smbus_device.instance,
+										tmp_smbus_addr,
+										&newByte,
+										1,
+										SMBUS_FIRST_AND_LAST_FRAME_NO_PEC)
+										!= HAL_OK)
+	{
+		return 1;
+	}
+
+	while(HAL_SMBUS_GetState(the_smbus_device.instance) != HAL_SMBUS_STATE_READY);
+	if(returntwobytes)
+	{
+		if (HAL_SMBUS_Master_Receive_IT(	the_smbus_device.instance,
+											tmp_smbus_addr,
+											two_bytes_bufferrx,
+											sizeof(two_bytes_bufferrx),
+											SMBUS_FIRST_AND_LAST_FRAME_NO_PEC)
+											!= HAL_OK)
+		{
+			return 1;
+		}
+	}
+	else
+	{
+		if (HAL_SMBUS_Master_Receive_IT(	the_smbus_device.instance,
+											tmp_smbus_addr,
+											one_byte_bufferrx,
+											sizeof(one_byte_bufferrx),
+											SMBUS_FIRST_AND_LAST_FRAME_NO_PEC)
+											!= HAL_OK)
+		{
+			return 1;
+		}
+	}
+
+	while(HAL_SMBUS_GetState(the_smbus_device.instance) != HAL_SMBUS_STATE_READY);
+
+	if(returntwobytes)
+	{
+		//convert linear data format into real world value
+		uint16_t inputhigh = two_bytes_bufferrx[0];
+		uint16_t inputlow = two_bytes_bufferrx[1];
+		uint8_t N8 = inputhigh >> 3;			// discard 3 LSB
+		uint8_t Y8 = (inputhigh & ~0xF8);		// clear the 5 MSB 00000xxx
+		uint16_t Y16 = (Y8 << 8) | inputlow;	// concat with input low
+		result = Y16 * (2 << N8);
+	}
+	else
+	{
+		result = (uint16_t)one_byte_bufferrx[0];
+	}
+
+	return result;
+}
+
+uint16_t SM_ReadCmd(uint8_t cmd)
+{
+
+	//SM_SendByte(64, 1);	// read vout fault
+	return SM_SendByte(cmd, 1);	// read_iout: 0x8C
 }
 
 /*

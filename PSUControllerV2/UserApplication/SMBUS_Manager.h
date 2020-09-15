@@ -68,5 +68,6 @@ void SM_Init(SMBUS_HandleTypeDef *instance);
 SM_DeviceFoundTypedef SM_DeviceScan();
 void SM_InitDiagnostics();
 void SM_DisplayDiagnostics();
+uint16_t SM_ReadCmd(uint8_t cmd);
 
 #endif /* SMBUS_MANAGER_H_ */

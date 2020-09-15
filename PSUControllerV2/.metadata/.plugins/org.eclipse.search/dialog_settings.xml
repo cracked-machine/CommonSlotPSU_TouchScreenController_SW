@@ -213,7 +213,4 @@
 			<item value="section2_box_ypos"/>
 		</list>
 	</section>
-	<section name="">
-		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
-	</section>
 </section>

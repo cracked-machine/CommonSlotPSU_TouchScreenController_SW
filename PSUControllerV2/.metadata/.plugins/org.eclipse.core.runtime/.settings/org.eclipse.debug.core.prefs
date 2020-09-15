@@ -5,4 +5,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
 org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="the_smbus_device"/>\n<expression enabled\="true" text\="test_index"/>\n<expression enabled\="true" text\="boot_test_plan"/>\n<expression enabled\="true" text\="bufferrx"/>\n<expression enabled\="true" text\="boot_test_plan.testitem[test_index].result[0]"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="the_smbus_device"/>\n<expression enabled\="true" text\="test_index"/>\n<expression enabled\="true" text\="boot_test_plan"/>\n<expression enabled\="true" text\="bufferrx"/>\n<expression enabled\="true" text\="boot_test_plan.testitem[test_index].result[0]"/>\n<expression enabled\="true" text\="the_diagnostic_plan"/>\n</watchExpressions>\n

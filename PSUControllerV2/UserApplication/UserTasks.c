@@ -9,6 +9,7 @@
 #include "ILI9341_GFX.h"
 #include "TSC2046_STM32.h"
 #include "UxManager.h"
+#include "SMBUS_Manager.h"
 
 #include <stdio.h>
 #include "UserTasks.h"
@@ -18,10 +19,12 @@
 
 #define IMONITOR_VOLT_RATIO		0.06015		// analogue output voltage = 60.15mV/Amp
 
+uint8_t smbus_cmd = 0;
+
 #define USE_FLOAT
 
 #ifdef USE_FLOAT
-	#define ADC_DATA_SIZE 1.0
+	#define ADC_DATA_SIZE 10.0
 	float final_adc_data = 0;
 #else
 	#define ADC_DATA_SIZE 3
@@ -31,7 +34,7 @@
 
 #define ADC_TO_VOLTS_RES	0.000805	// 3.3v / 4096
 
-
+#define IMON_CORRECTION		0.029		// error from PSU IMON pin
 uint32_t adc_data = 0;
 uint8_t adc_count = 0;
 
@@ -242,17 +245,22 @@ void UserDisplayTask()
  */
 void UserAdcTask()
 {
-		// if PSU enabled, poll imonitor pin
+		// if PSU enabled
 		if(HAL_GPIO_ReadPin(PSU_SW_ON_GPIO_Port, PSU_SW_ON_Pin) == GPIO_PIN_SET)
 		{
-		   if(HAL_ADC_PollForConversion(&hadc, 1) == HAL_OK)
-		   {
-			   if(adc_count == ADC_DATA_SIZE)			// calc adc mean, reset adc data + count
+			// poll PSU imonitor pin with ADC
+			if(HAL_ADC_PollForConversion(&hadc, 1) == HAL_OK)
+			{
+			   // keep summing ADC data values until we reach ADC_DATA_SIZE, then calculate mean average.
+			   if(adc_count == ADC_DATA_SIZE)
 			   {
 
 #ifdef USE_FLOAT
-				   final_adc_data = (float)adc_data / ADC_DATA_SIZE;
-				   final_adc_data = final_adc_data * ADC_TO_VOLTS_RES;		// convert to decimal
+				   final_adc_data = (float)adc_data / ADC_DATA_SIZE;		// calculate mean average.
+				   final_adc_data = final_adc_data * ADC_TO_VOLTS_RES;		// convert from 16bit ADC data to volts
+				   final_adc_data -= IMON_CORRECTION;						// correct for error from PSU IMON pin
+
+					smbus_cmd++;
 #else
 				   final_adc_data = adc_data / ADC_DATA_SIZE;
 
@@ -261,7 +269,7 @@ void UserAdcTask()
 				   adc_count = 0;
 			   }
 
-			   adc_data += HAL_ADC_GetValue(&hadc);		// add next read value to total
+			   adc_data += HAL_ADC_GetValue(&hadc);		// sum ADC data values
 			   adc_count++;
 		   }
 		}
@@ -271,11 +279,11 @@ void UserAdcTask()
 		}
 
 #ifdef USE_FLOAT
-		char imon_string[15];
-		sprintf(imon_string, "%f A", final_adc_data / IMONITOR_VOLT_RATIO);
-		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line1_ypos, BLACK, 2, UX_BODY_BGCOLOR);
+		char imon_string[20];
+		sprintf(imon_string, "   %1.2f A ", final_adc_data / IMONITOR_VOLT_RATIO);
+		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line1_ypos, BLACK, 3, UX_BODY_BGCOLOR);
 
-		sprintf(imon_string, "(%f mV)", final_adc_data);
+		sprintf(imon_string, "CMD %i = %i  ", smbus_cmd,  SM_ReadCmd(smbus_cmd));
 		ILI9341_Draw_Text(imon_string, 50, UxDisplayLayout.section2_line2_ypos, BLACK, 2, UX_BODY_BGCOLOR);
 #else
 		char imon_string[12];

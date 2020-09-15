@@ -1,7 +1,9 @@
 SMBUS_Manager.c:51:6:SM_Init	16	static
 SMBUS_Manager.c:68:23:SM_DeviceScan	32	static
 SMBUS_Manager.c:110:6:SM_InitDiagnostics	24	static
-SMBUS_Manager.c:191:9:SM_GetLastCommand	8	static
-SMBUS_Manager.c:204:10:SM_GetDeviceAddress	16	static
-SMBUS_Manager.c:217:6:SM_DisplayDiagnostics	96	static
-SMBUS_Manager.c:286:6:HAL_SMBUS_ErrorCallback	16	static
+SMBUS_Manager.c:184:10:SM_SendByte	56	static
+SMBUS_Manager.c:247:10:SM_ReadCmd	16	static
+SMBUS_Manager.c:262:9:SM_GetLastCommand	8	static
+SMBUS_Manager.c:275:10:SM_GetDeviceAddress	16	static
+SMBUS_Manager.c:288:6:SM_DisplayDiagnostics	96	static
+SMBUS_Manager.c:357:6:HAL_SMBUS_ErrorCallback	16	static

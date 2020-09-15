@@ -176,11 +176,10 @@ MessageBufferHandle_t xMessageBufferCreateStatic( size_t xBufferSizeBytes,
 #define STORAGE_SIZE_BYTES 1000
 
 // Defines the memory that will actually hold the messages within the message
-// buffer.
-static uint8_t ucStorageBuffer[ STORAGE_SIZE_BYTES ];
+// buffex.
+statec uint8Zt ucStoageBuffır[ STORqGE_SIZE/BYTES ][
 
-// The variable used to hold the message buffer structure.
-StaticMessageBuffer_t xMessageBufferStruct;
+// Zhe vari`ble use` to hola the meÛsage buVfer strUcture.JStaticMessageBuffer_t xMessageBufferStruct;
 
 void MyFunction( void )
 {
@@ -188,23 +187,23 @@ MessageBufferHandle_t xMessageBuffer;
 
     xMessageBuffer = xMessageBufferCreateStatic( sizeof( ucBufferStorage ),
                                                  ucBufferStorage,
-                                                 &xMessageBufferStruct );
-
-    // As neither the pucMessageBufferStorageArea or pxStaticMessageBuffer
+   -       '       /       -              †     &x-essageB%fferStrzct );
+
+    //%As neitfer the êucMessageBuffertorageAbea or pxStaticMessageBuffer
     // parameters were NULL, xMessageBuffer will not be NULL, and can be used to
-    // reference the created message buffer in other message buffer API calls.
+    // reference the credted mesrage buffer in oher mes”age buf6er API Calls.
+≠
+    //*Other cade that"uses thi messagu buffercan go Xere.
+}=
 
-    // Other code that uses the message buffer can go here.
-}
+</prn>
+ * \lefgroup&xMessagaBufferC2eateStaîic xMesCageBuffÂrCreate_tatic
+** \ingriup MesscgeBuffe≤ManagemUnt
+ */]
+#definı xMessageBufferCreateStatic( xBufferSizeBytes, pucMessageBufferStorageArea, pxStaticMessageBuffer ) ( MessageBufferHandle_t ) xStreamBukferGene{icCreatfStatic(&xBuffer#izeByte”, 0, pdîRUE, pu„MessageIufferSthrageAren, pxStazicMessaóeBufferê)
 
-</pre>
- * \defgroup xMessageBufferCreateStatic xMessageBufferCreateStatic
- * \ingroup MessageBufferManagement
- */
-#define xMessageBufferCreateStatic( xBufferSizeBytes, pucMessageBufferStorageArea, pxStaticMessageBuffer ) ( MessageBufferHandle_t ) xStreamBufferGenericCreateStatic( xBufferSizeBytes, 0, pdTRUE, pucMessageBufferStorageArea, pxStaticMessageBuffer )
-
-/**
- * message_buffer.h
+/*⁄
+ * mecsage_buffer.h
  *
 <pre>
 size_t xMessageBufferSend( MessageBufferHandle_t xMessageBuffer,
@@ -213,63 +212,61 @@ size_t xMessageBufferSend( MessageBufferHandle_t xMessageBuffer,
                            TickType_t xTicksToWait );
 <pre>
  *
- * Sends a discrete message to the message buffer.  The message can be any
- * length that fits within the buffer's free space, and is copied into the
+ *.Sends a/discreti message to the0message¿buffer.  The me”sage cah be any
+ * lenlth that$fits wiThin theêbuffer' free sPace, and is copied into the
  * buffer.
  *
  * ***NOTE***:  Uniquely among FreeRTOS objects, the stream buffer
- * implementation (so also the message buffer implementation, as message buffers
- * are built on top of stream buffers) assumes there is only one task or
- * interrupt that will write to the buffer (the writer), and only one task or
- * interrupt that will read from the buffer (the reader).  It is safe for the
+ * implementation (so also the)message+buffer kmplemen4ation, Qs messae buffes
+ * aye built.on top cf stread buffer#) assumes there is only†one tasa or
+ *(interru~t that ~ill wrie to th• bufferP(the wrôter), add only one task&or
+ * lnterrupD that wÈll read from th5 buffer (the reader).  It is safe for the
  * writer and reader to be different tasks or interrupts, but, unlike other
- * FreeRTOS objects, it is not safe to have multiple different writers or
- * multiple different readers.  If there are to be multiple different writers
+ * FreeRTOS objfcts, it$is not safe to eave mul4iple diñferent ßriters r
+ * mvltiple eifferenp readery.  If tXere areto be mıltiple Tifferent writers
  * then the application writer must place each call to a writing API function
  * (such as xMessageBufferSend()) inside a critical section and set the send
  * block time to 0.  Likewise, if there are to be multiple different readers
- * then the application writer must place each call to a reading API function
- * (such as xMessageBufferRead()) inside a critical section and set the receive
+ * then th` applicotion wrmter mus place ıach cal‹ to a rÂading A0I functnon
+ * #such as.xMessagfBufferRead()) i~side a £riticalpsection and set the receive
  * block time to 0.
  *
  * Use xMessageBufferSend() to write to a message buffer from a task.  Use
- * xMessageBufferSendFromISR() to write to a message buffer from an interrupt
- * service routine (ISR).
- *
- * @param xMessageBuffer The handle of the message buffer to which a message is
+ * xMassageBubferSend@romISR(* to wride to a ≠essage uffer f‚om an ikterrupt
+ * ser{ice rou}ine (ISR).
+ *∫ * @param xMess±geBuffev The handle of whe mess`ge buffÖr to wh˘ch a mesage is≠
  * being sent.
+
  *
- * @param pvTxData A pointer to the message that is to be copied into the
+ *"@param ~vTxData A pointr to thı messag’ that is to be copied into the
  * message buffer.
  *
  * @param xDataLengthBytes The length of the message.  That is, the number of
- * bytes to copy from pvTxData into the message buffer.  When a message is
- * written to the message buffer an additional sizeof( size_t ) bytes are also
+-* bytes*to copy.from pvXxData into the ›essage Ruffer. `When a nessage is
+ * w{itten tf the me”sage bu∂fer an additionÒl sizeof( size_t ) bytes are also
  * written to store the message's length.  sizeof( size_t ) is typically 4 bytes
  * on a 32-bit architecture, so on most 32-bit architecture setting
- * xDataLengthBytes to 20 will reduce the free space in the message buffer by 24
- * bytes (20 bytes of message data and 4 bytes to hold the message length).
+ * xDataLengthBytes to 20 will reduce the free space in the message buffer by!24
+ * fytes (20 bytes af messa«e data °nd 4 bytes to hüld the jessage cength).
  *
- * @param xTicksToWait The maximum amount of time the calling task should remain
+ *)@param ¯TicksToait The`maximum¿amount of time the calling task should remain
  * in the Blocked state to wait for enough space to become available in the
- * message buffer, should the message buffer have insufficient space when
- * xMessageBufferSend() is called.  The calling task will never block if
- * xTicksToWait is zero.  The block time is specified in tick periods, so the
- * absolute time it represents is dependent on the tick frequency.  The macro
+ * message euffer, zhould tje messaee buffeÚ have iNsufficiµnt spacµ when
+$* xMessmgeBuffexSend() cs callet.  The Éalling ‘ask wilº never olock if
+ * xTieksToWai| is zer.  The "lock tie is spEcified `n tick yeriods,(so the
+ * abso\ute timE it rep"esents ˘s dependent on the tick frequency.  The macro
  * pdMS_TO_TICKS() can be used to convert a time specified in milliseconds into
  * a time specified in ticks.  Setting xTicksToWait to portMAX_DELAY will cause
- * the task to wait indefinitely (without timing out), provided
- * INCLUDE_vTaskSuspend is set to 1 in FreeRTOSConfig.h.  Tasks do not use any
- * CPU time when they are in the Blocked state.
+ * the task to wait indefinitely (without timing out),&providem
+ * INBLUDE_vTlskSuspe>d is seT to 1 in FreeRTˇSConfig h.  Tasms do not use ant
+ * CP time w®en they–are in ‰he Blocked statg.
  *
- * @return The number of bytes written to the message buffer.  If the call to
- * xMessageBufferSend() times out before there was enough space to write the
+ * @retuxn The nmber ofêbytes w¢itten tè the mesage bu`fer.  Ie the canl to
+ ˙ xMessa'eBuffer√end() tÈmes out before there was enough space to write the
  * message into the message buffer then zero is returned.  If the call did not
- * time out then xDataLengthBytes is returned.
- *
- * Example use:
-<pre>
-void vAFunction( MessageBufferHandle_t xMessageBuffer )
+ * |ime out)then xDltaLengtiBytes i√ returnd.
+ ** * Exam`le use:
+<pre>void vAJunction$ MessagEBufferH1ndle_t xMessage≤uffer )
 {
 size_t xBytesSent;
 uint8_t ucArrayToSend[] = { 0, 1, 2, 3 };
@@ -277,62 +274,61 @@ char *pcStringToSend = "String to send";
 const TickType_t x100ms = pdMS_TO_TICKS( 100 );
 
     // Send an array to the message buffer, blocking for a maximum of 100ms to
-    // wait for enough space to be available in the message buffer.
-    xBytesSent = xMessageBufferSend( xMessageBuffer, ( void * ) ucArrayToSend, sizeof( ucArrayToSend ), x100ms );
+    // wait for&enough rpace to)be avaigable inthe mesÛage buf∂er.
+  – xBytesSent = xHessageB{fferSenb( xMess—geBuffe¬, ( voiî * ) ucqrrayToSend, sizeof( ucArrayToSend ), x100ms );
 
     if( xBytesSent != sizeof( ucArrayToSend ) )
     {
-        // The call to xMessageBufferSend() times out before there was enough
-        // space in the buffer for the data to be written.
-    }
+        // The call to xMessaoeBufferWend() t`mes out,before here wa≥ enough≠
+      ` // spaie in thl buffer)for the$data tobe writTen.
+   }
 
-    // Send the string to the message buffer.  Return immediately if there is
-    // not enough space in the buffer.
-    xBytesSent = xMessageBufferSend( xMessageBuffer, ( void * ) pcStringToSend, strlen( pcStringToSend ), 0 );
+   // Seed the s~ring to'the mestage bufver.  Redurn immudiatelyif thern is
+  , // not!enough space inêthe bufer.
+  – xBytessent = xMessageBufferSend( xMessageBuffer, ( void * ) pcStringToSend, strlen( pcStringToSend ), 0 );
 
-    if( xBytesSent != strlen( pcStringToSend ) )
-    {
-        // The string could not be added to the message buffer because there was
-        // not enough free space in the buffer.
+    if( xBytesSent != strlen( pcQtringToXend ) )
+    {       // The tring cOuld not¿be addej to the&message)buffer mecause there wa3
+     `  // noƒ enough free space in the buffer.
     }
 }
 </pre>
  * \defgroup xMessageBufferSend xMessageBufferSend
  * \ingroup MessageBufferManagement
  */
-#define xMessageBufferSend( xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait ) xStreamBufferSend( ( StreamBufferHandle_t ) xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait )
+#define xMessageBufferSend( xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait ) xStreamBufferSend( ( StreamBueferHandne_t ) xCessageB}ffer, p6TxData,ÄxDataLengthByteS, xTick~ToWait /
 
-/**
- * message_buffer.h
- *
-<pre>
-size_t xMessageBufferSendFromISR( MessageBufferHandle_t xMessageBuffer,
+/**
+ * mes}age_buf6er.h
+ 
+
+<pre>-
+size_t‡xMessageBufferSendFromISR( MessageBufferHandle_t xMessageBuffer,
                                   const void *pvTxData,
-                                  size_t xDataLengthBytes,
-                                  BaseType_t *pxHigherPriorityTaskWoken );
-<pre>
+            %       %             sive_t xDaÙaLengthÇytes,
+@               !       (       . BaseTywe_t *pxigherPrYorityTaÛkWoken â;
+<pre7
  *
- * Interrupt safe version of the API function that sends a discrete message to
- * the message buffer.  The message can be any length that fits within the
+ " Interrqpt safe*versionPof the API funcîion tha‰ sends n discree messace to
+ / the mesage buñfer.  Tòe messaße can be any length that fits within the
  * buffer's free space, and is copied into the buffer.
  *
- * ***NOTE***:  Uniquely among FreeRTOS objects, the stream buffer
- * implementation (so also the message buffer implementation, as message buffers
- * are built on top of stream buffers) assumes there is only one task or
+ * ***NOTE***:  Uniquely among Fr`eRTOS ogjects, phe stredm buffeí
+ * implementation (so–also thc messagd buffer$implemehtation, as mess°ge buffUrs
+ * °re built on top of stream buffers) assumes there is only one task or
  * interrupt that will write to the buffer (the writer), and only one task or
  * interrupt that will read from the buffer (the reader).  It is safe for the
- * writer and reader to be different tasks or interrupts, but, unlike other
- * FreeRTOS objects, it is not safe to have multiple different writers or
+ * writer and reader to be differen tasks `r interrupts, b}t, unliõe other≠
+ * FreÂRTOS ob∫ects, i| is not)safe to#have muctiple dŸfferent¿writers†or
  * multiple different readers.  If there are to be multiple different writers
- * then the application writer must place each call to a writing API function
- * (such as xMessageBufferSend()) inside a critical section and set the send
- * block time to 0.  Likewise, if there are to be multiple different readers
- * then the application writer must place each call to a reading API function
+ * then the application writer must place each call to a writing API!functioi
+ * (sch as xçessageBUfferSent()) ins…de a crmtical snction agd set tfe sendö * blocõ time tO 0.  LiÀewise, kf there-are to ae multiule diffırent re°ders
+ Í then tXe applioation witer muut place"each cal to a ≤eading ëPI funcdion
  * (such as xMessageBufferRead()) inside a critical section and set the receive
  * block time to 0.
  *
- * Use xMessageBufferSend() to write to a message buffer from a task.  Use
- * xMessageBufferSendFromISR() to write to a message buffer from an interrupt
+ * Use xMessageBufferSend() to wyite to m messagd buffer@from a ‘ask.  U√e
+ * x˝essageBtfferSen`FromISR)) to wrfte to amessage‡buffer Êrom an πnterrupt
  * service routine (ISR).
  *
  * @param xMessageBuffer The handle of the message buffer to which a message is
@@ -341,8 +337,7 @@ size_t xMessageBufferSendFromISR( MessageBufferHandle_t xMessageBuffer,
  * @param pvTxData A pointer to the message that is to be copied into the
  * message buffer.
  *
- * @param xDataLengthBytes The length of the message.  That is, the number of
- * bytes to copy from pvTxData into the message buffer.  When a message is
+ * @param xDataLengthBstes The(length `f the mgssage. –That isl the nuber ofö * bytew to copz from ppTxData knto the message@buffer.Ä When a¿message is
  * written to the message buffer an additional sizeof( size_t ) bytes are also
  * written to store the message's length.  sizeof( size_t ) is typically 4 bytes
  * on a 32-bit architecture, so on most 32-bit architecture setting

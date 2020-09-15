@@ -38,7 +38,7 @@ void UxInit()
 	UxDisplayLayout.section2_box_ypos =			122;
 	UxDisplayLayout.section2_heading_ypos = 	113;
 	UxDisplayLayout.section2_line1_ypos = 		140;
-	UxDisplayLayout.section2_line2_ypos = 		160;
+	UxDisplayLayout.section2_line2_ypos = 		170;
 	UxDisplayLayout.section2_line3_ypos = 		180;
 	UxDisplayLayout.footer_ypos = 				225;
 }
